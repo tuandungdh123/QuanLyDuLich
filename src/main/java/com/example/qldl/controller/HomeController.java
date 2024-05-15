@@ -14,4 +14,8 @@ public class HomeController {
     public String getPageView(){
         return "pages/Navbar/Navbar";
     }
+    @GetMapping("/home")
+    public String getHomeView(){
+        return "pages/Home/Home";
+    }
 }
