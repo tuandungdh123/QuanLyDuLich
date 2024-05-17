@@ -1,0 +1,318 @@
+.title i{
+    width: 25px;
+    height: 25px;
+    color: white;
+    border-radius: 50%; /* Tạo border hình tròn */
+    background-color: #ff1579; /* Màu nền cho border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title-diemnhan {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.title-diemnhan i {
+    margin-right: 10px; /* Khoảng cách giữa icon và văn bản */
+}
+
+.diemnhan-title {
+    flex: 1; /* Đảm bảo span chiếm đủ không gian cần thiết */
+    font-size: 18px;
+}
+
+
+/*phải*/
+#vnt-sidebar {
+    margin-top: 20px;
+}
+
+.boxDesign1 {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.boxDesign1 .name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d00167;
+    margin-bottom: 15px;
+}
+
+.boxDesign1 .attr ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.boxDesign1 .attr ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.boxDesign1 .attr ul li:last-child {
+    border-bottom: none;
+}
+
+.boxDesign1 .at {
+    font-weight: bold;
+    width: 40%;
+}
+
+.boxDesign1 .as {
+    width: 60%;
+    text-align: right;
+}
+
+.boxFix {
+
+    padding: 10px;
+    background-color: #66ffff;
+}
+
+.boxFix .boxPrice .price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #d00167;
+    margin-bottom: 15px;
+}
+
+.boxFix .boxPrice .price .txt {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d00167;
+}
+
+.boxFix .boxPrice .price .red {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d00167;
+}
+
+/*.boxFix .boxPrice .attr {*/
+/*    padding: 15px 0;*/
+/*}*/
+
+.boxFix .boxPrice .attr ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.boxFix .boxPrice .attr ul li {
+    margin-bottom: 10px;
+}
+
+.boxFix .boxPrice .attr .see_more_text {
+    text-align: right;
+}
+
+.boxFix .bot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.form-group {
+    margin: 0;
+}
+
+.btn-order-tour {
+    background-color: #008fea;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-order-tour:hover {
+    background-color: #007acc;
+}
+
+.boxDesign2 {
+    margin-top: 20px;
+}
+
+.boxDesign2 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.boxDesign2 ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.boxDesign2 ul li:last-child {
+    border-bottom: none;
+}
+
+.boxDesign2 ul li a {
+    text-decoration: none;
+    color: #008fea;
+    font-size: 16px;
+}
+
+.boxDesign2 ul li.active a {
+    font-weight: bold;
+    color: #d00167;
+}
+/*gọn*/
+#vnt-sidebar {
+    margin-top: 20px;
+}
+
+.boxDesign1 {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    font-size: 14px; /* Làm chữ nhỏ hơn */
+}
+
+.boxDesign1 .name {
+    font-size: 16px; /* Giảm kích thước tiêu đề */
+    font-weight: bold;
+    color: #d00167;
+    margin-bottom: 10px;
+}
+
+.boxDesign1 .attr ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.boxDesign1 .attr ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 0; /* Giảm padding giữa các hàng */
+    border-bottom: 1px solid #eee;
+}
+
+.boxDesign1 .attr ul li:last-child {
+    border-bottom: none;
+}
+
+.boxDesign1 .at {
+    font-weight: bold;
+    width: 40%;
+    text-align: left; /* Căn chữ về bên trái */
+}
+
+.boxDesign1 .as {
+    width: 60%;
+    text-align: right;
+    text-align: left; /* Căn chữ về bên trái */
+}
+
+.boxFix {
+    border: 1px solid #d00167;
+    margin-top: 35px;
+
+    background-color: #fff;
+    font-size: 14px; /* Làm chữ nhỏ hơn */
+}
+
+.boxFix .boxPrice .price {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d00167;
+    margin-bottom: 10px; /* Giảm margin-bottom */
+}
+
+.boxFix .boxPrice .price .txt {
+    font-size: 14px; /* Giảm kích thước chữ */
+    font-weight: bold;
+    color: #d00167;
+    text-align: left; /* Căn chữ về bên trái */
+}
+
+.boxFix .boxPrice .price .red {
+    font-size: 18px; /* Giảm kích thước chữ */
+    font-weight: bold;
+    color: #d00167;
+    text-align: left; /* Căn chữ về bên trái */
+}
+
+.boxFix .boxPrice .attr {
+    padding: 10px 0; /* Giảm padding */
+}
+
+.boxFix .boxPrice .attr ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.boxFix .boxPrice .attr ul li {
+    margin-bottom: 8px; /* Giảm khoảng cách giữa các điểm nổi bật */
+}
+
+.boxFix .boxPrice .attr .see_more_text {
+    text-align: right;
+}
+
+.boxFix .bot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px; /* Giảm padding-top */
+}
+
+.form-group {
+    margin: 0;
+}
+
+.btn-order-tour {
+    background-color: #008fea;
+    color: #fff;
+    border: none;
+    padding: 8px 15px; /* Giảm padding */
+    font-size: 14px; /* Giảm kích thước chữ */
+    cursor: pointer;
+}
+
+.btn-order-tour:hover {
+    background-color: #007acc;
+}
+
+.boxDesign2 {
+    margin-top: 15px; /* Giảm khoảng cách trên */
+}
+
+.boxDesign2 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.boxDesign2 ul li {
+    padding: 8px 0; /* Giảm padding */
+    border-bottom: 1px solid #eee;
+}
+
+.boxDesign2 ul li:last-child {
+    border-bottom: none;
+}
+
+.boxDesign2 ul li a {
+    text-decoration: none;
+    color: #008fea;
+    font-size: 14px; /* Giảm kích thước chữ */
+}
+
+.boxDesign2 ul li.active a {
+    font-weight: bold;
+    color: #d00167;
+}
+

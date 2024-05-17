@@ -18,6 +18,10 @@ public class HomeController {
     public String getHomeView(){
         return "pages/Home/Home";
     }
+    @GetMapping("/tour")
+    public String getTourView(){
+        return "pages/Detail/TourDetail";
+    }
     @GetMapping("/BookingVe")
     public String getBookVe(){
         return "pages/BookVe/BookVe";
