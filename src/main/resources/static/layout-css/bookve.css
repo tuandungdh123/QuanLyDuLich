@@ -1,0 +1,105 @@
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.highlight {
+    color: #FF9933;
+    font-weight: bold;
+}
+.notification {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #ff6347;
+}
+.booking-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+.banner{
+    position: relative;
+}
+/*.container{*/
+/*    position: absolute;*/
+/*    right: 100px;*/
+/*    top: 100px;*/
+/*}*/
+.ticket-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 1px 1px 1px 1px #888888;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: #ff6347;
+}
+
+.source img {
+    max-height: 30px;
+    margin-right: 10px;
+}
+
+.btn-custom {
+    background-color: #3333FF;
+    color: #fff;
+}
+
+.btn-custom:hover {
+    background-color: #004494;
+    color: #fff;
+}
+.source{
+    right: 50px;
+
+}
+.stars img {
+    cursor: pointer;
+}
+.bookingve{
+    border: 10px solid deepskyblue;
+    border-radius: 10px;
+    width: 250px;
+    height: auto;
+    text-decoration: none;
+    background-color: deepskyblue;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    margin: 0 auto;
+}
+.bookingve:hover{
+    background-color: orange;
+    border: 10px solid orange;
+}
+.tintucphu{
+    text-decoration: none;
+    font-size: large;
+    color: black;
+    position: relative;
+    margin-top: 10px;
+    padding: 10px;
+}
+.tintucphu:hover{
+    color: #66FFFF;
+}
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(0.9);
+}
+
