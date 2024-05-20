@@ -26,4 +26,10 @@ public class HomeController {
     public String getBookVe(){
         return "pages/BookVe/BookVe";
     }
+    @GetMapping("/Footer")
+    public String getFooter(){return "pages/Footer/Footer";}
+    @GetMapping("/Hotel")
+    public String getHotel(){return "pages/Hotel/Hotel";}
+    @GetMapping("/admin")
+    public String getAdmin(){return "pages/Admin/Admin";}
 }
