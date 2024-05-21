@@ -1,0 +1,16 @@
+.checkinhotel{
+    border: 10px solid deepskyblue;
+    border-radius: 10px;
+    width: 250px;
+    height: auto;
+    text-decoration: none;
+    background-color: deepskyblue;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    margin: 0 auto;
+}
+.slick-slide img {
+    width: 100%;
+    height: auto;
+}

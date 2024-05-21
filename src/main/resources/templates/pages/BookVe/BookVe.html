@@ -262,17 +262,18 @@
         </div>
         <a href="#" class="bookingve"><h4>Xem nhiều hơn</h4></a>
     </div>
-    <hr style="border: none; /* Loại bỏ viền mặc định */
-            height: 5px; /* Chiều cao của thẻ hr */
-            background-color: #3399FF; /* Màu nền cho thẻ hr */
+    <hr style="border: none;
+            height: 5px;
+            background-color: #f30383;
         }">
+    <div th:replace=" pages/Footer/Footer :: footer"></div>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const stars = document.querySelectorAll('.star');
         stars.forEach(star => {
             star.addEventListener('click', function () {
-                alert('You clicked on star ' + this.getAttribute('data-value'));
+                alert('Bạn đã đánh giá ' + this.getAttribute('data-value'));
             });
         });
     });

@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<div class="Banner">
-
+<div th:replace=" pages/Navbar/Navbar :: Nav"></div>
+<div class="Banner" >
         <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -81,8 +81,8 @@
                             <i class="fa-solid fa-right-left" style="color: #ff006f;"></i>
                         </div>
                     <button type="submit" class="btn btn-info col-md-4" style="width: 100px; margin-left: 170px">Tìm kiếm</button>
-                </form>
             </div>
+                </form>
             </div>
             <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 15px 25px; /* Khoảng cách bên trong button */
                                                                                                                                 font-size: 25px; /* Kích thước chữ */
@@ -333,6 +333,7 @@
                 </div>
             </div>
     </div>
+    </div>
         <div class="btn btn-group-product" style="margin-top: 20px">
             <p style="color: #FF5733; font-weight: bold">DỊCH VỤ ĐƯA ĐÓN GIÁ RẺ</p>
             <a href="#">
@@ -518,6 +519,7 @@
                     </div>
                 </div>
             </div>
+        </div>
             <div class="btn btn-group-product" style="margin-top: 20px">
                 <p style="color: #FF5733; font-weight: bold">KHÁCH SẠN GIÁ RẺ</p>
                 <a href="#">
@@ -737,7 +739,6 @@
                 </div>
             </div>
             <div class="container">
-
                 <div class="row text-center">
                     <div class="col-md-4 about-us">
                         <p><img alt="Giới thiệu về Viettourist" src="https://viettourist.com/resources/images/2016/08/about-us-+-home.png"></p>
@@ -772,7 +773,11 @@
                         </div>
                     </div>
                 </div>
-
+                <hr style="border: none;
+            height: 5px;
+            background-color: #3399FF;
+        }">
+                <div th:replace=" pages/Footer/Footer :: footer"></div>
             </div>
     <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
