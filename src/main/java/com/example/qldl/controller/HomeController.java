@@ -15,12 +15,14 @@ public class HomeController {
         return "pages/Navbar/Navbar";
     }
     @GetMapping("/home")
-    public String getHomeView(){
-        return "pages/Home/Home";
-    }
+    public String getHomeView(){ return "pages/Home/Home"; }
     @GetMapping("/tour")
     public String getTourView(){
         return "pages/Detail/TourDetail";
+    }
+    @GetMapping("/list")
+    public String getListTourView(){
+        return "pages/Detail/DanhSanhTour";
     }
     @GetMapping("/BookingVe")
     public String getBookVe(){
