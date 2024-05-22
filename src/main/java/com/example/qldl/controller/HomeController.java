@@ -2,7 +2,6 @@ package com.example.qldl.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
@@ -38,4 +37,10 @@ public class HomeController {
     public String getHotel(){return "pages/ThueXe/ThueXe";}
     @GetMapping("/admin")
     public String getAdmin(){return "pages/Admin/Admin";}
+    @GetMapping("/QLTour")
+    public String getQLTour(){return "pages/Admin/QLTour";}
+    @GetMapping("/QLTK")
+    public String getQLTK(){return "pages/Admin/QLTK";}
+    @GetMapping("/QLKS")
+    public String getQLKS(){return "pages/Admin/QLKS";}
 }

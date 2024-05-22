@@ -1,6 +1,9 @@
 .header {
     text-align: center;
     margin-bottom: 20px;
+    margin-top: 70px;
+    margin-right: 200px;
+
 }
 .highlight {
     color: #FF9933;
@@ -15,9 +18,13 @@
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
+    margin-right: 154px;
+
+
 }
 .banner{
     position: relative;
+    margin-top: 154px;
 }
 /*.container{*/
 /*    position: absolute;*/
