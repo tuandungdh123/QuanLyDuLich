@@ -5,15 +5,20 @@
     <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/layout-css/Home.css">
     <link rel="stylesheet" th:href="@{/layout-css/hotel.css}">
+    <link rel="stylesheet" th:href="@{/layout-css/slickslide-khachsan.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <header>
     <div th:replace=" pages/Navbar/Navbar :: Nav"></div>
     <section>
-        <img th:src="@{/images/hotel-banner.png}" style="width: 100%; height: 500px; position: relative;"
+        <img th:src="@{/images/hotel-banner.png}" style="margin-top: 154px; width: 100%; height: 500px; position: relative;"
              class="banner">
-        <div class="container" style="position: absolute;top: 100px;right: 100px;">
+        <div class="container" style="position: absolute;top: 170px;right: 100px;">
             <div class="header">
                 <h1>Trải nghiệm kỳ nghỉ tuyệt vời</h1>
                 <!--        <p class="notification"><span class="highlight">772</span> khách đặt vé trong 24h qua</p>-->
@@ -27,13 +32,13 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="Checkin" placeholder="Số người">
+                        <input type="number" class="form-control" id="Checkin" placeholder="Số người" min="1">
                         <label for="Checkin"><i class="fa-solid fa-user"></i> Số người lớn</label>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="Checkin1" placeholder="Số người">
+                        <input type="number" class="form-control" id="Checkin1" placeholder="Số người" min="0">
                         <label for="Checkin1"><i class="fa-solid fa-baby"></i> Số Trẻ em</label>
                     </div>
                 </div>
@@ -80,51 +85,332 @@
         <a href="#" class="checkinhotel"><h4>Đặt Vé Ngay</h4></a>
     </div>
     <hr>
-    <div class="slick-slider">
-        <div class="slick-slide">
-            <img src="https://via.placeholder.com/800x400?text=Slide+1" alt="Slide 1">
+    <div class="btn btn-group-product" style="margin-top: 20px">
+        <p style="color: #FF5733; font-weight: bold">KHÁCH SẠN ĐANG KHUYÊN MÃI</p>
+        <a href="#">
+            <i class="fa-regular fa-pen-to-square" style="color: #009afa;"></i> Xem tất cả
+        </a>
+    </div>
+    <div class="mid-content">
+        <div class="vnt-hotel">
+            <div class="slider">
+                <!-- Hotel 1 -->
+                <div class="hotel">
+                    <div class="img">
+                        <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-spa-phu-quoc">
+                            <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/khach-san-phu-quoc-spa-du-lich-viet.jpg" alt="VINPEARL RESORT &amp; SPA PHU QUOC" class="mCS_img_loaded">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="tend">
+                            <h3>VINPEARL RESORT &amp; SPA PHU QUOC</h3>
+                        </div>
+                        <div class="price">
+                            Giá : <span>Liên hệ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 2 -->
+                <div class="hotel">
+                    <div class="img">
+                        <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-golf-phu-quoc">
+                            <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/du-lich-viet(4).jpg" alt="VINPEARL RESORT &amp; GOLF PHU QUOC" class="mCS_img_loaded">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="tend">
+                            <h3>VINPEARL RESORT &amp; GOLF PHU QUOC</h3>
+                        </div>
+                        <div class="price">
+                            Giá từ: <span>2,850,000 đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 3 -->
+                <div class="hotel">
+                    <div class="img">
+                        <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-golf-nam-hoi-an">
+                            <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/Vinpearl-hoi-an-du-lich-viet.jpg" alt="VINPEARL RESORT &amp; GOLF NAM HỘI AN" class="mCS_img_loaded">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="tend">
+                            <h3>VINPEARL RESORT &amp; GOLF NAM HỘI AN</h3>
+                        </div>
+                        <div class="price">
+                            Giá từ: <span>4,150,000 đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more hotel items as needed -->
+                <div class="hotel">
+                    <div class="img">
+                        <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-golf-nam-hoi-an">
+                            <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/Vinpearl-hoi-an-du-lich-viet.jpg" alt="VINPEARL RESORT &amp; GOLF NAM HỘI AN" class="mCS_img_loaded">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="tend">
+                            <h3>VINPEARL RESORT &amp; GOLF NAM HỘI AN</h3>
+                        </div>
+                        <div class="price">
+                            Giá từ: <span>4,150,000 đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hotel">
+                    <div class="img">
+                        <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-golf-nam-hoi-an">
+                            <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/Vinpearl-hoi-an-du-lich-viet.jpg" alt="VINPEARL RESORT &amp; GOLF NAM HỘI AN" class="mCS_img_loaded">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="tend">
+                            <h3>VINPEARL RESORT &amp; GOLF NAM HỘI AN</h3>
+                        </div>
+                        <div class="price">
+                            Giá từ: <span>4,150,000 đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hotel">
+                    <div class="img">
+                        <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-golf-nam-hoi-an">
+                            <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/Vinpearl-hoi-an-du-lich-viet.jpg" alt="VINPEARL RESORT &amp; GOLF NAM HỘI AN" class="mCS_img_loaded">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="tend">
+                            <h3>VINPEARL RESORT &amp; GOLF NAM HỘI AN</h3>
+                        </div>
+                        <div class="price">
+                            Giá từ: <span>4,150,000 đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="slick-slide">
-            <img src="https://via.placeholder.com/800x400?text=Slide+2" alt="Slide 2">
-        </div>
-        <div class="slick-slide">
-            <img src="https://via.placeholder.com/800x400?text=Slide+3" alt="Slide 3">
-        </div>
-        <div class="slick-slide">
-            <img src="https://via.placeholder.com/800x400?text=Slide+4" alt="Slide 4">
-        </div>
-        <div class="slick-slide">
-            <img src="https://via.placeholder.com/800x400?text=Slide+5" alt="Slide 5">
+    </div>
+<div class="btn btn-group-product" style="margin-top: 20px">
+    <p style="color: #FF5733; font-weight: bold">KHÁCH SẠN ĐANG KHUYÊN MÃI</p>
+    <a href="#">
+        <i class="fa-regular fa-pen-to-square" style="color: #009afa;"></i> Xem tất cả
+    </a>
+</div>
+<div class="mid-content">
+    <div class="vnt-hotel">
+        <div class="slider">
+            <!-- Hotel 1 -->
+            <div class="hotel">
+                <div class="img">
+                    <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-spa-phu-quoc">
+                        <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/khach-san-phu-quoc-spa-du-lich-viet.jpg" alt="VINPEARL RESORT &amp; SPA PHU QUOC" class="mCS_img_loaded">
+                    </a>
+                </div>
+                <div class="caption">
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="tend">
+                        <h3>VINPEARL RESORT &amp; SPA PHU QUOC</h3>
+                    </div>
+                    <div class="price">
+                        Giá : <span>Liên hệ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel 2 -->
+            <div class="hotel">
+                <div class="img">
+                    <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-golf-phu-quoc">
+                        <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/du-lich-viet(4).jpg" alt="VINPEARL RESORT &amp; GOLF PHU QUOC" class="mCS_img_loaded">
+                    </a>
+                </div>
+                <div class="caption">
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="tend">
+                        <h3>VINPEARL RESORT &amp; GOLF PHU QUOC</h3>
+                    </div>
+                    <div class="price">
+                        Giá từ: <span>2,850,000 đ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel 3 -->
+            <div class="hotel">
+                <div class="img">
+                    <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-golf-nam-hoi-an">
+                        <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/Vinpearl-hoi-an-du-lich-viet.jpg" alt="VINPEARL RESORT &amp; GOLF NAM HỘI AN" class="mCS_img_loaded">
+                    </a>
+                </div>
+                <div class="caption">
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="tend">
+                        <h3>VINPEARL RESORT &amp; GOLF NAM HỘI AN</h3>
+                    </div>
+                    <div class="price">
+                        Giá từ: <span>4,150,000 đ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more hotel items as needed -->
+            <div class="hotel">
+                <div class="img">
+                    <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-golf-nam-hoi-an">
+                        <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/Vinpearl-hoi-an-du-lich-viet.jpg" alt="VINPEARL RESORT &amp; GOLF NAM HỘI AN" class="mCS_img_loaded">
+                    </a>
+                </div>
+                <div class="caption">
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="tend">
+                        <h3>VINPEARL RESORT &amp; GOLF NAM HỘI AN</h3>
+                    </div>
+                    <div class="price">
+                        Giá từ: <span>4,150,000 đ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel">
+                <div class="img">
+                    <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-golf-nam-hoi-an">
+                        <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/Vinpearl-hoi-an-du-lich-viet.jpg" alt="VINPEARL RESORT &amp; GOLF NAM HỘI AN" class="mCS_img_loaded">
+                    </a>
+                </div>
+                <div class="caption">
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="tend">
+                        <h3>VINPEARL RESORT &amp; GOLF NAM HỘI AN</h3>
+                    </div>
+                    <div class="price">
+                        Giá từ: <span>4,150,000 đ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel">
+                <div class="img">
+                    <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-golf-nam-hoi-an">
+                        <img src="https://dulichviet.com.vn/images/bandidau/DU%20L%E1%BB%8ACH%20T%E1%BB%B0%20CH%E1%BB%8CN%202019/Hotel/Vinpearl-hoi-an-du-lich-viet.jpg" alt="VINPEARL RESORT &amp; GOLF NAM HỘI AN" class="mCS_img_loaded">
+                    </a>
+                </div>
+                <div class="caption">
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="tend">
+                        <h3>VINPEARL RESORT &amp; GOLF NAM HỘI AN</h3>
+                    </div>
+                    <div class="price">
+                        Giá từ: <span>4,150,000 đ</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const stars = document.querySelectorAll('.star');
-        stars.forEach(star => {
-            star.addEventListener('click', function () {
-                alert('Bạn đã đánh giá ' + this.getAttribute('data-value'));
-            });
-        });
-    });
-    $(document).ready(function () {
-        $('.slick-slider').slick({
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            arrows: true,
-            dots: true
-        });
-    });
-</script>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"></script>
+
+
+<!---->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.slider').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            arrows: true,
+            dots: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [
+
+            ]
+        });
+    });
+</script>
 </body>
 </html>

@@ -24,6 +24,8 @@ public class HomeController {
     public String getListTourView(){
         return "pages/Detail/DanhSanhTour";
     }
+    @GetMapping("/tourcart")
+    public String getTourCartView(){ return "pages/Detail/TourCart"; }
     @GetMapping("/BookingVe")
     public String getBookVe(){
         return "pages/BookVe/BookVe";
@@ -31,7 +33,9 @@ public class HomeController {
     @GetMapping("/Footer")
     public String getFooter(){return "pages/Footer/Footer";}
     @GetMapping("/Hotel")
-    public String getHotel(){return "pages/Hotel/Hotel";}
+    public String getThueXeView(){return "pages/Hotel/Hotel";}
+    @GetMapping("/xe")
+    public String getHotel(){return "pages/ThueXe/ThueXe";}
     @GetMapping("/admin")
     public String getAdmin(){return "pages/Admin/Admin";}
 }
