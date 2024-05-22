@@ -7,15 +7,15 @@
     <link rel="stylesheet" th:href="@{/layout-css/bookve.css}">
 </head>
 <body>
-<header>
 <div th:replace=" pages/Navbar/Navbar :: Nav"></div>
+<header>
+
     <section>
         <img th:src="@{/images/BannerBookve.png}" style="width: 100%; height: 500px" class="banner">
-        <div class="container" style="position: absolute;top: 100px;right: 100px;">
+        <div class="container" style="position: absolute;top: 120px;right: 25px;">
             <div class="header">
                 <h1>Đặt vé với hơn <span class="highlight">150</span> hãng</h1>
                 <p>Giá trực tiếp hãng - So sánh chuyến bay - Hỗ trợ sân bay</p>
-                <!--        <p class="notification"><span class="highlight">772</span> khách đặt vé trong 24h qua</p>-->
             </div>
             <div class="booking-form">
                 <form>
@@ -42,7 +42,7 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="passenger" class="form-label">Hành khách</label>
-                            <input type="number" class="form-control" id="passenger" value="1">
+                            <input type="number" class="form-control" id="passenger" value="1" min="1">
                         </div>
                     </div>
                     <button class="btn btn-primary btn-block" type="submit">Tìm chuyến bay</button>
@@ -262,12 +262,13 @@
         </div>
         <a href="#" class="bookingve"><h4>Xem nhiều hơn</h4></a>
     </div>
-    <hr style="border: none;
-            height: 5px;
+
+</div>
+<hr style="border: none;
+            height: 3px;
             background-color: #f30383;
         }">
-    <div th:replace=" pages/Footer/Footer :: footer"></div>
-</div>
+<div th:replace=" pages/Footer/Footer :: footer"></div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const stars = document.querySelectorAll('.star');
@@ -280,6 +281,8 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>
+<script></script>
 </body>
 </html>
