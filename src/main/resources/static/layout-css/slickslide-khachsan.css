@@ -1,0 +1,70 @@
+.mid-content {
+    max-width: 100%;
+    margin-top: 20px;
+    padding: 0 15px;
+}
+
+.vnt-hotel {
+    position: relative;
+}
+
+.hotel-slider {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f4f4f4;
+}
+
+.hotel-slider::-webkit-scrollbar {
+    height: 12px;
+}
+
+
+.hotel {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 350px;
+    max-width: 350px;
+}
+
+.hotel .img {
+    position: relative;
+}
+
+.hotel img {
+    width: 100%;
+    height: 244px;
+    display: block;
+}
+
+.caption {
+    padding: 15px;
+    text-align: center;
+}
+
+.ratting {
+    color: #ffcc00;
+    margin-bottom: 5px;
+}
+
+.ratting i {
+    margin-right: 2px;
+}
+
+.tend h3 {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.price {
+    font-size: 1em;
+    color: #333;
+}
+
+.price span {
+    color: #e74c3c;
+    font-weight: bold;
+}
