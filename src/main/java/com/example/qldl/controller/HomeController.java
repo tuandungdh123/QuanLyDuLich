@@ -38,4 +38,10 @@ public class HomeController {
     public String getHotel(){return "pages/ThueXe/ThueXe";}
     @GetMapping("/admin")
     public String getAdmin(){return "pages/Admin/Admin";}
+    @GetMapping("/QLTour")
+    public String getQLTour(){return "pages/Admin/QLTour";}
+    @GetMapping("/QLTK")
+    public String getQLTK(){return "pages/Admin/QLTK";}
+    @GetMapping("/QLKS")
+    public String getQLKS(){return "pages/Admin/QLKS";}
 }
