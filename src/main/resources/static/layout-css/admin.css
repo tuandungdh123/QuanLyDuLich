@@ -1,6 +1,7 @@
 body {
     display: flex;
 }
+
 .sidebar {
     width: 250px;
     background-color: #343a40;
@@ -8,12 +9,15 @@ body {
     height: 100vh;
     position: fixed;
 }
+
 .sidebar .nav-link {
     color: #fff;
 }
+
 .sidebar .nav-link.active {
     background-color: #007bff;
 }
+
 .content {
     margin-left: 250px;
     padding-left: 15px;

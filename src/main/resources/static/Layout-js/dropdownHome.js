@@ -1,5 +1,5 @@
 angular
-    .controller('allproductCtrl', function ($scope, $interval,$rootScope, $http) {
+    .controller('allproductCtrl', function ($scope, $interval, $rootScope, $http) {
         $scope.infor = 'Hello everybody!';
         $interval(function () {
             $scope.now = new Date();

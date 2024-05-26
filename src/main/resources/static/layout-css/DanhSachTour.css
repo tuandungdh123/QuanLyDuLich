@@ -1,9 +1,11 @@
 .searchFilterQuery {
     position: relative;
 }
+
 .searchFilterQuery .form-control {
     padding-right: 40px;
 }
+
 .searchFilterQuery .input-group-addon {
     position: absolute;
     right: 10px;
@@ -13,6 +15,7 @@
     border: none;
     color: #aaa;
 }
+
 .input-group.date .input-group-addon {
     position: absolute;
     right: 10px;
@@ -22,17 +25,21 @@
     border: none;
     color: #aaa;
 }
+
 .tour-type .select-drop {
     width: 100%;
 }
+
 .buttonCustomPrimary {
     background-color: #ff7f00;
     color: #fff;
     border: none;
 }
+
 .buttonCustomPrimary:hover {
     background-color: #e67500;
 }
+
 .filter-list-tour {
     display: flex;
     align-items: center;
@@ -103,44 +110,55 @@
     clear: both;
     display: table;
 }
+
 /**/
 /*Hover khi rê chuột vào tour*/
 .tour-item {
     transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .tour-item:hover {
     transform: scale(1.04);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
 .wap-items-ss {
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
 }
+
 .mda-box-item {
     padding: 10px;
 }
+
 .mda-box-img img {
     width: 100%;
     border-radius: 8px 8px 0 0;
 }
+
 .mda-caption {
     padding: 10px;
 }
+
 .mda-name a {
     text-decoration: none;
     color: #333;
     font-size: 18px;
 }
+
 .mda-info {
     margin-top: 10px;
 }
+
 .mda-time-grid, .mda-schedule, .mda-place, .mda-price {
     margin: 5px 0;
 }
+
 .mda-price .mda-dis {
     color: #e6007e;
     font-weight: bold;
     font-size: 20px;
 }
+
 /**/

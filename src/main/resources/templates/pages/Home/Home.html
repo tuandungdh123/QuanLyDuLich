@@ -1,52 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/layout-css/caroucel.css">
     <link rel="stylesheet" href="/layout-css/Home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+          integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+          integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
 <div th:replace=" pages/Navbar/Navbar :: Nav"></div>
 <div class="Banner" style="margin-top: 154px;" th:fragment="banner">
-        <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img th:src="@{/images/bannerHome/banner7.jpg}" src="" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img th:src="@{/images/bannerHome/banner8.jpg}" src="" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img th:src="@{/images/bannerHome/banner9.jpg}" src="" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img th:src="@{/images/bannerHome/banner10.jpg}" src="" alt="">
-                </div>
+    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img th:src="@{/images/bannerHome/banner7.jpg}" src="" alt="">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="carousel-item">
+                <img th:src="@{/images/bannerHome/banner8.jpg}" src="" alt="">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/images/bannerHome/banner9.jpg}" src="" alt="">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/images/bannerHome/banner10.jpg}" src="" alt="">
+            </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <style>
-        .dropdown-toggle::after {display: none;}
-        .custom-button{
-            margin-right: 30px;
-        }
-    </style>
-    <div class="container" style="margin-top: 20px">
-        <!-- Example single danger button -->
-        <div class=" btn-group">
-            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 15px 25px; /* Khoảng cách bên trong button */
+</div>
+<style>
+    .dropdown-toggle::after {
+        display: none;
+    }
+
+    .custom-button {
+        margin-right: 30px;
+    }
+</style>
+<div class="container" style="margin-top: 20px">
+    <!-- Example single danger button -->
+    <div class=" btn-group">
+        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                style="padding: 15px 25px; /* Khoảng cách bên trong button */
                                                                                                                                 font-size: 25px; /* Kích thước chữ */
                                                                                                                                 color: black; /* Màu chữ mới (ví dụ: màu cam) */
                                                                                                                                 border: 0px solid black; /* Đường viền (khung) */
@@ -54,15 +62,16 @@
                                                                                                                                 border-radius: 0px;
                                                                                                                                 margin-left: 40px;
                                                                                                                                 transition: background-color 0.3s ease, border-color 0.3s ease; /* Hiệu ứng chuyển đổi */">
-                <i class="fa-solid fa-location-dot"></i> Du Lịch Trong Nước
-            </button>
+            <i class="fa-solid fa-location-dot"></i> Du Lịch Trong Nước
+        </button>
 
-            <div class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 1170px">
-                <form class="px-4 py-3">
-                    <div class="row">
+        <div class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 1170px">
+            <form class="px-4 py-3">
+                <div class="row">
                     <div class="form-group col-md-3">
                         <div class="row">
-                        <input type="text" class="form-control" id="datepicker" placeholder="Chọn ngày xuất " style="width: 150px; margin-left: 50px">
+                            <input type="text" class="form-control" id="datepicker" placeholder="Chọn ngày xuất "
+                                   style="width: 150px; margin-left: 50px">
                         </div>
                     </div>
                     <div class="col-sm-1" style="font-size: 20px">
@@ -77,14 +86,17 @@
                             <!-- Thêm các tỉnh thành khác -->
                         </select>
                     </div>
-                        <div class="col-sm-1" style="font-size: 20px; margin-left: 70px">
-                            <i class="fa-solid fa-right-left" style="color: #ff006f;"></i>
-                        </div>
-                    <button type="submit" class="btn btn-info col-md-4" style="width: 100px; margin-left: 170px">Tìm kiếm</button>
-            </div>
-                </form>
-            </div>
-            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 15px 25px; /* Khoảng cách bên trong button */
+                    <div class="col-sm-1" style="font-size: 20px; margin-left: 70px">
+                        <i class="fa-solid fa-right-left" style="color: #ff006f;"></i>
+                    </div>
+                    <button type="submit" class="btn btn-info col-md-4" style="width: 100px; margin-left: 170px">Tìm
+                        kiếm
+                    </button>
+                </div>
+            </form>
+        </div>
+        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                style="padding: 15px 25px; /* Khoảng cách bên trong button */
                                                                                                                                 font-size: 25px; /* Kích thước chữ */
                                                                                                                                 border: 0px solid black; /* Đường viền (khung) */
                                                                                                                                 color: #1b448e;
@@ -92,9 +104,10 @@
                                                                                                                                 border-radius: 0px;
                                                                                                                                 margin-left: 25px;
                                                                                                                                 transition: background-color 0.3s ease, border-color 0.3s ease; /* Hiệu ứng chuyển đổi */">
-                <i class="fa-solid fa-mountain-city"></i> Tiện ích du lịch
-            </button>
-            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 15px 25px; /* Khoảng cách bên trong button */
+            <i class="fa-solid fa-mountain-city"></i> Tiện ích du lịch
+        </button>
+        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                style="padding: 15px 25px; /* Khoảng cách bên trong button */
                                                                                                                                 font-size: 25px; /* Kích thước chữ */
                                                                                                                                 color: #66ffff;
                                                                                                                                 border: 0px solid black; /* Đường viền (khung) */
@@ -102,9 +115,10 @@
                                                                                                                                 border-radius: 0px;
                                                                                                                                 margin-left: 25px;
                                                                                                                                 transition: background-color 0.3s ease, border-color 0.3s ease; /* Hiệu ứng chuyển đổi */">
-                <i class="fa-solid fa-plane-departure"></i> Đặt vé máy bay
-            </button>
-            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 15px 25px; /* Khoảng cách bên trong button */
+            <i class="fa-solid fa-plane-departure"></i> Đặt vé máy bay
+        </button>
+        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                style="padding: 15px 25px; /* Khoảng cách bên trong button */
                                                                                                                                 font-size: 25px; /* Kích thước chữ */
                                                                                                                                 color: #5cb1aa;
                                                                                                                                 border: 0px solid black; /* Đường viền (khung) */
@@ -112,44 +126,47 @@
                                                                                                                                 border-radius: 0px;
                                                                                                                                 margin-left: 25px;
                                                                                                                                 transition: background-color 0.3s ease, border-color 0.3s ease; /* Hiệu ứng chuyển đổi */">
-                <i class="fa-solid fa-hotel"></i> Đặt khách sạn online
-            </button>
-        </div>
-
+            <i class="fa-solid fa-hotel"></i> Đặt khách sạn online
+        </button>
     </div>
-    <div class="row" style="margin-top: 30px">
-            <div class="btn btn-group-tienich">
-                <div class="tienich" data-slick-index="0" aria-hidden="false" style="width: 166px;">
-                    <div>
-                        <div class="item" style="width: 100%; display: inline-block;">
-                            <a href="#" class="button-link" tabindex="0">
+
+</div>
+<div class="row" style="margin-top: 30px">
+    <div class="btn btn-group-tienich">
+        <div class="tienich" data-slick-index="0" aria-hidden="false" style="width: 166px;">
+            <div>
+                <div class="item" style="width: 100%; display: inline-block;">
+                    <a href="#" class="button-link" tabindex="0">
                     <span class="img">
-                        <img class="lazyload" src="//dulichviet.com.vn/images/bandidau/icon-tour/du-lich-he-2024-du-lich-viet.png" alt="" width="32" height="32">
+                        <img class="lazyload"
+                             src="//dulichviet.com.vn/images/bandidau/icon-tour/du-lich-he-2024-du-lich-viet.png" alt=""
+                             width="32" height="32">
                     </span>
-                                <span class="txt">Du lịch Hè 2024</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tienich" data-slick-index="1" aria-hidden="false" style="width: 166px;">
-                    <div>
-                        <div class="item" style="width: 100%; display: inline-block;">
-                            <a href="#" class="button-link" tabindex="0">
-                    <span class="img">
-                        <img class="lazyload" src="//dulichviet.com.vn/images/bandidau/icon-tour/tour-mua-thu.png" alt="" width="32" height="32">
-                    </span>
-                                <span class="txt">Tour Mùa Thu 2024</span>
-                            </a>
-                        </div>
-                    </div>
+                        <span class="txt">Du lịch Hè 2024</span>
+                    </a>
                 </div>
             </div>
-
+        </div>
+        <div class="tienich" data-slick-index="1" aria-hidden="false" style="width: 166px;">
+            <div>
+                <div class="item" style="width: 100%; display: inline-block;">
+                    <a href="#" class="button-link" tabindex="0">
+                    <span class="img">
+                        <img class="lazyload" src="//dulichviet.com.vn/images/bandidau/icon-tour/tour-mua-thu.png"
+                             alt="" width="32" height="32">
+                    </span>
+                        <span class="txt">Tour Mùa Thu 2024</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
+
+</div>
 <hr>
 <div class="container" style="margin-top: 30px">
     <div class="btn btn-group-product">
-    <p style="color: #FF5733; font-weight: bold">TOUR MÙA HÈ</p>
+        <p style="color: #FF5733; font-weight: bold">TOUR MÙA HÈ</p>
         <a href="#">
             <i class="fa-regular fa-pen-to-square" style="color: #009afa;"></i> Xem tất cả
         </a>
@@ -159,28 +176,31 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="wap-items-ss brbox">
-                        <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                            <div class="mda-box-item">
-                                <div class="mda-box-img">
-                                    <a href="#">
-                                        <img class="lazyload"  alt="" th:src="@{/images/bannerHome/item.png}" style="display: block;">
-                                    </a>
-                                    <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                </div>
-                                <div class="mda-caption">
-                                    <div class="mda-info mda-grid">
-                                        <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                        <div class="mda-img-box-wrap">
-                                            <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                            <p class="mda-schedule">22/05/2024</p>
-                                            <p class="mda-place">Còn 10 chỗ</p>
-                                            <p class="mda-price mda-distcoun">
-                                                <span class="mda-dis">7,599,000 đ</span> </p>
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/item.png}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -189,28 +209,31 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="wap-items-ss brbox">
-                        <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                            <div class="mda-box-item">
-                                <div class="mda-box-img">
-                                    <a href="#">
-                                        <img class="lazyload"  alt="" th:src="@{/images/bannerHome/item3.jpg}" style="display: block;">
-                                    </a>
-                                    <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                </div>
-                                <div class="mda-caption">
-                                    <div class="mda-info mda-grid">
-                                        <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                        <div class="mda-img-box-wrap">
-                                            <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                            <p class="mda-schedule">22/05/2024</p>
-                                            <p class="mda-place">Còn 10 chỗ</p>
-                                            <p class="mda-price mda-distcoun">
-                                                <span class="mda-dis">7,599,000 đ</span> </p>
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/item3.jpg}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -218,28 +241,31 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="wap-items-ss brbox">
-                        <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                            <div class="mda-box-item">
-                                <div class="mda-box-img">
-                                    <a href="#">
-                                        <img class="lazyload"  alt="" src="" th:src="@{/images/bannerHome/item2.png}" style="display: block;">
-                                    </a>
-                                    <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                </div>
-                                <div class="mda-caption">
-                                    <div class="mda-info mda-grid">
-                                        <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                        <div class="mda-img-box-wrap">
-                                            <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                            <p class="mda-schedule">22/05/2024</p>
-                                            <p class="mda-place">Còn 10 chỗ</p>
-                                            <p class="mda-price mda-distcoun">
-                                                <span class="mda-dis">7,599,000 đ</span> </p>
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" src="" th:src="@{/images/bannerHome/item2.png}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -248,28 +274,31 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="wap-items-ss brbox">
-                        <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                            <div class="mda-box-item">
-                                <div class="mda-box-img">
-                                    <a href="#">
-                                        <img class="lazyload"  alt="" th:src="@{/images/bannerHome/carousel.png}" style="display: block;">
-                                    </a>
-                                    <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                </div>
-                                <div class="mda-caption">
-                                    <div class="mda-info mda-grid">
-                                        <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                        <div class="mda-img-box-wrap">
-                                            <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                            <p class="mda-schedule">22/05/2024</p>
-                                            <p class="mda-place">Còn 10 chỗ</p>
-                                            <p class="mda-price mda-distcoun">
-                                                <span class="mda-dis">7,599,000 đ</span> </p>
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/carousel.png}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -277,28 +306,31 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="wap-items-ss brbox">
-                        <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                            <div class="mda-box-item">
-                                <div class="mda-box-img">
-                                    <a href="#">
-                                        <img class="lazyload"  alt="" th:src="@{/images/bannerHome/carousel1.jpg}" style="display: block;">
-                                    </a>
-                                    <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                </div>
-                                <div class="mda-caption">
-                                    <div class="mda-info mda-grid">
-                                        <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                        <div class="mda-img-box-wrap">
-                                            <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                            <p class="mda-schedule">22/05/2024</p>
-                                            <p class="mda-place">Còn 10 chỗ</p>
-                                            <p class="mda-price mda-distcoun">
-                                                <span class="mda-dis">7,599,000 đ</span> </p>
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/carousel1.jpg}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -306,502 +338,561 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="wap-items-ss brbox">
-                        <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                            <div class="mda-box-item">
-                                <div class="mda-box-img">
-                                    <a href="#">
-                                        <img class="lazyload"  alt="" th:src="@{/images/bannerHome/tour.png}" style="display: block;">
-                                    </a>
-                                    <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                </div>
-                                <div class="mda-caption">
-                                    <div class="mda-info mda-grid">
-                                        <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                        <div class="mda-img-box-wrap">
-                                            <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                            <p class="mda-schedule">22/05/2024</p>
-                                            <p class="mda-place">Còn 10 chỗ</p>
-                                            <p class="mda-price mda-distcoun">
-                                                <span class="mda-dis">7,599,000 đ</span> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </div>
-    </div>
-        <div class="btn btn-group-product" style="margin-top: 20px">
-            <p style="color: #FF5733; font-weight: bold">DỊCH VỤ ĐƯA ĐÓN GIÁ RẺ</p>
-            <a href="#">
-                <i class="fa-regular fa-pen-to-square" style="color: #009afa;"></i> Xem tất cả
-            </a>
-        </div>
-        <div id="wapper2">
-            <div class="row filtering">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="wap-items-ss brbox">
-                            <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
                                 <div class="mda-box-item">
                                     <div class="mda-box-img">
                                         <a href="#">
-                                            <img class="lazyload"  alt="" th:src="@{/images/bannerHome/item.png}" style="display: block;">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/tour.png}"
+                                                 style="display: block;">
                                         </a>
                                         <div class="mda-box-lb">Từ Hồ Chí Minh</div>
                                     </div>
                                     <div class="mda-caption">
                                         <div class="mda-info mda-grid">
-                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
                                             <div class="mda-img-box-wrap">
                                                 <p class="mda-time-grid">4 ngày 3 đêm</p>
                                                 <p class="mda-schedule">22/05/2024</p>
                                                 <p class="mda-place">Còn 10 chỗ</p>
                                                 <p class="mda-price mda-distcoun">
-                                                    <span class="mda-dis">7,599,000 đ</span> </p>
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="wap-items-ss brbox">
-                            <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                                <div class="mda-box-item">
-                                    <div class="mda-box-img">
-                                        <a href="#">
-                                            <img class="lazyload"  alt="" th:src="@{/images/bannerHome/item3.jpg}" style="display: block;">
-                                        </a>
-                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                    </div>
-                                    <div class="mda-caption">
-                                        <div class="mda-info mda-grid">
-                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                            <div class="mda-img-box-wrap">
-                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                                <p class="mda-schedule">22/05/2024</p>
-                                                <p class="mda-place">Còn 10 chỗ</p>
-                                                <p class="mda-price mda-distcoun">
-                                                    <span class="mda-dis">7,599,000 đ</span> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="wap-items-ss brbox">
-                            <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                                <div class="mda-box-item">
-                                    <div class="mda-box-img">
-                                        <a href="#">
-                                            <img class="lazyload"  alt="" src="" th:src="@{/images/bannerHome/item2.png}" style="display: block;">
-                                        </a>
-                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                    </div>
-                                    <div class="mda-caption">
-                                        <div class="mda-info mda-grid">
-                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                            <div class="mda-img-box-wrap">
-                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                                <p class="mda-schedule">22/05/2024</p>
-                                                <p class="mda-place">Còn 10 chỗ</p>
-                                                <p class="mda-price mda-distcoun">
-                                                    <span class="mda-dis">7,599,000 đ</span> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="wap-items-ss brbox">
-                            <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                                <div class="mda-box-item">
-                                    <div class="mda-box-img">
-                                        <a href="#">
-                                            <img class="lazyload"  alt="" th:src="@{/images/bannerHome/carousel.png}" style="display: block;">
-                                        </a>
-                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                    </div>
-                                    <div class="mda-caption">
-                                        <div class="mda-info mda-grid">
-                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                            <div class="mda-img-box-wrap">
-                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                                <p class="mda-schedule">22/05/2024</p>
-                                                <p class="mda-place">Còn 10 chỗ</p>
-                                                <p class="mda-price mda-distcoun">
-                                                    <span class="mda-dis">7,599,000 đ</span> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="wap-items-ss brbox">
-                            <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                                <div class="mda-box-item">
-                                    <div class="mda-box-img">
-                                        <a href="#">
-                                            <img class="lazyload"  alt="" th:src="@{/images/bannerHome/carousel1.jpg}" style="display: block;">
-                                        </a>
-                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                    </div>
-                                    <div class="mda-caption">
-                                        <div class="mda-info mda-grid">
-                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                            <div class="mda-img-box-wrap">
-                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                                <p class="mda-schedule">22/05/2024</p>
-                                                <p class="mda-place">Còn 10 chỗ</p>
-                                                <p class="mda-price mda-distcoun">
-                                                    <span class="mda-dis">7,599,000 đ</span> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="wap-items-ss brbox">
-                            <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                                <div class="mda-box-item">
-                                    <div class="mda-box-img">
-                                        <a href="#">
-                                            <img class="lazyload"  alt="" th:src="@{/images/bannerHome/tour.png}" style="display: block;">
-                                        </a>
-                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                    </div>
-                                    <div class="mda-caption">
-                                        <div class="mda-info mda-grid">
-                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                            <div class="mda-img-box-wrap">
-                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                                <p class="mda-schedule">22/05/2024</p>
-                                                <p class="mda-place">Còn 10 chỗ</p>
-                                                <p class="mda-price mda-distcoun">
-                                                    <span class="mda-dis">7,599,000 đ</span> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-            <div class="btn btn-group-product" style="margin-top: 20px">
-                <p style="color: #FF5733; font-weight: bold">KHÁCH SẠN GIÁ RẺ</p>
-                <a href="#">
-                    <i class="fa-regular fa-pen-to-square" style="color: #009afa;"></i> Xem tất cả
-                </a>
-            </div>
-            <div id="wapper3">
-                <div class="row filtering">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="wap-items-ss brbox">
-                                <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                                    <div class="mda-box-item">
-                                        <div class="mda-box-img">
-                                            <a href="#">
-                                                <img class="lazyload"  alt="" th:src="@{/images/bannerHome/item.png}" style="display: block;">
-                                            </a>
-                                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                        </div>
-                                        <div class="mda-caption">
-                                            <div class="mda-info mda-grid">
-                                                <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                                <div class="mda-img-box-wrap">
-                                                    <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                                    <p class="mda-schedule">22/05/2024</p>
-                                                    <p class="mda-place">Còn 10 chỗ</p>
-                                                    <p class="mda-price mda-distcoun">
-                                                        <span class="mda-dis">7,599,000 đ</span> </p>
-                                                </div>
+    </div>
+    <div class="btn btn-group-product" style="margin-top: 20px">
+        <p style="color: #FF5733; font-weight: bold">DỊCH VỤ ĐƯA ĐÓN GIÁ RẺ</p>
+        <a href="#">
+            <i class="fa-regular fa-pen-to-square" style="color: #009afa;"></i> Xem tất cả
+        </a>
+    </div>
+    <div id="wapper2">
+        <div class="row filtering">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/item.png}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="wap-items-ss brbox">
-                                <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                                    <div class="mda-box-item">
-                                        <div class="mda-box-img">
-                                            <a href="#">
-                                                <img class="lazyload"  alt="" th:src="@{/images/bannerHome/item3.jpg}" style="display: block;">
-                                            </a>
-                                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                        </div>
-                                        <div class="mda-caption">
-                                            <div class="mda-info mda-grid">
-                                                <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                                <div class="mda-img-box-wrap">
-                                                    <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                                    <p class="mda-schedule">22/05/2024</p>
-                                                    <p class="mda-place">Còn 10 chỗ</p>
-                                                    <p class="mda-price mda-distcoun">
-                                                        <span class="mda-dis">7,599,000 đ</span> </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="wap-items-ss brbox">
-                                <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                                    <div class="mda-box-item">
-                                        <div class="mda-box-img">
-                                            <a href="#">
-                                                <img class="lazyload"  alt="" src="" th:src="@{/images/bannerHome/item2.png}" style="display: block;">
-                                            </a>
-                                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                        </div>
-                                        <div class="mda-caption">
-                                            <div class="mda-info mda-grid">
-                                                <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                                <div class="mda-img-box-wrap">
-                                                    <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                                    <p class="mda-schedule">22/05/2024</p>
-                                                    <p class="mda-place">Còn 10 chỗ</p>
-                                                    <p class="mda-price mda-distcoun">
-                                                        <span class="mda-dis">7,599,000 đ</span> </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="wap-items-ss brbox">
-                                <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                                    <div class="mda-box-item">
-                                        <div class="mda-box-img">
-                                            <a href="#">
-                                                <img class="lazyload"  alt="" th:src="@{/images/bannerHome/carousel.png}" style="display: block;">
-                                            </a>
-                                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                        </div>
-                                        <div class="mda-caption">
-                                            <div class="mda-info mda-grid">
-                                                <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                                <div class="mda-img-box-wrap">
-                                                    <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                                    <p class="mda-schedule">22/05/2024</p>
-                                                    <p class="mda-place">Còn 10 chỗ</p>
-                                                    <p class="mda-price mda-distcoun">
-                                                        <span class="mda-dis">7,599,000 đ</span> </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="wap-items-ss brbox">
-                                <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                                    <div class="mda-box-item">
-                                        <div class="mda-box-img">
-                                            <a href="#">
-                                                <img class="lazyload"  alt="" th:src="@{/images/bannerHome/carousel1.jpg}" style="display: block;">
-                                            </a>
-                                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                        </div>
-                                        <div class="mda-caption">
-                                            <div class="mda-info mda-grid">
-                                                <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                                <div class="mda-img-box-wrap">
-                                                    <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                                    <p class="mda-schedule">22/05/2024</p>
-                                                    <p class="mda-place">Còn 10 chỗ</p>
-                                                    <p class="mda-price mda-distcoun">
-                                                        <span class="mda-dis">7,599,000 đ</span> </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="wap-items-ss brbox">
-                                <div class="owl-item active" style="width: auto; margin-right: 5px;"><div class="item">
-                                    <div class="mda-box-item">
-                                        <div class="mda-box-img">
-                                            <a href="#">
-                                                <img class="lazyload"  alt="" th:src="@{/images/bannerHome/tour.png}" style="display: block;">
-                                            </a>
-                                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                                        </div>
-                                        <div class="mda-caption">
-                                            <div class="mda-info mda-grid">
-                                                <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa - Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
-                                                <div class="mda-img-box-wrap">
-                                                    <p class="mda-time-grid">4 ngày 3 đêm</p>
-                                                    <p class="mda-schedule">22/05/2024</p>
-                                                    <p class="mda-place">Còn 10 chỗ</p>
-                                                    <p class="mda-price mda-distcoun">
-                                                        <span class="mda-dis">7,599,000 đ</span> </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-</div>
-            <div class="row semi-final" style="margin-top: 20px">
-                <div class="col-md-7">
-                    <h3>VÌ SAO CHỌN CHÚNG TÔI?</h3>
-                    <em>
-                        Team Du Lịch TTung là một trong những đơn vị du lịch chuyên nghiệp hàng đầu Việt Nam. Với 10 năm kinh nghiệm tổ chức tour du lịch giá rẻ uy tín chất lượng và đội ngũ nhân viên được đào chuyên bài bản, du lịch ABC luôn mang lại cho quý du khách những chuyến du lịch an toàn, chất lượng và tiết kiệm nhất! Chính sự tin yêu của Quý khách trong suốt chặng đường 10 năm qua nên ABC Travel luôn nỗ lực không ngừng nhằm nâng cao chất lượng dịch vụ để đáp ứng mọi nhu cầu của du khách…
-                    </em>
-                    <div class="row group-list" style="margin-top: 10px">
-                    <div class="row col-md-6" style="padding-top: 10px">
-                        <i class="fa-regular fa-thumbs-up fa-shake"></i> MẠNG BÁN TOUR SỐ 1 VIỆT NAM
-                    </div>
-                    <div class="row col-md-6" style="padding-top: 10px">
-                        <i class="fa-regular fa-money-bill-1 fa-beat"></i> THANH TOÁN AN TOÀN - LINH HOẠT
-                    </div>
-                    <div class="row col-md-6" style="padding-top: 10px">
-                        <i class="fa-brands fa-github fa-beat-fade"></i> NHÂN VIÊN TƯ VẤN CHUYÊN NGHIỆP
-                    </div>
-                    <div class="row col-md-6" style="padding-top: 10px">
-                        <i class="fa-solid fa-hand-holding-dollar fa-bounce"></i> LUÔN CÓ MỨC GIÁ TỐT NHẤT
-                    </div>
-                    <div class="row col-md-6" style="padding-top: 10px">
-                        <i class="fa-solid fa-suitcase-rolling fa-flip"></i> ĐẶT TOUR DỄ DÀNG - NHANH CHÓNG
-                    </div>
-                    <div class="row col-md-6" style="padding-top: 10px">
-                        <i class="fa-regular fa-clock fa-spin"></i> HỖ TRỢ 24/7 MIỄN PHÍ
-                    </div>
-                </div>
-                </div>
-                <div class="col-md-5">
-                    <img th:src="@{/images/bannerHome/output.png}" alt="">
                 </div>
             </div>
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-md-4 about-us">
-                        <p><img alt="Giới thiệu về Viettourist" src="https://viettourist.com/resources/images/2016/08/about-us-+-home.png"></p>
 
-                        <p><strong style="color: #e92179">GIỚI THIỆU VỀ VIETTOURIST</strong></p>
-
-                        <div>Team Du Lich TTung du lịch cao cấp - Giá rẻ tại Việt Nam. Tiếp nối thành công, từ tháng 0/2024 Team Du Lịch TTược chuyển đổi thành Bạn ơi hãy đi du lịch</div>
-                    </div>
-
-                    <div class="col-md-4 support">
-                        <div>
-                            <p><img alt="Hỗ trợ trực tuyến 24/7" src="https://viettourist.com/resources/images/2016/08/support-+-home.png"></p>
-
-                            <p class="text-bold" style="color: #e92179"><strong>HỖ TRỢ TRỰC TUYẾN 24/7</strong></p>
-
-                            <p><a class="text-bold" href="https://www.viettourist.com/themes/default/tel:19001868" style="color: #3E5D72;" title="Gọi 1900 1868">Liên Hệ Anh Tùng Đẹp Trai</a></p>
-
-                            <p><a class="text-bold" href="mailto:viettourist@icloud.com" rel="nofollow" style="color: #3E5D72;" title="Gửi e-mail"><span class="ink animate" style="height: 176px; width: 176px; top: -83.2752px; left: 34.925px;"></span>Tungdeptrai@gmail.com</a></p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 why-us">
-                        <div>
-                            <p><img alt="Tại sao chọn Viettourist?" src="https://viettourist.com/resources/images/2016/08/why-us-+-home.png"></p>
-
-                            <p><strong><span class="text-bold" style="color: #e92179">TẠI SAO CHỌN VIETTOURIST?</span></strong></p>
-
-                            <p><span>Giá tốt&nbsp;</span><br>
-                                <span>Điểm đến đa dạng</span><br>
-                                <span>Thanh toán linh hoạt</span><br>
-                                <span>Chất lượng dịch vụ vượt trội</span></p>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/item3.jpg}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" src="" th:src="@{/images/bannerHome/item2.png}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/carousel.png}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/carousel1.jpg}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/tour.png}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn btn-group-product" style="margin-top: 20px">
+        <p style="color: #FF5733; font-weight: bold">KHÁCH SẠN GIÁ RẺ</p>
+        <a href="#">
+            <i class="fa-regular fa-pen-to-square" style="color: #009afa;"></i> Xem tất cả
+        </a>
+    </div>
+    <div id="wapper3">
+        <div class="row filtering">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/item.png}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/item3.jpg}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" src="" th:src="@{/images/bannerHome/item2.png}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/carousel.png}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/carousel1.jpg}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="owl-item active" style="width: auto; margin-right: 5px;">
+                            <div class="item">
+                                <div class="mda-box-item">
+                                    <div class="mda-box-img">
+                                        <a href="#">
+                                            <img class="lazyload" alt="" th:src="@{/images/bannerHome/tour.png}"
+                                                 style="display: block;">
+                                        </a>
+                                        <div class="mda-box-lb">Từ Hồ Chí Minh</div>
+                                    </div>
+                                    <div class="mda-caption">
+                                        <div class="mda-info mda-grid">
+                                            <h3 class="mda-name"><a href="#">Tour Hè Quy Nhơn - Phú Yên - Gành Đá Đĩa -
+                                                Bãi Xép - Khu du lịch Hầm Hô - Kỳ Co - Eo Gió</a></h3>
+                                            <div class="mda-img-box-wrap">
+                                                <p class="mda-time-grid">4 ngày 3 đêm</p>
+                                                <p class="mda-schedule">22/05/2024</p>
+                                                <p class="mda-place">Còn 10 chỗ</p>
+                                                <p class="mda-price mda-distcoun">
+                                                    <span class="mda-dis">7,599,000 đ</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row semi-final" style="margin-top: 20px">
+        <div class="col-md-7">
+            <h3>VÌ SAO CHỌN CHÚNG TÔI?</h3>
+            <em>
+                Team Du Lịch TTung là một trong những đơn vị du lịch chuyên nghiệp hàng đầu Việt Nam. Với 10 năm kinh
+                nghiệm tổ chức tour du lịch giá rẻ uy tín chất lượng và đội ngũ nhân viên được đào chuyên bài bản, du
+                lịch ABC luôn mang lại cho quý du khách những chuyến du lịch an toàn, chất lượng và tiết kiệm nhất!
+                Chính sự tin yêu của Quý khách trong suốt chặng đường 10 năm qua nên ABC Travel luôn nỗ lực không ngừng
+                nhằm nâng cao chất lượng dịch vụ để đáp ứng mọi nhu cầu của du khách…
+            </em>
+            <div class="row group-list" style="margin-top: 10px">
+                <div class="row col-md-6" style="padding-top: 10px">
+                    <i class="fa-regular fa-thumbs-up fa-shake"></i> MẠNG BÁN TOUR SỐ 1 VIỆT NAM
+                </div>
+                <div class="row col-md-6" style="padding-top: 10px">
+                    <i class="fa-regular fa-money-bill-1 fa-beat"></i> THANH TOÁN AN TOÀN - LINH HOẠT
+                </div>
+                <div class="row col-md-6" style="padding-top: 10px">
+                    <i class="fa-brands fa-github fa-beat-fade"></i> NHÂN VIÊN TƯ VẤN CHUYÊN NGHIỆP
+                </div>
+                <div class="row col-md-6" style="padding-top: 10px">
+                    <i class="fa-solid fa-hand-holding-dollar fa-bounce"></i> LUÔN CÓ MỨC GIÁ TỐT NHẤT
+                </div>
+                <div class="row col-md-6" style="padding-top: 10px">
+                    <i class="fa-solid fa-suitcase-rolling fa-flip"></i> ĐẶT TOUR DỄ DÀNG - NHANH CHÓNG
+                </div>
+                <div class="row col-md-6" style="padding-top: 10px">
+                    <i class="fa-regular fa-clock fa-spin"></i> HỖ TRỢ 24/7 MIỄN PHÍ
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img th:src="@{/images/bannerHome/output.png}" alt="">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 about-us">
+                <p><img alt="Giới thiệu về Viettourist"
+                        src="https://viettourist.com/resources/images/2016/08/about-us-+-home.png"></p>
+
+                <p><strong style="color: #e92179">GIỚI THIỆU VỀ VIETTOURIST</strong></p>
+
+                <div>Team Du Lich TTung du lịch cao cấp - Giá rẻ tại Việt Nam. Tiếp nối thành công, từ tháng 0/2024 Team
+                    Du Lịch TTược chuyển đổi thành Bạn ơi hãy đi du lịch
+                </div>
+            </div>
+
+            <div class="col-md-4 support">
+                <div>
+                    <p><img alt="Hỗ trợ trực tuyến 24/7"
+                            src="https://viettourist.com/resources/images/2016/08/support-+-home.png"></p>
+
+                    <p class="text-bold" style="color: #e92179"><strong>HỖ TRỢ TRỰC TUYẾN 24/7</strong></p>
+
+                    <p><a class="text-bold" href="https://www.viettourist.com/themes/default/tel:19001868"
+                          style="color: #3E5D72;" title="Gọi 1900 1868">Liên Hệ Anh Tùng Đẹp Trai</a></p>
+
+                    <p><a class="text-bold" href="mailto:viettourist@icloud.com" rel="nofollow" style="color: #3E5D72;"
+                          title="Gửi e-mail"><span class="ink animate"
+                                                   style="height: 176px; width: 176px; top: -83.2752px; left: 34.925px;"></span>Tungdeptrai@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 why-us">
+                <div>
+                    <p><img alt="Tại sao chọn Viettourist?"
+                            src="https://viettourist.com/resources/images/2016/08/why-us-+-home.png"></p>
+
+                    <p><strong><span class="text-bold" style="color: #e92179">TẠI SAO CHỌN VIETTOURIST?</span></strong>
+                    </p>
+
+                    <p><span>Giá tốt&nbsp;</span><br>
+                        <span>Điểm đến đa dạng</span><br>
+                        <span>Thanh toán linh hoạt</span><br>
+                        <span>Chất lượng dịch vụ vượt trội</span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
 <hr style="border: none;
             height: 3px;
             background-color: #66ffff;
         }">
-    <div th:replace=" pages/Footer/Footer :: footer"></div>
+<div th:replace=" pages/Footer/Footer :: footer"></div>
 
-    <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js" integrity="sha512-eP8DK17a+MOcKHXC5Yrqzd8WI5WKh6F1TIk5QZ/8Lbv+8ssblcz7oGC8ZmQ/ZSAPa7ZmsCU4e/hcovqR8jfJqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"
+        integrity="sha512-eP8DK17a+MOcKHXC5Yrqzd8WI5WKh6F1TIk5QZ/8Lbv+8ssblcz7oGC8ZmQ/ZSAPa7ZmsCU4e/hcovqR8jfJqA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
     $('.filtering').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
-        arrows:true,
-        speed:300
+        arrows: true,
+        speed: 300
     });
 
     var filtered = false;
 
-    $('.js-filter').on('click', function(){
+    $('.js-filter').on('click', function () {
         if (filtered === false) {
-            $('.filtering').slick('slickFilter',':even');
+            $('.filtering').slick('slickFilter', ':even');
             $(this).text('Unfilter Slides');
             filtered = true;
         } else {
@@ -811,13 +902,13 @@
         }
     });
 </script>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-            <script>
-                $( function() {
-                    $( "#datepicker" ).datepicker();
-                } );
-            </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+</script>
 </body>
 </html>

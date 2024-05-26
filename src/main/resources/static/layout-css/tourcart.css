@@ -1,0 +1,216 @@
+.mda-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: left;
+    font-weight: 300; /* Making the text thinner */
+}
+
+.mda-table th, .mda-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.mda-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #e0e0e0; /* Slightly darker background color */
+}
+
+.mda-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.mda-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.mda-table td span {
+    display: block;
+}
+
+.mda-table .mda-money {
+    font-weight: 400; /* Making the currency text normal weight */
+    display: inline;
+}
+
+.mda-table td[colspan="4"] {
+    text-align: center;
+}
+
+.mda-table tr td:first-child {
+    font-weight: bold;
+}
+
+.mda-table tr:first-child td {
+    background-color: #d0d0d0; /* Darker background color for the header row */
+    font-weight: bold;
+    text-align: center;
+}
+
+/*Thong tin lien he*/
+info-calling {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.row-calling {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.col-md-3, .col-md-4, .col-md-8, .col-md-12 {
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.col-md-3 {
+    width: 25%;
+}
+
+.col-md-4 {
+    width: 33.3333%;
+}
+
+.col-md-8 {
+    width: 66.6667%;
+}
+
+.col-md-12 {
+    width: 100%;
+}
+
+.voucher-container {
+    display: flex;
+    align-items: center;
+}
+
+.voucher-container label {
+    flex: 1;
+}
+
+.voucher-container input {
+    width: calc(100% - 120px);
+    margin-right: 10px;
+}
+
+.voucher-container button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.gotit-attention {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    display: block;
+}
+
+.txtTotal {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.txtTotal span {
+    color: red;
+}
+
+/*Thanh toasn*/
+.payment_options {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.payment_option {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.payment_option input[type="radio"] {
+    margin-right: 10px;
+}
+
+.payment_description {
+    display: none;
+    margin-left: 20px;
+}
+
+.payment_option input[type="radio"]:checked + label + .payment_description {
+    display: block;
+}
+
+.payment_option label {
+    cursor: pointer;
+}
+
+.payment_option label + .payment_description {
+    display: none;
+}
+
+.payment_option input[type="radio"]:checked + label + .payment_description {
+    display: block;
+}
+
+.payment_option label a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.payment_option label a:hover {
+    text-decoration: underline;
+}
+
+/* Zalopay*/
+.payment_description {
+    display: none;
+}
+
+.payment_description p {
+    color: green;
+    font-weight: bold;
+}
+
+.payment_description select {
+    width: 330px;
+    height: 38px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.payment_description strong {
+    color: #000;
+    font-size: 14px;
+}
+
+.payment_description .fa-hand-o-right {
+    margin-right: 5px;
+}

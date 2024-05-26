@@ -1,24 +1,29 @@
 
-.GKH{
+.GKH {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
-.GKH:hover{
+
+.GKH:hover {
     color: #66FFFF;
 }
+
 .input-group-text {
     background-color: white;
     border-left: none;
     cursor: pointer;
 }
-.input-group-text:hover{
+
+.input-group-text:hover {
     color: #66FFFF;
 }
+
 .form-control:focus {
     box-shadow: none;
     border-color: #ced4da;
 }
+
 .input-group .form-control {
     border-right: none;
 }

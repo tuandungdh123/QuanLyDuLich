@@ -16,31 +16,38 @@
     font-size: 14px; /* Kích thước chữ */
     font-weight: normal; /* Độ đậm của chữ */
 }
+
 .button-link:hover {
     color: #FF5733; /* Màu chữ khi hover */
 }
+
 .btn-group-tienich {
     display: flex;
     justify-content: center; /* Các phần tử được căn ra hai bên */
     border: none;
 }
+
 .owl-item {
     width: auto;
     margin-right: 5px;
 }
+
 .item {
     border: 1px solid #e0e0e0;
     border-radius: 5px;
     overflow: hidden;
     font-family: Arial, sans-serif;
 }
+
 .mda-box-item {
     position: relative;
 }
+
 .mda-box-img img {
     width: 100%;
     height: auto;
 }
+
 .mda-box-lb {
     position: absolute;
     top: 10px;
@@ -51,20 +58,24 @@
     border-radius: 3px;
     font-size: 14px;
 }
+
 .mda-caption {
     padding: 10px;
 }
+
 .mda-name a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
     font-size: 16px;
 }
+
 .mda-info {
     display: grid;
     grid-template-columns: 1fr;
     gap: 5px;
 }
+
 .mda-time-grid,
 .mda-schedule,
 .mda-place,
@@ -72,68 +83,81 @@
     font-size: 14px;
     margin: 2px 0;
 }
+
 .mda-price {
     color: #e53935;
     font-weight: bold;
     font-size: 18px;
 }
+
 .mda-place,
 .mda-price {
     display: inline-block;
     margin-right: 60px; /* Điều chỉnh khoảng cách giữa hai phần tử */
 }
+
 .mda-box-img img {
 
     max-width: 100%;
     max-height: 300px;
 }
+
 .btn-group-product {
     display: flex;
     justify-content: space-between; /* Các phần tử được căn ra hai bên */
     border: none;
 }
-.btn-group-product a{
+
+.btn-group-product a {
     text-decoration: none;
     color: black;
 }
-.semi-final h3{
+
+.semi-final h3 {
     color: #737373;
     font-family: roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
 
     line-height: 1.6em;
     font-weight: 400;
 }
-.semi-final i{
+
+.semi-final i {
     width: 30px;
     height: 30px;
     color: white;
     border-radius: 50%; /* Tạo border hình tròn */
-    border: 2px solid ; /* Màu border */
+    border: 2px solid; /* Màu border */
     background-color: #ff006f; /* Màu nền cho border */
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.GKH{
+
+.GKH {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
-.GKH:hover{
+
+.GKH:hover {
     color: #66FFFF;
 }
+
 .input-group-text {
     background-color: white;
     border-left: none;
     cursor: pointer;
 }
-.input-group-text:hover{
+
+.input-group-text:hover {
     color: #66FFFF;
 }
+
 .form-control:focus {
     box-shadow: none;
     border-color: #ced4da;
 }
+
 .input-group .form-control {
     border-right: none;
 }

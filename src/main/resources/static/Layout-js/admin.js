@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var widget = document.getElementById('weather-widget');
 
     if (widget) {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Location:', location);
 
         // Giả sử có một hàm fetchWeather để lấy thông tin thời tiết
-        fetchWeather(location).then(function(temp) {
+        fetchWeather(location).then(function (temp) {
             document.getElementById('temperature').textContent = temp + '°C';
         });
     }
@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function fetchWeather(location) {
     // Hàm giả lập việc lấy thông tin thời tiết
-    return new Promise(function(resolve) {
-        setTimeout(function() {
+    return new Promise(function (resolve) {
+        setTimeout(function () {
             resolve(25); // Giả sử nhiệt độ là 25°C
         }, 1000);
     });
