@@ -13,4 +13,5 @@ import java.util.Optional;
 public interface AccountService {
     List<AccountEntity> getAllAccount();
     Optional<AccountEntity> getAccountByTkAndMk(String accountName, String Pass_Word) throws SQLException;
+//    Optional<AccountEntity> getAccountByAccountEntity(String accountName, String Pass_Word, String Email, String Phone, String Roles) throws SQLException;
 }

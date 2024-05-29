@@ -17,7 +17,7 @@
 //     if (isValid) {
 //         Swal.fire("Đăng nhập thành công!");
 //         setTimeout(function () {
-//             // window.location.href = '/home'; // Chuyển hướng đến endpoint "/home" được định nghĩa trong HomeController
+//             window.location.href = '/home'; // Chuyển hướng đến endpoint "/home" được định nghĩa trong HomeController
 //         }, 1500);
 //     }
 // });

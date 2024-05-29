@@ -26,4 +26,9 @@ public class AccountServiceImpl implements AccountService {
         var result = repo.getAccountEByTkAndMk(accountName, Pass_Word);
         return Optional.ofNullable(result);
     };
+//    @Override
+//    public Optional<AccountEntity> getAccountByAccountEntity(String accountName, String Pass_Word, String Email, String Phone, String Roles) throws SQLException; {
+//        var kq = repo.getAccountByAccountEntity(accountName, Pass_Word, Email, Phone, Roles);
+//        return Optional.ofNullable(result);
+//    };
 }

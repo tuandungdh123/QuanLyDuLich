@@ -8,7 +8,7 @@
 
 </head>
 <body>
-<div class="sidebar">
+<div th:fragment="sidebar" class="sidebar">
     <div class="p-3">
         <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <img th:src="@{/images/LogoLogin.png}" alt="Logo" class="bi me-2" width="40" height="32">
@@ -17,16 +17,16 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">Thống kê</a>
+                <a th:href="@{/admin}" class="nav-link">Thống kê</a>
             </li>
             <li>
-                <a href="#" class="nav-link">Quản lý khách hàng</a>
+                <a th:href="@{/QLTK}" class="nav-link">Quản lý khách hàng</a>
             </li>
             <li>
-                <a href="#" class="nav-link">Quản lý Tour du lịch</a>
+                <a th:href="@{/QLTour}" class="nav-link">Quản lý Tour du lịch</a>
             </li>
             <li>
-                <a href="#" class="nav-link">Quản lý khách sạn</a>
+                <a th:href="@{/QLKS}" class="nav-link">Quản lý khách sạn</a>
             </li>
             <li>
                 <a href="#" class="nav-link">Quản lý thông tin</a>

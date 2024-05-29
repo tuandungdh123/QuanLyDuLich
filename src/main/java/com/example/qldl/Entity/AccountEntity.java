@@ -11,22 +11,22 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(schema = "TOUR_MANAGEMENT", name="Account")
+@Table(name="Account")
 public class AccountEntity {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name="UserID")
-    private Integer UserID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer userId;
     @Column(name="Account")
     private String accountName;
     @Column(name="Pass_Word")
-    private String Pass_Word;
+    private String password;
     @Column(name="Email")
-    private String Email;
+    private String email;
     @Column(name="Phone")
-    private String Phone;
+    private String phone;
     @Column(name="Roles")
-    private byte Roles;
+    private byte role;
 
-//Roles
 }

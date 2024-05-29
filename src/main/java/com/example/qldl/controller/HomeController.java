@@ -16,7 +16,7 @@ public class HomeController {
     }
     @GetMapping("/home")
     public String getHomeView(){ return "pages/Home/Home"; }
-    @GetMapping("/tour")
+    @GetMapping("/")
     public String getTourView(){
         return "pages/Detail/TourDetail";
     }
@@ -38,4 +38,10 @@ public class HomeController {
     public String getHotel(){return "pages/ThueXe/ThueXe";}
     @GetMapping("/admin")
     public String getAdmin(){return "pages/Admin/Admin";}
+    @GetMapping("/QLKS")
+    public String getQLKS(){return "pages/Admin/QLKS";}
+    @GetMapping("/QLTK")
+    public String getQLTK(){return "pages/Admin/QLTK";}
+    @GetMapping("/QLTour")
+    public String getQlTour(){return "pages/Admin/QLTour";}
 }
