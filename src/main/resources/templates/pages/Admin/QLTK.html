@@ -35,36 +35,48 @@
             </div>
         </nav>
 
-        <form>
+        <form id="infoForm">
+            <div class="row">
             <div class="mb-3">
-                <label for="InputEmail1" class="form-label">UserName</label>
-                <input type="username" class="form-control" id="InputUserName" aria-describedby="emailHelp">
+                <label for="InputUserName" class="form-label">UserName</label>
+                <input type="text" class="form-control" id="InputUserName" name="username">
             </div>
             <div class="mb-3">
                 <label for="InputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="InputPassword1">
+                <input type="password" name="password" class="form-control" id="InputPassword1">
             </div>
             <div class="mb-3">
-                <label for="InputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="email" id="email">
             </div>
             <div class="mb-3">
-                <label for="InputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+                <label for="phone" class="form-label">Số điện thoại</label>
+                <input type="number" class="form-control" id="phone">
             </div>
-            <div class="mb-3">
-                <label for="InputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+                <div class="d-flex align-items-center">
+                    <div class="col-3 form-check mb-2">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="admin"/>
+                        <label class="form-check-label " for="admin">
+                            Admin
+                        </label>
+                    </div>
+                    <div class="col-3 form-check mb-2">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="user"/>
+                        <label class="form-check-label" for="user">
+                            User
+                        </label>
+                    </div>
+                </div>
             </div>
         </form>
         <div class="bottom">
-            <button type="button" class="btn btn-outline-info">Create</button>
+            <button type="button" id="addAccountBtn" class="btn btn-outline-info">Create</button>
             <button type="button" class="btn btn-outline-success">Update</button>
             <button type="button" class="btn btn-outline-danger">Delete</button>
         </div>
 
         <div class="tableQLTour">
-            <table class="table">
+            <table class="table" id="fillToForm">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -124,7 +136,7 @@
                    `<td>${e.password}</td>`+
                    `<td>${e.email}</td>`+
                    `<td>${e.phone}</td>`+
-                   `<td>${e.role}</td>`+
+                   `<td>${e.role.roleId}</td>`+
                    `<td>`+
                        `<button type="button" className="btn btn-outline-success">Edit</button>`+
                    `</td>`+
@@ -132,12 +144,41 @@
         });
 
         $("#bodyTableListAccount").html(bodyTableListAccountString);
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     const addAccountBtn = document.getElementById('addAccountBtn');
+        //
+        //     // Fetch all users and display them in the table
+        //     createTableAccount();
+        //
+        //     addAccountBtn.addEventListener('click', function () {
+        //         const name = document.getElementById('InputUserName').value;
+        //         const age = document.getElementById('InputPassword1').value;
+        //         const email = document.getElementById('email').value;
+        //         const phone = document.getElementById('phone').value;
+        //         // const role = document.getElementById('email').value;
+        //
+        //         fetch('/account-api', {
+        //             method: 'GET',
+        //                 headers: {
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify({name, age, email, phone})
+        //         })
+        //             .then(response => response.json())
+        //             .then(data => {
+        //                 alert('User added!');
+        //                 createTableAccount(); // Refresh the user list
+        //             })
+        //             .catch(error => console.error('Error:', error));
+        //     });
+        // })
     }
 
     async function loadDataAccount() {
         let response = await axios.get(`/account-api/getAllAccount`);
         listAccount = response.data.data;
     }
+
 
 
 

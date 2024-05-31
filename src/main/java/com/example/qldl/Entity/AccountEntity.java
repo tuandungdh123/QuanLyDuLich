@@ -20,13 +20,15 @@ public class AccountEntity {
     private Integer userId;
     @Column(name="Account")
     private String accountName;
-    @Column(name="Pass_Word")
+    @Column(name="Pass")
     private String password;
     @Column(name="Email")
     private String email;
     @Column(name="Phone")
     private String phone;
-    @Column(name="Roles")
-    private byte role;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id", referencedColumnName = "role_id")
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    private RoleEntity role;
 
 }
