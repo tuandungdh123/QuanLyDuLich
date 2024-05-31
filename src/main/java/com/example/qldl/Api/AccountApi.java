@@ -36,6 +36,21 @@ public class AccountApi {
         }
         return ResponseEntity.ok(result);
     }
+    @PostMapping("/addAccount")
+    public ResponseEntity<?> doPostAddAccount(){
+        Map<String, Object> result = new HashMap<>();
+        try {
+            result.put("status", true);
+            result.put("message", "Get All Account Success");
+            result.put("data", accServ.save());
+        } catch (Exception e){
+            result.put("status", false);
+            result.put("message", "Get All Account Fail");
+            result.put("data", null);
+            log.error("Fail When Call API /java05/account-api/getAllAccount ", e);
+        }
+        return ResponseEntity.ok(result);
+    }
     @GetMapping("/login")
     public ResponseEntity<?> doGetLogin(@RequestParam("account") String account,
                                         @RequestParam("password") String password){
