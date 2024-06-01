@@ -17,8 +17,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
     final AccountRepo repo;
-    final RoleRepo rolerepo;
-
     @Override
     public List<AccountEntity> getAllAccount(){
         return repo.findAll();
@@ -31,21 +29,18 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public AccountEntity account(AccountEntity account) {
-        return null;
+    public void doGetDelete(int userId) {
+        repo.deleteById(userId);
+    }
+    @Override
+    public AccountEntity doSaveAccount(AccountEntity accountEntity){
+        return repo.save(accountEntity);
     }
 
     @Override
-    public Object save() {
-        return null;
-    }
+    public Optional<AccountEntity> getAccountByUserId(int userId){
+        var result = repo.getAccountEntitiesByUserId(userId);
+        return Optional.ofNullable(result);
+    };
 
-    ;
-    public AccountEntity addAccount(AccountEntity account){
-        return repo.save(account);
-    }
-    @Override
-    public List<RoleEntity> getAllRole(){
-        return rolerepo.findAll();
-    }
 }

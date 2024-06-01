@@ -18,4 +18,7 @@ public interface AccountRepo extends JpaRepository<AccountEntity, Integer> {
     @Query(value = "SELECT role_id, role_name FROM [Role] WHERE role_id=?1 AND role_name = ?2", nativeQuery = true)
     RoleEntity getAllByAccountName(String role_name);
 
+
+    AccountEntity getAccountEntitiesByUserId(int userId);
+
 }

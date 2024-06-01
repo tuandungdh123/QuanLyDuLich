@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface AccountService {
     List<AccountEntity> getAllAccount();
     Optional<AccountEntity> getAccountByTkAndMk(String accountName, String Pass_Word) throws SQLException;
-    AccountEntity account (AccountEntity account);
-    List<RoleEntity> getAllRole();
-    Object save();
+    AccountEntity doSaveAccount(AccountEntity accountEntity);
+    void  doGetDelete(int userId);
+    Optional<AccountEntity> getAccountByUserId(int userId);
 }

@@ -108,7 +108,7 @@
             "username": document.getElementById('username').value,
             "password": document.getElementById('password').value
         }
-        let response = await axios.get(`/AccountRepo/login?account=${userLogin.username}&password=${userLogin.password}`);
+        let response = await axios.get(`/account-api/login?account=${userLogin.username}&password=${userLogin.password}`);
         if(response.status === 200 && response.data.status){
         // console.log(response.data)
         alert('Đăng nhập thành công');

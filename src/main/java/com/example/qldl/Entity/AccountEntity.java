@@ -18,17 +18,21 @@ public class AccountEntity {
     @Column(name="UserID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
+
     @Column(name="Account")
     private String accountName;
+
     @Column(name="Pass")
     private String password;
+
     @Column(name="Email")
     private String email;
+
     @Column(name="Phone")
     private String phone;
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", referencedColumnName = "role_id")
     @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private RoleEntity role;
-
 }
