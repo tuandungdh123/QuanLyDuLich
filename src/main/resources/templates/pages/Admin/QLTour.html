@@ -8,153 +8,192 @@
 
 </head>
 <body>
-<div th:replace=" pages/Admin/admin :: sidebar"></div>
-<div class="content">
-    <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Tour Du Lịch</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <!--                            <li class="nav-item">-->
-                        <!--                                <a class="nav-link" href="#">Xin chào, admin!</a>-->
-                        <!--                            </li>-->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Thông báo <span class="badge bg-danger">2</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng xuất</a>
-                        </li>
-                    </ul>
+    <div th:replace=" pages/Admin/admin :: sidebar"></div>
+        <div class="content">
+            <div class="row">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Tour Du Lịch</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <!--                            <li class="nav-item">-->
+                                <!--                                <a class="nav-link" href="#">Xin chào, admin!</a>-->
+                                <!--                            </li>-->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Thông báo <span class="badge bg-danger">2</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Đăng xuất</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+
+                <div class="row">
+                        <div class="col-4 border border-2 border-black rounded-4 ">
+                            <input type="file" id="image-input" accept="image/*">
+                            <img id="image-preview" style="width: 100%">
+                            <script th:src="@{/Layout-js/PickIMGTOUR.js}"></script>
+                        </div>
+                        <div class="row col-8 from-info-tour" style="margin-left: 10px">
+                            <div class="border border-2 border-black rounded-4 ">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="mb-3">
+                                            <label for="NameTour" class="form-label">Tên Tour</label>
+                                            <input type="text" class="form-control" id="NameTour">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="TimeTravel" class="form-label">Thời Gian</label>
+                                            <input type="text" class="form-control" id="TimeTravel">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="Start" class="form-label">Ngày Khởi Hành</label>
+                                            <input type="date" class="form-control" id="Start">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="Transport" class="form-label">Phương Tiện</label>
+                                            <input type="text" class="form-control" id="Transport">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="StartPlace" class="form-label">Nơi Khởi Hành</label>
+                                            <input type="text" class="form-control" id="StartPlace">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="select">
+                                            <div class="top ">
+                                                <select class="form-select p-2" aria-label="Default select example">
+                                                    <option selected>Tour loại 1</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="Slot" class="form-label">Ghế Trống</label>
+                                            <input type="number" class="form-control" id="Slot" min="0">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="Price" class="form-label">Giá Tour</label>
+                                            <input type="text" class="form-control" id="Price">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="Note" class="form-label">Ghi Chú</label>
+                                            <textarea class="form-control" id="Note" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+
+                <div class="buttom mt-4">
+                    <button type="button" class="btn btn-outline-info">Create</button>
+                    <button type="button" class="btn btn-outline-success">Update</button>
+                    <button type="button" class="btn btn-outline-danger">Delete</button>
+                </div>
+
+                <div class="card card-body mt-4 tableQLTour">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>LỊCH TRÌNH TOUR</th>
+                            <th>THỜI GIAN</th>
+                            <th>KHỞI HÀNH</th>
+                            <th>KHÁCH SẠN</th>
+                            <th>PHƯƠNG TIỆN</th>
+                            <th>GIÁ TOUR</th>
+                            <th>Edit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>TOUR MIỀN TÂY </td>
+                            <td>2 Ngày 1 đêm</td>
+                            <td>Theo yêu cầu</td>
+                            <td>Ánh Sao</td>
+                            <td>Xe Giường nằm Limousine</td>
+                            <td>450.000VNĐ</td>
+                            <td>
+                                <button type="button" class="btn btn-info">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>TOUR ĐÀ LẠT </td>
+                            <td>3 Ngày 3 đêm</td>
+                            <td>Theo yêu cầu</td>
+                            <td>Ánh Sao</td>
+                            <td>Xe Giường nằm Limousine</td>
+                            <td>2.890.000VNĐ</td>
+                            <td>
+                                <button type="button" class="btn btn-info">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>TOUR MIỀN TRUNG </td>
+                            <td>3 Ngày 2 đêm</td>
+                            <td>Theo yêu cầu</td>
+                            <td>Ánh Sao</td>
+                            <td>Máy Bay</td>
+                            <td>5.388.000VNĐ</td>
+                            <td>
+                                <button type="button" class="btn btn-info">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>TOUR MIỀN TÂY </td>
+                            <td>2 Ngày 1 đêm</td>
+                            <td>Theo yêu cầu</td>
+                            <td>Ánh Sao</td>
+                            <td>Xe Giường nằm Limousine</td>
+                            <td>450.000VNĐ</td>
+                            <td>
+                                <button type="button" class="btn btn-info">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>TOUR MIỀN BẮC </td>
+                            <td>5 Ngày 4 đêm</td>
+                            <td>Theo yêu cầu</td>
+                            <td>Ánh Sao</td>
+                            <td>Máy Bay</td>
+                            <td>9.388.000VNĐ</td>
+                            <td>
+                                <button type="button" class="btn btn-info">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>...</td>
+                            <td>... </td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>
+                                <button type="button" class="btn btn-info">Edit</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </nav>
-
-        <form>
-            <div class="mb-3">
-                <label for="TourSchedule" class="form-label">Lịch Trình Tour</label>
-                <input type="text" class="form-control" name="TourSchedule" id="TourSchedule" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="TIME" class="form-label">Thời Gian</label>
-                <input type="text" name="TIME" class="form-control" id="TIME" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="HOTEL" class="form-label">Khách Sạn</label>
-                <input type="text" name="HOTEL" class="form-control" id="HOTEL">
-            </div>
-            <div class="mb-3">
-                <label for="Media" class="form-label">Phương Tiện</label>
-                <input type="text" name="Media" class="form-control" id="Media">
-            </div>
-            <div class="mb-3">
-                <label for="TourPrice" class="form-label">Giá Tour</label>
-                <input type="number" name="TourPrice" class="form-control" id="TourPrice">
-            </div>
-        </form>
-
-        <div class="bottom">
-            <button type="button" class="btn btn-outline-info">Create</button>
-            <button type="button" class="btn btn-outline-success">Update</button>
-            <button type="button" class="btn btn-outline-danger">Delete</button>
         </div>
-
-        <div class="tableQLTour">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>LỊCH TRÌNH TOUR</th>
-                    <th>THỜI GIAN</th>
-                    <th>KHỞI HÀNH</th>
-                    <th>KHÁCH SẠN</th>
-                    <th>PHƯƠNG TIỆN</th>
-                    <th>GIÁ TOUR</th>
-                    <th>Edit</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>01</td>
-                    <td>TOUR MIỀN TÂY </td>
-                    <td>2 Ngày 1 đêm</td>
-                    <td>Theo yêu cầu</td>
-                    <td>Ánh Sao</td>
-                    <td>Xe Giường nằm Limousine</td>
-                    <td>450.000VNĐ</td>
-                    <td>
-                        <button type="button" class="btn btn-info">Edit</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>02</td>
-                    <td>TOUR ĐÀ LẠT </td>
-                    <td>3 Ngày 3 đêm</td>
-                    <td>Theo yêu cầu</td>
-                    <td>Ánh Sao</td>
-                    <td>Xe Giường nằm Limousine</td>
-                    <td>2.890.000VNĐ</td>
-                    <td>
-                        <button type="button" class="btn btn-info">Edit</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>03</td>
-                    <td>TOUR MIỀN TRUNG </td>
-                    <td>3 Ngày 2 đêm</td>
-                    <td>Theo yêu cầu</td>
-                    <td>Ánh Sao</td>
-                    <td>Máy Bay</td>
-                    <td>5.388.000VNĐ</td>
-                    <td>
-                        <button type="button" class="btn btn-info">Edit</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>04</td>
-                    <td>TOUR MIỀN TÂY </td>
-                    <td>2 Ngày 1 đêm</td>
-                    <td>Theo yêu cầu</td>
-                    <td>Ánh Sao</td>
-                    <td>Xe Giường nằm Limousine</td>
-                    <td>450.000VNĐ</td>
-                    <td>
-                        <button type="button" class="btn btn-info">Edit</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>05</td>
-                    <td>TOUR MIỀN BẮC </td>
-                    <td>5 Ngày 4 đêm</td>
-                    <td>Theo yêu cầu</td>
-                    <td>Ánh Sao</td>
-                    <td>Máy Bay</td>
-                    <td>9.388.000VNĐ</td>
-                    <td>
-                        <button type="button" class="btn btn-info">Edit</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>...</td>
-                    <td>... </td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>
-                        <button type="button" class="btn btn-info">Edit</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
     </div>
-</div>
 
 
 </body>

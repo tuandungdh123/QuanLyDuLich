@@ -11,12 +11,46 @@ body {
 .sidebar .nav-link {
     color: #fff;
 }
-.sidebar .nav-link.active {
-    background-color: #007bff;
+/*.sidebar .nav-link:hover{*/
+/*    background-color: #0056b3; !* Màu nền khi hover *!*/
+/*    color: white; !* Màu chữ khi hover *!*/
+/*    border-color: #66ffff; !* Màu viền khi hover *!*/
+/*}*/
+
+.nav-link {
+    padding: 15px 30px;
+    font-size: 16px;
+    color: black;
+    /*background-color: #1e90ff;*/
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
+
+.nav-link:active {
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.8), 0 0 30px rgba(30, 144, 255, 0.6), 0 0 40px rgba(30, 144, 255, 0.4);
+    transform: scale(0.95);
+}
+
 .content {
     margin-left: 250px;
     padding-left: 15px;
     padding-right: 15px;
     flex: 1;
+}
+
+
+/*QLTour IMG*/
+#image-preview {
+    display: none; /* Ẩn ảnh cho đến khi có ảnh được chọn */
+    margin-top: 10px;
+    max-width: 100%;
+    max-height: 400px;
+}
+#image-input {
+    margin-top: 20px;
+}
+.imgQLTour{
+    text-align: center;
 }
