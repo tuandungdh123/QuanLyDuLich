@@ -2,9 +2,7 @@ package com.example.qldl.Service.Implementation;
 
 
 import com.example.qldl.Entity.AccountEntity;
-import com.example.qldl.Entity.RoleEntity;
 import com.example.qldl.Repository.AccountRepo;
-import com.example.qldl.Repository.RoleRepo;
 import com.example.qldl.Service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

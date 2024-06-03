@@ -76,7 +76,7 @@
             </button>
             <button type="button" class="btn btn-outline-success">Update</button>
             <button type="button" class="btn btn-outline-danger">Delete</button>
-            <button type="button" id="btnClearForm" class="btn btn-outline-info" onclick="clearForm()" n>Clear</button>
+            <button type="button" id="btnClearForm" class="btn btn-outline-info" onclick="clearForm()" >Clear</button>
         </div>
 
         <div class="tableQLTour">
@@ -99,30 +99,30 @@
     </div>
 </div>
 <script type="application/javascript">
-    listAccount = [
-        {
-            userId: "001",
-            accountName: "Bui Quoc Dat",
-            password: "123456",
-            email: "datbui185@gmail.com",
-            phone: "0964192032",
-            role: {
-                roleId: "001",
-                roleName: "Admin"
-            }
-        },
-        {
-            userId: "002",
-            accountName: "Truong Tuan Dung",
-            password: "654321",
-            email: "tuandung@gmail.com",
-            phone: "0394314552",
-            role: {
-                roleId: "002",
-                roleName: "User"
-            }
-        }
-    ]
+// <!--    listAccount = [-->
+// <!--        {-->
+// <!--            userId: "001",-->
+// <!--            accountName: "Bui Quoc Dat",-->
+// <!--            password: "123456",-->
+// <!--            email: "datbui185@gmail.com",-->
+// <!--            phone: "0964192032",-->
+// <!--            role: {-->
+// <!--                roleId: "001",-->
+// <!--                roleName: "Admin"-->
+// <!--            }-->
+// <!--        },-->
+// <!--        {-->
+// <!--            userId: "002",-->
+// <!--            accountName: "Truong Tuan Dung",-->
+// <!--            password: "654321",-->
+// <!--            email: "tuandung@gmail.com",-->
+// <!--            phone: "0394314552",-->
+// <!--            role: {-->
+// <!--                roleId: "002",-->
+// <!--                roleName: "User"-->
+<!--            }-->
+<!--        }-->
+<!--    ]-->
 
     $(document).ready(async function () {
         await loadDataAccount();
@@ -183,6 +183,7 @@
     async function loadDataAccount() {
         let response = await axios.get(`/account-api/getAllAccount`);
         listAccount = response.data.data;
+        console.log(response.data.data)
     }
 
     async function getAccountInformation(userId) {
