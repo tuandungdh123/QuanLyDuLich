@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Optional;
 public interface AccountService {
     List<AccountEntity> getAllAccount();
-    Optional<AccountEntity> getAccountByTkAndMk(String accountName, String Pass_Word) throws SQLException;
+    Optional<AccountEntity> getAccountByTkAndMk(String accountName, String password) throws SQLException;
     AccountEntity doSaveAccount(AccountEntity accountEntity);
-    void  doGetDelete(int userId);
+    void  doDeleteById(int userId);
     Optional<AccountEntity> getAccountByUserId(int userId);
 }

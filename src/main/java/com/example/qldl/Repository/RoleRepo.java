@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface RoleRepo extends JpaRepository<RoleEntity, Integer> {
-    @Query("select u from RoleEntity u where u.roleName like ?1")
-    public List<RoleEntity> findByRoleName(String role_name);
+    @Query("select u from RoleEntity u where u.role_name like ?1")
+    public List<RoleEntity> findByRoleName(String roleName);
 }

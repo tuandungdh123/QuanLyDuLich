@@ -15,10 +15,10 @@ public class RoleEntity {
     @Id
     @Column(name = "role_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer roleId;
+    private Integer role_id;
 
     @Column(name = "role_name")
-    private String roleName;
+    private String role_name;
 
 
 
