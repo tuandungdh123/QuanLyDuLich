@@ -13,9 +13,5 @@ public interface AccountRepo extends JpaRepository<AccountEntity, Integer> {
     @Query(value = "SELECT UserID, Account, Pass, Email, Phone, role_id FROM Account WHERE Account = ?1 AND Pass = ?2", nativeQuery = true)
     AccountEntity getAccountEByTkAndMk(String accountName, String Pass);
     Optional<AccountEntity> findAccountByAccountName(String accountName);
-
-    @Query(value = "SELECT role_id, role_name FROM [Role] WHERE role_id=?1 AND role_name = ?2", nativeQuery = true)
-
-
     AccountEntity getAccountEntitiesByUserId(int userId);
 }

@@ -52,7 +52,7 @@
                                placeholder="Nhập mật khẩu của bạn" />
                         <button type="button" class="btn position-absolute bottom-0 end-0 btnShowPassword" d>
                             <i class="bi bi-eye-fill" id="toggleShowPassword"></i></button>
-                        <div id="passwordError" class="error text-light"></div>
+                        <div id="passwordError" class="error text-danger"></div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
                         <!-- Checkbox -->
@@ -105,19 +105,34 @@
 
     async function btnLogin_click () {
         let userLogin = {
-            "username": document.getElementById('username').value,
-            "password": document.getElementById('password').value
+            account: document.getElementById('username').value,
+            password: document.getElementById('password').value
         }
-        let response = await axios.get(`/account-api/login?account=${userLogin.username}&password=${userLogin.password}`);
-        if(response.status === 200 && response.data.status){
-        // console.log(response.data)
-        alert('Đăng nhập thành công');
-        window.location.href='/home';
-        }else if (userLogin.username === '' && userLogin.password === ''){
+        if (userLogin.account === '' && userLogin.password === ''){
             document.getElementById('usernameError').textContent = 'Vui Lòng Nhập Tài Khoản'
             document.getElementById('passwordError').textContent = 'Vui Lòng Nhập Mật Khẩu'
-        }else {
-            alert('Đăng nhập thất bại')
+            return
+        }
+        let response = await axios.get(`/account-api/login`, { params: userLogin });
+        if(response.status === 200 && response.data.status){
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                localStorage.setItem('account', userLogin.account)
+                    window.location.href='/home'
+            });
+        } else {
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Đăng nhập thất bại",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     }
 

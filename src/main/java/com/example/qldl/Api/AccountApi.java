@@ -74,13 +74,13 @@ public class AccountApi {
         return ResponseEntity.ok(result);
     }
 
-    @DeleteMapping ("/getDeleteId")
-    public ResponseEntity<?> doPostDeleteUserId(@RequestParam("userId") int userId){
+    @DeleteMapping ("/DeleteId")
+    public ResponseEntity<?> doDeleteUserId(@RequestParam("userId") int userId){
         Map<String, Object> result = new HashMap<>();
         try {
             result.put("success",true);
             result.put("message","Call Api Success");
-            accServ.doGetDelete(userId);
+            accServ.doDeleteById(userId);
         }catch(Exception e) {
             result.put("success",false);
             result.put("message","Call Api Error");
@@ -112,7 +112,7 @@ public class AccountApi {
     }
 
     @GetMapping("/getUserByUserId")
-    public ResponseEntity<?> dogetUserByUserId(@RequestParam("userId") int userId){
+    public ResponseEntity<?> doGetUserByUserId(@RequestParam("userId") int userId){
         Map<String, Object> result = new HashMap<>();
         try {
             result.put("status", true);

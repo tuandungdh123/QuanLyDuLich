@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class RoleServiceImpl implements RoleService {
     @Autowired
@@ -16,7 +18,8 @@ public class RoleServiceImpl implements RoleService {
         return roleRepository.findAll() ;
     }
     @Override
-    public List<RoleEntity> getByRoleName(String role_name) {
-        return roleRepository.findByRoleName(role_name);
-    }
+    public Optional<RoleEntity> getRoleByRoleName(String role_name){
+        var result = roleRepository.findByRoleName(role_name);
+        return result;
+    };
 }

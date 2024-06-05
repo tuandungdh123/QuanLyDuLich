@@ -3,8 +3,9 @@ package com.example.qldl.Service;
 import com.example.qldl.Entity.RoleEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RoleService {
     List<RoleEntity> getAllRole();
-    List<RoleEntity> getByRoleName(String role_name);
+    Optional<RoleEntity> getRoleByRoleName(String role_name);
 }
