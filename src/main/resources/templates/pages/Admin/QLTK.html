@@ -7,7 +7,6 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/layout-css/admin.css}">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 </head>
@@ -160,6 +159,34 @@
         });
 
         $("#bodyTableListAccount").html(bodyTableListAccountString);
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     const addAccountBtn = document.getElementById('addAccountBtn');
+        //
+        //     // Fetch all users and display them in the table
+        //     createTableAccount();
+        //
+        //     addAccountBtn.addEventListener('click', function () {
+        //         const name = document.getElementById('InputUserName').value;
+        //         const age = document.getElementById('InputPassword1').value;
+        //         const email = document.getElementById('email').value;
+        //         const phone = document.getElementById('phone').value;
+        //         // const role = document.getElementById('email').value;
+        //
+        //         fetch('/account-api', {
+        //             method: 'GET',
+        //                 headers: {
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify({name, age, email, phone})
+        //         })
+        //             .then(response => response.json())
+        //             .then(data => {
+        //                 alert('User added!');
+        //                 createTableAccount(); // Refresh the user list
+        //             })
+        //             .catch(error => console.error('Error:', error));
+        //     });
+        // })
     }
 
     async function loadDataAccount() {

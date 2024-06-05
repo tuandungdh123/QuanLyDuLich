@@ -20,6 +20,6 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Optional<RoleEntity> getRoleByRoleName(String role_name){
         var result = roleRepository.findByRoleName(role_name);
-        return Optional.ofNullable(result);
+        return result;
     };
 }

@@ -32,7 +32,7 @@ public class RoleApi {
         try {
             result.put("status", true);
             result.put("message", "Get All Account Success");
-            //result.put("data", roleService.getRoleEntitiesByRoleName(role_name));
+            result.put("data", roleService.getRoleByRoleName(role_name));
         } catch (Exception e){
             result.put("status", false);
             result.put("message", "Get All Account Fail");
