@@ -63,7 +63,7 @@ function clearForm() {
     document.getElementById('imageInput').style.display = 'block';
 }
 
-async function saveTourInForm() {
+async function saveCarInForm() {
     // Lấy dữ liệu từ form
     let car = {
         typeCar: document.getElementById('typeCar').value,
@@ -89,7 +89,7 @@ async function saveTourInForm() {
     }
 }
 
-async function updateTourInForm() {
+async function updateCarInForm() {
     let carId = document.getElementById('carId').value;
     let car = {
         carId: carId,
