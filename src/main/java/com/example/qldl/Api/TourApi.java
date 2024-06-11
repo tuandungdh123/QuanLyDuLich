@@ -56,6 +56,22 @@ public class TourApi {
         return ResponseEntity.ok(result);
     }
 
+    @GetMapping("/getTourByTypeID")
+    public ResponseEntity<?> doGetTourByTypeID(@RequestParam("type_ID") Integer type_ID){
+        Map<String, Object> result = new HashMap<>();
+        try {
+            result.put("status", true);
+            result.put("message", "Get All Account Success");
+            result.put("data", tourService.getToursByTypeId(type_ID));
+        } catch (Exception e){
+            result.put("status", false);
+            result.put("message", "Get All Account Fail");
+            result.put("data", null);
+            log.error("Fail When Call API /java05/tour-api/getTourByTypeId ", e);
+        }
+        return ResponseEntity.ok(result);
+    }
+
     @PostMapping ("/getSaveTour")
     public ResponseEntity<?> doGetSaveTour(@RequestBody TourE tourE){
         Map<String, Object> result = new HashMap<>();

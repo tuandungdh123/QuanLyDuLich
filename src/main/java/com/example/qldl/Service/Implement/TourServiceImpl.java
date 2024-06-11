@@ -1,8 +1,7 @@
-package com.example.qldl.Service.Implementation;
+package com.example.qldl.Service.Implement;
 
 
 import com.example.qldl.Entity.TourE;
-import com.example.qldl.Entity.TypeTourE;
 import com.example.qldl.Repository.TourRepo;
 import com.example.qldl.Repository.TypeTourRepo;
 import com.example.qldl.Service.TourService;
@@ -18,11 +17,6 @@ public class TourServiceImpl implements TourService {
     final TourRepo tourRepo;
     final TypeTourRepo typeTourRepo;
 
-    @Override
-    public List<TypeTourE> getAllTypeTourE(){
-        return typeTourRepo.findAll();
-    }
-
 
     @Override
     public List<TourE> getAllTour() {
@@ -30,7 +24,7 @@ public class TourServiceImpl implements TourService {
     }
 
 
-
+    @Override
     public TourE addTour(TourE tourE){
         return tourRepo.save(tourE);
     }
@@ -44,9 +38,22 @@ public class TourServiceImpl implements TourService {
         }
     }
 
+
+//
+//    @Override
+//    public List<TourE> getToursByTypeId(Integer type_Id) {
+//        return tourRepo.findTourEByTypeTourE(type_Id);
+//    }
+
     @Override
     public Optional<TourE> getTourEByTourId(Integer tourID) {
         var result = tourRepo.getTourEByTourID(tourID);
         return Optional.ofNullable(result);
+    }
+
+
+    @Override
+    public List<TourE> getToursByTypeId(Integer type_ID) {
+        return tourRepo.getTourEByTypeId(type_ID);
     }
 }

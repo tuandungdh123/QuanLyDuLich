@@ -18,7 +18,7 @@
 async function saveTourInForm() {
     // Lấy dữ liệu từ các trường nhập liệu
     const nameTour = $("#nameTour").val();
-    const imageTour = $("#imageInput").val();
+    const imageTour = $("#imageInput").val().split('\\')[2];
     const type_Id = parseInt($("#type_Id").val());
     const tourDuration = $("#TimeTravel").val();
     const timeStart = $("#Start").val();
@@ -53,7 +53,7 @@ async function saveTourInForm() {
         description: description,
         available: available
     };
-    console.log("Du lieu truyen vao", TourData);
+    console.log(TourData)
 
     Swal.fire({
         title: 'Lưu Tour Này Chứ?',
@@ -66,8 +66,9 @@ async function saveTourInForm() {
         if (result.isConfirmed) {
             try {
                 let response = await axios.post('/tour-api/getSaveTour', TourData);
-                console.log(response.data);
+                await upLoadFile();
                 await loadDataTour();
+
                 createTableTourByTypeTour(listAllTour);
                 clearForm(); // Xóa form sau khi lưu thành công
                 Swal.fire(
@@ -86,6 +87,7 @@ async function saveTourInForm() {
         }
     });
 }
+
 //Update
 async function updateTourInForm() {
     const updateTourData = {
@@ -104,11 +106,10 @@ async function updateTourInForm() {
         available: parseInt($("#Slot").val())
         // Kiểm tra dữ liệu đầu vào
     }
-    console.log(updateTourData);
     console.log("Du lieu truyen vao", updateTourData);
 
     let response = await axios.post('/tour-api/getSaveTour', updateTourData);
-    console.log(response.data);
+    await upLoadFile();
     await loadDataTour();
     createTableTourByTypeTour(listAllTour);
 }
@@ -121,11 +122,14 @@ async function getTourToForm(tourID) {
         fillTourForm(result.data)
     }
 }
+
 function fillTourForm(tourDetail) {
     $("#TourID").val(tourDetail.tourID);
     $("#nameTour").val(tourDetail.nameTour);
+
     // $("#imageInput").val(tourDetail.imageTour);
-    // $('#currentImage').attr('src', tourDetail.imageTour);
+    $('#image-preview').attr('src', '/images/imagesTour2/' + tourDetail.imageTour);
+    console.log('/images/imagesTour2/' + tourDetail.imageTour)
     // // Không đặt giá trị cho input file vì điều này không được phép
     // $('#imageInput').val(''); // Chỉ có thể đặt giá trị là chuỗi rỗng
     $("#type_Id").val(tourDetail.typeTourE.type_Id);
@@ -140,56 +144,56 @@ function fillTourForm(tourDetail) {
 
 }
 
-    //Delete
-    async function deleteTourByID(TourData) {
-        try {
-            let response = await axios.delete(`/tour-api/getDeleteTour?tourID=${TourData.tourID}`);
-            let result = response.data;
-            if (result.status) {
-                console.log("Xóa thành công");
+//Delete
+async function deleteTourByID(TourData) {
+    try {
+        let response = await axios.delete(`/tour-api/getDeleteTour?tourID=${TourData.tourID}`);
+        let result = response.data;
+        if (result.status) {
+            console.log("Xóa thành công");
             //
-                await loadDataTour();
-                createTableTourByTypeTour(listAllTour);
+            await loadDataTour();
+            createTableTourByTypeTour(listAllTour);
             //
-            } else {
-                console.error("Xóa thất bại: ", result.message);
-            }
-        } catch (error) {
-            console.error("Error deleting tour: ", error);
+        } else {
+            console.error("Xóa thất bại: ", result.message);
         }
+    } catch (error) {
+        console.error("Error deleting tour: ", error);
     }
-    document.getElementById("deleteBtn").addEventListener("click", function() {
-        const TourData = {
-            tourID : $("#TourID").val(),
-        }
-        console.log("Deleting tour with ID:", TourData); // Debugging
-        deleteTourByID(TourData);
-    });
+}
+
+document.getElementById("deleteBtn").addEventListener("click", function () {
+    const TourData = {
+        tourID: $("#TourID").val(),
+    }
+    console.log("Deleting tour with ID:", TourData); // Debugging
+    deleteTourByID(TourData);
+});
 
 //Clear Form
 function clearForm() {
-        $("#TourID").val("");
-        $("#nameTour").val("");
-        $("#imageInput").val("");
-        $("#type_Id").val("");
-        $("#TimeTravel").val("");
-        $("#Start").val("");
-        $("#Transport").val("");
-        $("#StartPlace").val("");
-        $("#Price").val("");
-        $("#Note").val("");
-        $("#Slot").val("");
+    $("#TourID").val("");
+    $("#nameTour").val("");
+    $("#imageInput").val("");
+    $("#type_Id").val("");
+    $("#TimeTravel").val("");
+    $("#Start").val("");
+    $("#Transport").val("");
+    $("#StartPlace").val("");
+    $("#Price").val("");
+    $("#Note").val("");
+    $("#Slot").val("");
 }
 
 
-
 //Loc tour theo typeTour va fill data len table
-$(document).ready(async function(){
+$(document).ready(async function () {
     await loadDataTour();
     createTableTourByTypeTour(listAllTour); // Gọi hàm createTableTour sau khi loadDataTour đã hoàn tất
 
     // Thêm sự kiện cho dropdown để lọc danh sách tour khi thay đổi lựa chọn
-    $("#TypeTour").on("change", function() {
+    $("#TypeTour").on("change", function () {
         let selectedType = $(this).val();
         console.log("Selected type_Id: ", selectedType);
         let filteredTours = filterToursByType(listAllTour, selectedType);
@@ -200,10 +204,10 @@ $(document).ready(async function(){
 function createTableTourByTypeTour(addToTable) {
     let populateTypeTourDropdown = '';
 
-    addToTable.forEach(function (e) {
+    addToTable.forEach(function (e, index) {
         populateTypeTourDropdown +=
             `<tr>` +
-            `<td>${e.tourID}</td>` +
+            `<td>${index + 1}</td>` +
             `<td>${e.nameTour}</td>` +
             `<td>${e.imageTour}</td>` +
             `<td>${e.typeTourE.type_Name}</td>` +
@@ -222,17 +226,43 @@ function createTableTourByTypeTour(addToTable) {
     $("#BodyListAllTour").html(populateTypeTourDropdown);
 }
 
-async function loadDataTour(){
+async function loadDataTour() {
     try {
         let response = await axios.get(`/tour-api/getAllTour`);
         listAllTour = response.data.data;
-        console.log(listAllTour);
     } catch (error) {
         console.error("Error loading tours:", error);
     }
 }
 
+
+
 function filterToursByType(tours, type_Id) {
     if (!type_Id) return tours; // Nếu không chọn loại nào, trả về toàn bộ danh sách
     return tours.filter(tour => tour.typeTourE.type_Id === parseInt(type_Id));
+}
+
+async function upLoadFile() {
+    var formData = new FormData();
+    var fileInput = $('#imageInput')[0];
+
+    // Kiểm tra xem đã chọn file chưa
+    if (fileInput.files.length === 0) {
+        alert('Please select a file to upload.');
+        return;
+    }
+
+    formData.append('file', fileInput.files[0]);
+
+    let response = await axios.post('/upload-api/upload', formData, {})
+        .then(function (response) {
+            alert('File uploaded successfully!');
+        })
+        .catch(function (error) {
+            alert('An error occurred while uploading the file: ' + error.message);
+        });
+}
+
+onError = (e) => {
+    e.target.src = '/images/ImagesTour2/img.png'
 }

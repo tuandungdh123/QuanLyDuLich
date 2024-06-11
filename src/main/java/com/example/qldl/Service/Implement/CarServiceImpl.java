@@ -1,4 +1,4 @@
-package com.example.qldl.Service.Implementation;
+package com.example.qldl.Service.Implement;
 
 import com.example.qldl.Entity.CarEntity;
 import com.example.qldl.Repository.CarRepo;
@@ -6,7 +6,6 @@ import com.example.qldl.Service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.List;
 
 @Service
