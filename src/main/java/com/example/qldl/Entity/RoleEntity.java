@@ -3,6 +3,8 @@ package com.example.qldl.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Optional;
+
 @Data
 @Getter
 @Setter
@@ -14,7 +16,6 @@ public class RoleEntity {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "role_id")
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer role_id;
 
@@ -22,6 +23,6 @@ public class RoleEntity {
     private String role_name;
 
 
-
-
+    public void add(Optional<RoleEntity> defaultRole) {
+    }
 }

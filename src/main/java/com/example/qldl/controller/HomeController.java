@@ -10,6 +10,8 @@ public class HomeController {
     public String getLogin(){
         return "Login";
     }
+    @GetMapping("/register")
+    public String getRegister(){return "pages/Register";}
     @GetMapping("/nav")
     public String getPageView(){
         return "pages/Navbar/Navbar";
