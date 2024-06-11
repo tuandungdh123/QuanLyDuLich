@@ -9,5 +9,5 @@ import java.util.Optional;
 
 public interface RoleRepo extends JpaRepository<RoleEntity, Integer> {
     @Query("select u from RoleEntity u where u.role_name like ?1")
-    public Optional<RoleEntity> findByRoleName(String role_name);
+    public  Optional<RoleEntity> findByRoleName(String role_name);
 }
