@@ -1,7 +1,7 @@
 package com.example.qldl.Api;
 
 
-import com.example.qldl.Service.TourService;
+import com.example.qldl.Service.TypeTourService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +17,14 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class TypeTourApi {
     @Autowired
-    private TourService tourService;
+    private TypeTourService typeTourService;
 
     @GetMapping("/getAllTypeTour")
     public ResponseEntity<?> doGetAllTypeTour(){
         Map<String, Object> result = new HashMap<>();
         result.put("success",true);
         result.put("message","Call Api Success");
-        result.put("data",tourService.getAllTypeTourE());
+        result.put("data",typeTourService.getAllTypeTourE());
         return ResponseEntity.ok(result);
     }
 }

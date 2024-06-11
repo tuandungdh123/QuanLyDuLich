@@ -1,4 +1,4 @@
-package com.example.qldl.Service.Implementation;
+package com.example.qldl.Service.Implement;
 
 import com.example.qldl.Entity.RoleEntity;
 import com.example.qldl.Repository.RoleRepo;

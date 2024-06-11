@@ -11,7 +11,7 @@
 
 </head>
 <body>
-    <div th:replace=" pages/Admin/admin :: sidebar"></div>
+<div th:replace=" pages/Admin/admin :: sidebar"></div>
         <div class="content">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -35,21 +35,18 @@
                         </div>
                     </div>
                 </nav>
-
-
                 <div class="row">
                         <div class="col-4 border border-2 border-black rounded-4 ">
-                            <input type="file" id="imageInput" accept="image/*">
-                            <img id="image-preview" style="width: 100%">
-                            <script th:src="@{/Layout-js/PickIMGTOUR.js}"></script>
+                            <input type="file" id="imageInput">
+                            <img id="image-preview" src="/images/img.png" style="width: 100%" alt="DungDauBuoi" onerror="onError(event)">
                         </div>
                         <div class="row col-8 from-info-tour" style="margin-left: 10px">
-                            <div class="border border-2 border-black rounded-4 ">
+                            <div class="border border-2 border-black rounded-4">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="mb-3">
-                                            <label for="TourID" class="form-label">Mã Tour: <em style="color: red"> * Không điền Thông Tin Vào Mục Này</em> </label>
-                                            <input class="form-control" type="text" id="TourID" name="nameTour"  readonly />
+                                            <label for="TourID" class="form-label">Mã Tour</label>
+                                            <input class="form-control" type="text" id="TourID" name="nameTour" disabled/>
                                         </div>
                                         <div class="mb-3">
                                             <label for="nameTour" class="form-label">Tên Tour</label>
@@ -103,8 +100,8 @@
                 </div>
 
             <div class="row">
-                <div class="buttom col-sm-6 mt-4">
-                    <button type="button" class="btn btn-outline-info" onclick="saveTourInForm()">Create</button>
+                <div class="button col-sm-6 mt-4" id="formButton">
+                    <button type="submit" class="btn btn-outline-info" id="createTour" onclick="saveTourInForm()">Create</button>
                     <button type="button" class="btn btn-outline-success" onclick="updateTourInForm()">Update</button>
                     <button type="button" class="btn btn-outline-danger" id="deleteBtn">Delete</button>
                     <button type="button" id="btnClearForm" class="btn btn-outline-info" onclick="clearForm()" >Clear</button>
@@ -128,16 +125,16 @@
                         <thead>
                         <tr>
                             <th>STT</th>
-                            <th>LỊCH TRÌNH TOUR</th>
-                            <th>THỜI GIAN</th>
-                            <th>KHỞI HÀNH</th>
-                            <th>KHÁCH SẠN</th>
+                            <th>TÊN TOUR</th>
+                            <th>ẢNH TOUR</th>
+                            <th>LOẠI TOUR</th>
+                            <th>THỜI GIAN TOUR</th>
+                            <th>THỜI GIAN KHỞI HÀNH</th>
                             <th>PHƯƠNG TIỆN</th>
-                            <th>GIÁ TOUR</th>
-                            <th>GIÁ TOUR</th>
-                            <th>GIÁ TOUR</th>
-                            <th>GIÁ TOUR</th>
-                            <th>GIÁ TOUR</th>
+                            <th>NƠI KHỞI HÀNH</th>
+                            <th>GIÁ</th>
+                            <th>GHI CHÚ</th>
+                            <th>SỐ LƯỢNG CHỖ TRỐNG</th>
                             <th>Edit</th>
                         </tr>
                         </thead>
@@ -148,7 +145,7 @@
             </div>
         </div>
     </div>
-
+<script th:src="@{/Layout-js/loadImage.js}"></script>
     <script th:src="@{/Layout-js/Tour.js}"></script>
 </body>
 </html>

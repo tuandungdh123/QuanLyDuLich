@@ -43,7 +43,6 @@ body {
 
 /*QLTour IMG*/
 #image-preview {
-    display: none; /* Ẩn ảnh cho đến khi có ảnh được chọn */
     margin-top: 10px;
     max-width: 100%;
     max-height: 400px;
