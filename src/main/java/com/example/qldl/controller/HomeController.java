@@ -10,6 +10,8 @@ public class HomeController {
     public String getLogin(){
         return "Login";
     }
+    @GetMapping("/register")
+    public String getRegister(){return "pages/Register";}
     @GetMapping("/nav")
     public String getPageView(){
         return "pages/Navbar/Navbar";
@@ -42,4 +44,6 @@ public class HomeController {
     public String getQLTK(){return "pages/Admin/QLTK";}
     @GetMapping("/QLTour")
     public String getQLTour(){return "pages/Admin/QLTour";}
+    @GetMapping("/QLhotel")
+    public String getQLhotel(){return "pages/Admin/QLKS";}
 }
