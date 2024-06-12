@@ -24,6 +24,7 @@ public class FileUploadController {
 
             // Tạo đường dẫn đầy đủ tới file
             Path upload = Paths.get(uploadDir);
+            //nếu có thư mục rồi thì thêm vào___chưa thì tạo thư mục mới
             if(!Files.exists(upload)){
                 Files.createDirectories(upload);
             }
