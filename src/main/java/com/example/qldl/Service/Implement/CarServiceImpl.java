@@ -1,4 +1,4 @@
-package com.example.qldl.Service.Implementation;
+package com.example.qldl.Service.Implement;
 
 import com.example.qldl.Entity.CarEntity;
 import com.example.qldl.Repository.CarRepo;

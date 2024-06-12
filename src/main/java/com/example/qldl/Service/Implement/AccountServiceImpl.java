@@ -1,4 +1,4 @@
-package com.example.qldl.Service.Implementation;
+package com.example.qldl.Service.Implement;
 
 
 import com.example.qldl.Entity.AccountEntity;
@@ -21,13 +21,13 @@ public class AccountServiceImpl implements AccountService {
     };
 
     @Override
-    public Optional<AccountEntity> getAccountByTkAndMk(String accountName, String Pass_Word) throws SQLException {
-        var result = repo.getAccountEByTkAndMk(accountName, Pass_Word);
+    public Optional<AccountEntity> getAccountByTkAndMk(String accountName, String password) throws SQLException {
+        var result = repo.getAccountEByTkAndMk(accountName, password);
         return Optional.ofNullable(result);
     }
 
     @Override
-    public void doGetDelete(int userId) {
+    public void doDeleteById(int userId) {
         repo.deleteById(userId);
     }
     @Override

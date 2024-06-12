@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="/layout-css/DanhSachTour.css">
     <link rel="stylesheet" href="/layout-css/Home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Danh Sach Tour</title>
 </head>
 <body>
@@ -295,176 +298,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 tour-item mt-3">
-            <div class="wap-items-ss brbox">
-                <div class="item">
-                    <div id="">
-                    </div>
-<!--                    <div class="mda-box-item">-->
-<!--                        <div class="mda-box-img">-->
-<!--                            <a href="#">-->
-<!--                                <img class="lazyload" alt="" src="/images/bannerHome/item.png" style="display: block;">-->
-<!--                            </a>-->
-<!--                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>-->
-<!--                        </div>-->
-<!--                        <div class="mda-caption">-->
-<!--                            <div class="mda-info mda-grid">-->
-<!--                                <h3 class="mda-name"><a href="#">Tour Thái Lan Hè 2024 - Art Lightning - Đảo Coral - -->
-<!--                                    Baiyoke Sky - Dạo Thuyền trên sông</a></h3>-->
-<!--                                <div class="mda-img-box-wrap">-->
-<!--                                    <p class="mda-time-grid">Lịch trình: 5 ngày 4 đêm</p>-->
-<!--                                    <p class="mda-schedule">Khởi hành: 23/05/2024</p>-->
-<!--                                    <p class="mda-place">Số chỗ còn nhận: <span class="contact">Liên hệ</span></p>-->
-<!--                                    <p class="mda-price mda-distcoun">-->
-<!--                                        <span class="mda-dis">7,799,000 đ</span>-->
-<!--                                    </p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                </div>
-            </div>
+
+<!--        -->
+
+        <div class="row" id="productsTour">
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 tour-item mt-3">
-            <div class="wap-items-ss brbox">
-                <div class="item">
-                    <div class="mda-box-item">
-                        <div class="mda-box-img">
-                            <a href="#">
-                                <img class="lazyload" alt="" src="/images/bannerHome/item.png" style="display: block;">
-                            </a>
-                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                        </div>
-                        <div class="mda-caption">
-                            <div class="mda-info mda-grid">
-                                <h3 class="mda-name"><a href="#">Tour Thái Lan Hè 2024 - Art Lightning - Đảo Coral -
-                                    Baiyoke Sky - Dạo Thuyền trên sông</a></h3>
-                                <div class="mda-img-box-wrap">
-                                    <p class="mda-time-grid">Lịch trình: 5 ngày 4 đêm</p>
-                                    <p class="mda-schedule">Khởi hành: 23/05/2024</p>
-                                    <p class="mda-place">Số chỗ còn nhận: <span class="contact">Liên hệ</span></p>
-                                    <p class="mda-price mda-distcoun">
-                                        <span class="mda-dis">7,799,000 đ</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 tour-item mt-3">
-            <div class="wap-items-ss brbox">
-                <div class="item">
-                    <div class="mda-box-item">
-                        <div class="mda-box-img">
-                            <a href="#">
-                                <img class="lazyload" alt="" src="/images/bannerHome/item.png" style="display: block;">
-                            </a>
-                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                        </div>
-                        <div class="mda-caption">
-                            <div class="mda-info mda-grid">
-                                <h3 class="mda-name"><a href="#">Tour Thái Lan Hè 2024 - Art Lightning - Đảo Coral -
-                                    Baiyoke Sky - Dạo Thuyền trên sông</a></h3>
-                                <div class="mda-img-box-wrap">
-                                    <p class="mda-time-grid">Lịch trình: 5 ngày 4 đêm</p>
-                                    <p class="mda-schedule">Khởi hành: 23/05/2024</p>
-                                    <p class="mda-place">Số chỗ còn nhận: <span class="contact">Liên hệ</span></p>
-                                    <p class="mda-price mda-distcoun">
-                                        <span class="mda-dis">7,799,000 đ</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 tour-item mt-3">
-            <div class="wap-items-ss brbox">
-                <div class="item">
-                    <div class="mda-box-item">
-                        <div class="mda-box-img">
-                            <a href="#">
-                                <img class="lazyload" alt="" src="/images/bannerHome/item.png" style="display: block;">
-                            </a>
-                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                        </div>
-                        <div class="mda-caption">
-                            <div class="mda-info mda-grid">
-                                <h3 class="mda-name"><a href="#">Tour Thái Lan Hè 2024 - Art Lightning - Đảo Coral -
-                                    Baiyoke Sky - Dạo Thuyền trên sông</a></h3>
-                                <div class="mda-img-box-wrap">
-                                    <p class="mda-time-grid">Lịch trình: 5 ngày 4 đêm</p>
-                                    <p class="mda-schedule">Khởi hành: 23/05/2024</p>
-                                    <p class="mda-place">Số chỗ còn nhận: <span class="contact">Liên hệ</span></p>
-                                    <p class="mda-price mda-distcoun">
-                                        <span class="mda-dis">7,799,000 đ</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 tour-item mt-3">
-            <div class="wap-items-ss brbox">
-                <div class="item">
-                    <div class="mda-box-item">
-                        <div class="mda-box-img">
-                            <a href="#">
-                                <img class="lazyload" alt="" src="/images/bannerHome/item.png" style="display: block;">
-                            </a>
-                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                        </div>
-                        <div class="mda-caption">
-                            <div class="mda-info mda-grid">
-                                <h3 class="mda-name"><a href="#">Tour Thái Lan Hè 2024 - Art Lightning - Đảo Coral -
-                                    Baiyoke Sky - Dạo Thuyền trên sông</a></h3>
-                                <div class="mda-img-box-wrap">
-                                    <p class="mda-time-grid">Lịch trình: 5 ngày 4 đêm</p>
-                                    <p class="mda-schedule">Khởi hành: 23/05/2024</p>
-                                    <p class="mda-place">Số chỗ còn nhận: <span class="contact">Liên hệ</span></p>
-                                    <p class="mda-price mda-distcoun">
-                                        <span class="mda-dis">7,799,000 đ</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 tour-item mt-3">
-            <div class="wap-items-ss brbox">
-                <div class="item">
-                    <div class="mda-box-item">
-                        <div class="mda-box-img">
-                            <a href="#">
-                                <img class="lazyload" alt="" src="/images/bannerHome/item.png" style="display: block;">
-                            </a>
-                            <div class="mda-box-lb">Từ Hồ Chí Minh</div>
-                        </div>
-                        <div class="mda-caption">
-                            <div class="mda-info mda-grid">
-                                <h3 class="mda-name"><a href="#">Tour Thái Lan Hè 2024 - Art Lightning - Đảo Coral -
-                                    Baiyoke Sky - Dạo Thuyền trên sông</a></h3>
-                                <div class="mda-img-box-wrap">
-                                    <p class="mda-time-grid">Lịch trình: 5 ngày 4 đêm</p>
-                                    <p class="mda-schedule">Khởi hành: 23/05/2024</p>
-                                    <p class="mda-place">Số chỗ còn nhận: <span class="contact">Liên hệ</span></p>
-                                    <p class="mda-price mda-distcoun">
-                                        <span class="mda-dis">7,799,000 đ</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <style>
             .mda-more-box {
                 text-align: center;
@@ -530,5 +369,7 @@
         $("#ngayden").datepicker();
     });
 </script>
+
+<script th:src="@{/Layout-js/productTour.js/}"></script>
 </body>
 </html>
