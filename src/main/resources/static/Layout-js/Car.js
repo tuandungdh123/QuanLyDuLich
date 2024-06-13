@@ -1,134 +1,114 @@
 async function loadDataCar() {
-    let response = await axios.get('/car-api/getAllCar');
-    listAllCar = response.data.data;
-    console.log(response.data.data);
+    let response = await axios.get(`/car-api/getAllCar`);
+    listCar = response.data.data;
+    createTableCar(listCar);
+    console.log(response.data);
 }
 
-$(document).ready(async function() {
-    await loadDataCar();
-    createTableCar(listAllCar);
+    function createTableCar(addToTable){
+    let bodyTableListCarString = '';
 
-    // Thêm sự kiện 'change' cho input
-    document.getElementById('imageInput').addEventListener('change', function(event) {
-        const file = event.target.files[0]; // Lấy tệp đầu tiên trong danh sách tệp
-        if (file) {
-            const reader = new FileReader(); // Tạo đối tượng FileReader
-            reader.onload = function(e) {
-                // Khi tệp đã được đọc xong, đặt URL của tệp vào src của thẻ img
-                const imgElement = document.getElementById('image-preview');
-                imgElement.src = e.target.result;
-                imgElement.style.display = 'block'; // Hiển thị ảnh sau khi chọn
-                document.getElementById('imageInput').style.display = 'none'; // Ẩn nút chọn ảnh
-            };
-            reader.readAsDataURL(file); // Đọc tệp dưới dạng URL dữ liệu (Data URL)
-        }
-    });
+    addToTable.forEach(function (e, index){
+    bodyTableListCarString +=
+    `<tr>` +
+    `<td>${index +1}</td>` +
+    `<td>${e.imageCar}</td>` +
+    `<td>${e.typeCar}</td>` +
+    `<td>${e.numberSeat}</td>` +
+    `<td>${e.price}</td>` +
+    `<td>${e.color}</td>` +
+    `<td>${e.phone}</td>` +
+    `<td>${e.description}</td>` +
+    `<td><button type="button" onclick="getCarInformation(${e.carId})" class="btn btn-info">Edit</button></td>` +
+    `</tr>`;
+});
+    $("#BodyListCar").html(bodyTableListCarString);
+}
+
+    $(document).ready(async function(){
+    await loadDataCar();
 });
 
-function createTableCar(addToTable) {
-    let bodyTableListCar = '';
+    async function getCarInformation(carId){
+    let response = await axios.get(`/car-api/getCarByCarId?carId=${carId}`);
+    let result = response.data;
+    if(result){
+    fillDetailForm(result);
+}
+}
 
-    addToTable.forEach(function(e, index) {
-        bodyTableListCar +=
-            `<tr>` +
-            `<td>${index + 1}</td>` +
-            `<td><img src="${e.imageCar}" alt="Car Image" width="100"></td>` +
-            `<td>${e.typeCar}</td>` +
-            `<td>${e.numberSeat}</td>` +
-            `<td>${e.price}</td>` +
-            `<td>${e.color}</td>` +
-            `<td>${e.phone}</td>` +
-            `<td>${e.availability}</td>` +
-            `<td>${e.description}</td>` +
-            `<td>` +
-            `<button type="button" class="btn btn-outline-success" onclick="editCar(${e.carId})">Edit</button>` +
-            `</td>` +
-            `</tr>`;
+    function fillDetailForm(carDetail){
+    $("#carId").val(carDetail.carId);
+    $("#imageCar").val(carDetail.imageCar);
+    $("#typeCar").val(carDetail.typeCar);
+    $("#numberSeat").val(carDetail.numberSeat);
+    $("#price").val(carDetail.price);
+    $("#color").val(carDetail.color);
+    $("#phone").val(carDetail.phone);
+    $("#description").val(carDetail.description);
+}
+
+    async function saveCarInform(){
+    const carData = {
+    imageCar: $("#imageCar").val(),
+    typeCar: $("#typeCar").val(),
+    numberSeat: parseInt($("#numberSeat").val()),
+    price: parseInt($("#price").val()),
+    color: $("#color").val(),
+    phone: $("#phone").val(),
+    description: $("#description").val()
+};
+    let response = await axios.post(`/car-api/getSaveCar`, carData);
+    await loadDataCar();
+}
+
+    async function updateCarInform(){
+    const carData = {
+    carId: $("#carId").val(),
+    imageCar: $("#imageCar").val(),
+    typeCar: $("#typeCar").val(),
+    numberSeat: parseInt($("#numberSeat").val()),
+    price: parseInt($("#price").val()),
+    color: $("#color").val(),
+    phone: $("#phone").val(),
+    description: $("#description").val()
+};
+    let response = await axios.post(`/car-api/getSaveCar`, carData);
+    await loadDataCar();
+}
+
+async function deleteCarInform() {
+    const carId = $("#carId").val();
+    if (!carId) {
+        alert("Vui lòng chọn xe cần xóa");
+        return;
+    }
+
+    try {
+        let response = await axios.delete(`/car-api/DeleteCar?carId=${carId}`);
+        if (response.data.status) {
+            alert("Xóa xe thành công");
+            await loadDataCar();
+            createTableCar(listCar);
+            clearForm();
+        } else {
+            alert("Xóa xe thất bại");
+        }
+    } catch (error) {
+        console.error("There was an error deleting the car!", error);
+    }
+}
+
+    function clearForm() {
+    fillDetailForm({
+        carId: '',
+        imageCar: '',
+        typeCar: '',
+        numberSeat: '',
+        price: '',
+        color: '',
+        phone: '',
+        description: ''
     });
-
-    $("#BodyListAllCar").html(bodyTableListCar);
 }
 
-function clearForm() {
-    document.getElementById('carId').value = '';
-    document.getElementById('typeCar').value = '';
-    document.getElementById('numberSeat').value = '';
-    document.getElementById('price').value = '';
-    document.getElementById('color').value = '';
-    document.getElementById('phone').value = '';
-    document.getElementById('availability').value = '';
-    document.getElementById('description').value = '';
-    document.getElementById('image-preview').src = '';
-    document.getElementById('image-preview').style.display = 'none';
-    document.getElementById('imageInput').style.display = 'block';
-}
-
-async function saveCarInForm() {
-    // Lấy dữ liệu từ form
-    let car = {
-        typeCar: document.getElementById('typeCar').value,
-        numberSeat: document.getElementById('numberSeat').value,
-        price: document.getElementById('price').value,
-        color: document.getElementById('color').value,
-        phone: document.getElementById('phone').value,
-        availability: document.getElementById('availability').value,
-        description: document.getElementById('description').value
-    };
-
-    try {
-        let response = await axios.post('/car-api/create', car);
-        if (response.data.success) {
-            Swal.fire('Success', 'Car created successfully', 'success');
-            await loadDataCar();
-            createTableCar(listAllCar);
-        } else {
-            Swal.fire('Error', 'Failed to create car', 'error');
-        }
-    } catch (error) {
-        Swal.fire('Error', 'Failed to create car', 'error');
-    }
-}
-
-async function updateCarInForm() {
-    let carId = document.getElementById('carId').value;
-    let car = {
-        carId: carId,
-        typeCar: document.getElementById('typeCar').value,
-        numberSeat: document.getElementById('numberSeat').value,
-        price: document.getElementById('price').value,
-        color: document.getElementById('color').value,
-        phone: document.getElementById('phone').value,
-        availability: document.getElementById('availability').value,
-        description: document.getElementById('description').value
-    };
-
-    try {
-        let response = await axios.put(`/car-api/update/${carId}`, car);
-        if (response.data.success) {
-            Swal.fire('Success', 'Car updated successfully', 'success');
-            await loadDataCar();
-            createTableCar(listAllCar);
-        } else {
-            Swal.fire('Error', 'Failed to update car', 'error');
-        }
-    } catch (error) {
-        Swal.fire('Error', 'Failed to update car', 'error');
-    }
-}
-
-async function deleteCar() {
-    let carId = document.getElementById('carId').value;
-
-    try {
-        let response = await axios.delete(`/car-api/delete/${carId}`);
-        if (response.data.success) {
-            Swal.fire('Success', 'Car deleted successfully', 'success');
-            await loadDataCar();
-            createTableCar(listAllCar);
-        } else {
-            Swal.fire('Error', 'Failed to delete car', 'error');
-        }
-    } catch (error) {
-        Swal.fire('Error', 'Failed to delete car', 'error');
-    }
-}

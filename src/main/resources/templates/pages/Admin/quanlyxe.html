@@ -34,7 +34,7 @@
                 <a href="#" class="nav-link">Quản lý thông tin</a>
             </li>
             <li>
-                <a href="/quanlyxe" class="nav-link">Quản lý xe</a>
+                <a href="/quanlyxe" class="nav-link active">Quản lý xe</a>
             </li>
         </ul>
     </div>
@@ -62,7 +62,7 @@
 
         <div class="row">
             <div class="col-4 border border-2 border-black rounded-4">
-                <input type="file" id="imageInput" accept="image/*">
+                <input type="file" id="imageCar" accept="image/*">
                 <img id="image-preview" style="width: 100%; display: none;">
             </div>
             <div class="row col-8 form-info-tour" style="margin-left: 10px">
@@ -71,7 +71,7 @@
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="carId" class="form-label">Mã Xe: <em style="color: red"> * Không điền Thông Tin Vào Mục Này</em> </label>
-                                <input class="form-control" type="text" id="carId" name="nameTour" readonly />
+                                <input class="form-control" type="text" id="carId" name="carId" readonly />
                             </div>
                             <div class="mb-3">
                                 <label for="typeCar" class="form-label">Loại xe</label>
@@ -110,11 +110,11 @@
         </div>
 
         <div class="row">
-            <div class="buttom col-sm-6 mt-4">
-                <button type="button" class="btn btn-outline-info" onclick="saveCarInForm()">Create</button>
-                <button type="button" class="btn btn-outline-success" onclick="updateCarInForm()">Update</button>
-                <button type="button" class="btn btn-outline-danger" id="deleteBtn" onclick="deleteCar">Delete</button>
-                <button type="button" id="btnClearForm" class="btn btn-outline-info" onclick="clearForm()">Clear</button>
+            <div class="bottom col-sm-6 mt-4">
+                <button type="button" class="btn btn-outline-info" onclick="saveCarInform()">Create</button>
+                <button type="button" class="btn btn-outline-success" onclick="updateCarInform()">Update</button>
+                <button type="button" class="btn btn-outline-danger" onclick="deleteCarInform()">Delete</button>
+                <button type="button" id="btnClearForm" class="btn btn-outline-warning" onclick="clearForm()">Clear</button>
             </div>
         </div>
 
@@ -134,7 +134,7 @@
                     <th>Edit</th>
                 </tr>
                 </thead>
-                <tbody id="BodyListAllCar">
+                <tbody id="BodyListCar">
                 </tbody>
             </table>
         </div>

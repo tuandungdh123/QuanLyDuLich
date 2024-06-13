@@ -46,4 +46,6 @@ public class HomeController {
     public String getQLTour(){return "pages/Admin/QLTour";}
     @GetMapping("/QLhotel")
     public String getQLhotel(){return "pages/Admin/QLKS";}
+    @GetMapping("/quanlyxe")
+    public String getquanlyxe(){return "pages/Admin/quanlyxe";}
 }
