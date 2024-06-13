@@ -191,7 +191,6 @@
                     phone:$("#phone").val(),
                     description: $("#description").val()
                 }
-
                 let response = await axios.post(`/hotel-api/getSaveHotel`, hotelDataUpdate)
                 await loadDataHotel();
                 await upLoadFile();

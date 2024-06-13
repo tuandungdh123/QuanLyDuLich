@@ -24,8 +24,8 @@ function createTableProductsTourMienBac(productsTourMienBac) {
                             <div class="item">
                                 <div class="mda-box-item">
                                     <div class="mda-box-img">
-                                        <a href="#">
-                                            <img class="lazyload" alt="" src="/images/imagesHotel/${product.imageTour}" style="display: block;">
+                                        <a href="/tour?tourID=${product.tourID}">
+                                            <img class="lazyload" alt="" src="/images/ImagesTour2/${product.imageTour}" style="display: block;">
                                         </a>
                                         <div class="mda-box-lb">Từ Hồ Chí Minh</div>
                                     </div>
@@ -37,7 +37,7 @@ function createTableProductsTourMienBac(productsTourMienBac) {
                                                 <p class="mda-schedule">Khởi hành: ${product.timeStart}</p>
                                                 <p class="mda-place">Số chỗ còn nhận: ${product.available}</p>
                                                 <p class="mda-price mda-distcoun">
-                                                    <span class="mda-dis">${product.price}đ</span></p>
+                                                    <span class="mda-dis">${product.price.toLocaleString('vi-VN')}đ</span></p>
                                             </div>
                                         </div>
                                     </div>

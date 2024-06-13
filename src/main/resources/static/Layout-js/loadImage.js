@@ -12,7 +12,6 @@ imageInput.addEventListener('change', function(event) {
     const file = event.target.files[0]; // Lấy tệp được chọn
     if (file) {
         const reader = new FileReader();
-
         // Lắng nghe sự kiện load của FileReader
         reader.onload = function(e) {
             imagePreview.src = e.target.result; // Đặt src của img là kết quả đọc được
