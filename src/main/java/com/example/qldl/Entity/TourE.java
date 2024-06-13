@@ -49,6 +49,9 @@ public class TourE {
     @Column(name="Available")
     private int available;
 
+    @Column(name="Experience")
+    private String experience;
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Type_Id", referencedColumnName = "Type_Id")
     @JsonIgnoreProperties(value = {"application" ,"hibernateLazyInitializer"})

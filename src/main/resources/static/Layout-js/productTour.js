@@ -24,7 +24,7 @@ async function DataProductTour(){
                             <div class="mda-box-item">
                                 <div class="mda-box-img">
                                     <a href="#">
-                                        <img class="lazyload" alt="" src="/images/bannerHome/${product.imageTour}"
+                                        <img class="lazyload" alt="" src="/images/imagesHotel/${product.imageTour}"
                                              style="display: block;">
                                     </a>
                                     <div class="mda-box-lb">${product.startPlace}</div>

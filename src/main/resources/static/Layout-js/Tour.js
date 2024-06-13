@@ -27,7 +27,7 @@ async function saveTourInForm() {
     const price = parseInt($("#Price").val());
     const description = $("#Note").val();
     const available = parseInt($("#Slot").val());
-
+    const experience = $("#Experience").val();
     // Kiểm tra xem có trường nào rỗng không
     if (!nameTour || !imageTour || !type_Id || !tourDuration || !timeStart || !transport || !startPlace || !price || !description || !available) {
         // Hiển thị cảnh báo nếu có trường trống
@@ -51,7 +51,8 @@ async function saveTourInForm() {
         startPlace: startPlace,
         price: price,
         description: description,
-        available: available
+        available: available,
+        experience: experience
     };
     console.log(TourData)
 
@@ -102,7 +103,8 @@ async function updateTourInForm() {
         startPlace: $("#StartPlace").val(),
         price: parseInt($("#Price").val()),
         description: $("#Note").val(),
-        available: parseInt($("#Slot").val())
+        available: parseInt($("#Slot").val()),
+        experience: $("#Experience").val()
     }
     let response = await axios.post('/tour-api/getSaveTour', updateTourData);
     await upLoadFile();
@@ -149,6 +151,7 @@ function fillTourForm(tourDetail) {
     $("#Price").val(tourDetail.price);
     $("#Note").val(tourDetail.description);
     $("#Slot").val(tourDetail.available);
+    $("#Experience").val(tourDetail.experience);
 
 
 }
@@ -189,6 +192,8 @@ function clearForm() {
     $("#Price").val("");
     $("#Note").val("");
     $("#Slot").val("");
+    $("#Experience").val("");
+
 }
 
 
@@ -250,7 +255,6 @@ async function upLoadFile() {
 
     // Kiểm tra xem đã chọn file chưa
     if (fileInput.files.length === 0) {
-        alert('Please select a file to upload.');
         return;
     }
 
@@ -260,6 +264,5 @@ async function upLoadFile() {
         .then(function (response) {
         })
         .catch(function (error) {
-            alert('An error occurred while uploading the file: ' + error.message);
         });
 }

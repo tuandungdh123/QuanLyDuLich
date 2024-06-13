@@ -23,4 +23,5 @@ public class TourDTO {
     private int price;
     private String description;
     private int available;
+    private String experience;
 }

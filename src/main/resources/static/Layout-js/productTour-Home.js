@@ -25,7 +25,7 @@ function createTableProductsTourMienBac(productsTourMienBac) {
                                 <div class="mda-box-item">
                                     <div class="mda-box-img">
                                         <a href="#">
-                                            <img class="lazyload" alt="" src="${product.image}" style="display: block;">
+                                            <img class="lazyload" alt="" src="/images/imagesHotel/${product.imageTour}" style="display: block;">
                                         </a>
                                         <div class="mda-box-lb">Từ Hồ Chí Minh</div>
                                     </div>
