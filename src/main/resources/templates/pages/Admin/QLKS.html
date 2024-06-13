@@ -5,6 +5,8 @@
     <title>Quản Lý Khách Sạn</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/layout-css/admin.css}">
+    <link rel="icon" href="data:,">
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
@@ -35,9 +37,9 @@
         </nav>
 
         <div class="row">
-            <div class="col-4 border border-2 border-black rounded-4 ">
-                <input type="file" id="imageHotel" >
-                <img id="image-preview" src="" style="width: 100%" alt="DungDauBuoi">
+            <div class="col-4 border border-2 border-black rounded-4">
+                <input type="file" id="imageInput" >
+                <img id="image-preview" src="/images/img.png" style="width: 100%" alt="DungDauBuoi" onerror="onError(event)">
             </div>
             <div class="row col-8 from-info-tour" style="margin-left: 10px">
                 <div class="border border-2 border-black rounded-4 ">
@@ -45,10 +47,10 @@
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="hotelId" class="form-label">Mã Khách Sạn: <em style="color: red"> * Không điền Thông Tin Vào Mục Này</em> </label>
-                                <input class="form-control" type="text" id="hotelId" name="hotelId"  readonly />
+                                <input class="form-control" type="text" id="hotelId" name="hotelId"  disabled/>
                             </div>
-                            <div class="mb-3">
-                                <label for="nameHotel" class="form-label">Tên Khách Sạn</label>
+                                <div class="mb-3">
+                                    <label for="nameHotel" class="form-label">Tên Khách Sạn</label>
                                 <input type="text" class="form-control" id="nameHotel">
                             </div>
                             <div class="mb-3">
@@ -81,7 +83,6 @@
             <button type="button" class="btn btn-outline-danger" onclick="deleteHotelInform()">Delete</button>
             <button type="button" class="btn btn-outline-warning" onclick="clearForm()">Clear</button>
         </div>
-
         <div class="tableQLTour">
             <table class="table">
                 <thead>
@@ -99,11 +100,11 @@
                 </tbody>
             </table>
         </div>
+        <script th:src="@{/Layout-js/loadImage.js}"></script>
         <script type="application/javascript">
             async function loadDataHotel() {
                 let response = await axios.get(`/hotel-api/getAllHotel`);
                 listHotel = response.data.data;
-                console.log(response.data)
             }
 
             function createTableHotel(addToTable){
@@ -142,7 +143,19 @@
 
             function fillDetailForm(hotelDetail){
                 $("#hotelId").val(hotelDetail.hotelId);
-                // $("#imageInput").val(hotelDetail.imageHotel);
+                $('#image-preview').attr('src', '/images/imagesHotel/' + hotelDetail.imageHotel);
+
+                fetch('/images/imagesHotel/' + hotelDetail.imageHotel)
+                    .then(res => res.blob())
+                    .then(blob => {
+                        const dataTransfer = new DataTransfer();
+                        const file = new File([blob], hotelDetail.imageHotel, { type: blob.type });
+                        dataTransfer.items.add(file);
+                        $("#imageInput")[0].files = dataTransfer.files;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
                 $("#nameHotel").val(hotelDetail.hotelName);
                 $("#rating").val(hotelDetail.rating);
                 $("#address").val(hotelDetail.address);
@@ -150,9 +163,10 @@
                 $("#description").val(hotelDetail.description);
             }
 
+            //Save
             async function saveHotelInform(){
                 const hotelData = {
-                    imageHotel: $("#imageHotel").val(),
+                    imageHotel : $("#imageInput").val().split('\\')[2],
                     hotelName: $("#nameHotel").val(),
                     address: $("#address").val(),
                     rating: parseInt($("#rating").val()),
@@ -162,37 +176,26 @@
                 }
                 let response = await axios.post(`/hotel-api/getSaveHotel`, hotelData)
                 await loadDataHotel();
+                await upLoadFile();
                 createTableHotel(listHotel);
-                console.log(response.data);
-                $("#imageHotel").val(hotelData.imageHotel);
-                $("#nameHotel").val(hotelData.hotelName);
-                $("#address").val(hotelData.address);
-                $("#rating").val(hotelData.rating);
-                $("#phone").val(hotelData.phone);
-                $("#description").val(hotelData.description);
             }
 
+            //Update
             async function updateHotelInform(){
-                const hotelData = {
+                const hotelDataUpdate = {
                     hotelId: $("#hotelId").val(),
-                    imageHotel: $("#imageHotel").val(),
+                    imageHotel : $("#imageInput").val().split('\\')[2],
                     hotelName: $("#nameHotel").val(),
                     address: $("#address").val(),
                     rating: parseInt($("#rating").val()),
                     phone:$("#phone").val(),
                     description: $("#description").val()
                 }
-                let response = await axios.post(`/hotel-api/getSaveHotel`, hotelData)
-                await loadDataHotel(); 
+
+                let response = await axios.post(`/hotel-api/getSaveHotel`, hotelDataUpdate)
+                await loadDataHotel();
+                await upLoadFile();
                 createTableHotel(listHotel);
-                console.log(response.data);
-                $("#hotelId").val(hotelData.hotelId);
-                $("#imageHotel").val(hotelData.imageHotel);
-                $("#nameHotel").val(hotelData.hotelName);
-                $("#address").val(hotelData.address);
-                $("#rating").val(hotelData.rating);
-                $("#phone").val(hotelData.phone);
-                $("#description").val(hotelData.description);
             }
 
             async function deleteHotelInform() {
@@ -202,7 +205,6 @@
                 let respone = await axios.delete(`/hotel-api/DeleteHotel?hotelId=${hotelData.hotelId}`)
                 await loadDataHotel();
                 createTableHotel(listHotel);
-                console.log(respone.data);
                 clearform();
 
             }
@@ -210,11 +212,32 @@
                 fillDetailForm({});
             }
         //    upload img
+            async function upLoadFile() {
+                var formData = new FormData();
+                var fileInput = $('#imageInput')[0];
 
+                // Kiểm tra xem đã chọn file chưa
+                if (fileInput.files.length === 0) {
+                    alert('Please select a file to upload.');
+                    return;
+                }
+
+                formData.append('file', fileInput.files[0]);
+
+                let response = await axios.post('/upload-api/uploadHotel', formData, {})
+                    .then(function (response) {
+                    })
+                    .catch(function (error) {
+                        alert('An error occurred while uploading the file: ' + error.message);
+                    });
+            }
+
+            onError = (e) => {
+                e.target.src = '/images/img.png'
+            }
 
         </script>
     </div>
 </div>
-<script th:src="@{/Layout-js/loadImage.js}"></script>
 </body>
 </html>

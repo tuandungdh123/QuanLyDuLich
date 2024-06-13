@@ -38,7 +38,7 @@ async function DataProductTour(){
                                             <p class="mda-place">Số chỗ còn nhận: ${product.available} <span
                                                 class="contact">Liên hệ</span></p>
                                             <p class="mda-price mda-distcoun">
-                                                <span class="mda-dis">${product.price}đ</span>
+                                                <span class="mda-dis">${product.price.toLocaleString('vi-VN', { style: 'decimal', minimumFractionDigits: 0 })}đ</span>
                                             </p>
                                         </div>
                                     </div>
