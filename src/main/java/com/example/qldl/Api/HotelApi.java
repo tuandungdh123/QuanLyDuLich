@@ -69,7 +69,6 @@ public class HotelApi {
             result.put("status", false);
             result.put("message", "Get All Account Fail");
             result.put("data", null);
-
         }
         return ResponseEntity.ok(result);
     }

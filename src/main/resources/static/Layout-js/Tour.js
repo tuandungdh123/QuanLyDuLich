@@ -148,7 +148,7 @@ function fillTourForm(tourDetail) {
     $("#Start").val(tourDetail.timeStart);
     $("#Transport").val(tourDetail.transport);
     $("#StartPlace").val(tourDetail.startPlace);
-    $("#Price").val(tourDetail.price);
+    $("#Price").val(tourDetail.price.toLocaleString('vi-VN'));
     $("#Note").val(tourDetail.description);
     $("#Slot").val(tourDetail.available);
     $("#Experience").val(tourDetail.experience);
