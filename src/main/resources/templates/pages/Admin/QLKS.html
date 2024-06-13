@@ -212,6 +212,7 @@
                 fillDetailForm({});
             }
         //    upload img
+        //    Push
             async function upLoadFile() {
                 var formData = new FormData();
                 var fileInput = $('#imageInput')[0];
@@ -221,7 +222,6 @@
                     alert('Please select a file to upload.');
                     return;
                 }
-
                 formData.append('file', fileInput.files[0]);
 
                 let response = await axios.post('/upload-api/uploadHotel', formData, {})
