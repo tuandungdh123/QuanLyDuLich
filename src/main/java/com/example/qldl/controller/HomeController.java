@@ -26,7 +26,7 @@ public class HomeController {
     public String getListTourView(){
         return "pages/Detail/DanhSanhTour";
     }
-    @GetMapping("/tourcart")
+    @GetMapping("/tourCart")
     public String getTourCartView(){ return "pages/Detail/TourCart"; }
     @GetMapping("/BookingVe")
     public String getBookVe(){
