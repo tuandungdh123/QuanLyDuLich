@@ -39,7 +39,7 @@ function createTableTourById(tour) {
                                     <div>
                                         <div class="item" style="width: 100%; display: inline-block;">
                                             <div class="img">
-                                                <img src="/images/imagesHotel/${tour.imageTour}" alt="dungdaubui">
+                                                <img src="/images/imagesTour2/${tour.imageTour}" alt="dungdaubui">
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +157,7 @@ function createTableTourById(tour) {
                                 <div class="boxPrice">
                                     <div class="price">
                                         <div class="txt">Giá từ:</div>
-                                        <div class="red" id="giactt">${tour.price.toLocaleString('vi-VN')} đ</div>
+                                        <div class="red" id="giactt">${tour.priceAdult.toLocaleString('vi-VN')} đ</div>
                                     </div>
                                     <div class="attr">
                                         <p><strong>Điểm Nổi Bật:</strong></p>
@@ -174,7 +174,7 @@ function createTableTourById(tour) {
                                                    value="24-05-2024" readonly="">
                                         </div>
                                         <div class="btn-booking dt">
-                                            <button type="button" class="btn-order-tour">ĐẶT TOUR</button>
+                                            <button type="button" class="btn-order-tour" onclick="window.location.href='/tourCart?tourID=${tour.tourID}'">ĐẶT TOUR</button>
                                         </div>
                                     </div>
                                 </div>
