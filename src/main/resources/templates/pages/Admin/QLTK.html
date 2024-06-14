@@ -36,8 +36,10 @@
                 </div>
             </div>
         </nav>
-
-        <form id="infoForm">
+    <div class="container">
+        <div class="row">
+        <div class="col-4">
+        <form id="infoForm" >
             <div class="row">
                 <div class="mb-3">
                     <label for="idUserId" class="form-label">UserId</label>
@@ -86,7 +88,8 @@
             <button type="button" onclick="deleteAccount()" class="btn btn-outline-danger">Delete</button>
             <button type="button" id="btnClearForm" class="btn btn-outline-info" onclick="clearForm()">Clear</button>
         </div>
-
+        </div>
+         <div class="col-8">
         <div class="tableQLTour">
             <table class="table" id="fillToForm">
                 <thead>
@@ -104,6 +107,9 @@
                 </tbody>
             </table>
         </div>
+    </div>
+        </div>
+</div>
     </div>
 </div>
 <script type="application/javascript">

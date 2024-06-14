@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title></title>
@@ -16,11 +16,11 @@
                     <div style="padding-top: 6px ; padding-bottom: 6px"> Hotline: <strong class="eff" style="color: hotpink; font-size: 20px">123456789</strong></div>
                 </div>
             </article>
-            <aside class="col-sm-5">
-                <button type="button" class="btn"><i class="fa-brands fa-github"></i> Giới thiệu</button>
-                <button type="button" class="btn"><i class="fa-solid fa-sack-dollar"></i> Hệ thống giao dịch</button>
-                <button type="button" class="btn"><i class="fa-regular fa-comment-dots"></i> Góp ý</button>
-                <button type="button" class="btn "><i class="fa-solid fa-user"></i> Tài khoản</button>
+            <aside class="col-sm-5 mt-2">
+                <a th:href="" class="mx-3 text-decoration-none text-dark" style="padding-top: 6px ; padding-bottom: 6px; margin-top: 6px;"><i class="fa-brands fa-github"></i> Giới thiệu</a>
+                <a th:href="@{/admin}" class="mx-3 text-decoration-none text-dark" style="padding-top: 6px ; padding-bottom: 6px; margin-top: 6px"><i class="fa-solid fa-user-tie"></i> Admin</a>
+                <a th:href="" class="mx-3 text-decoration-none text-dark" style="padding-top: 6px ; padding-bottom: 6px; margin-top: 6px"><i class="fa-regular fa-comment-dots"></i> Góp ý</a>
+                <a th:href="" class="mx-3 text-decoration-none text-dark" style="padding-top: 6px ; padding-bottom: 6px; margin-top: 6px"><i class="fa-solid fa-user"></i> Tài khoản</a>
             </aside>
         </div>
     </div>
