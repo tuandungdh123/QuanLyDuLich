@@ -20,7 +20,6 @@ public class CarApi {
     @Autowired
     private CarService carService;
 
-
     @GetMapping("/getAllCar")
     public ResponseEntity<?> getAllCar(){
         Map<String, Object> result = new HashMap<>();

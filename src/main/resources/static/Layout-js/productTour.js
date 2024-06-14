@@ -24,7 +24,7 @@ async function DataProductTour(){
                             <div class="mda-box-item">
                                 <div class="mda-box-img">
                                     <a href="#">
-                                        <img class="lazyload" alt="" src="/images/bannerHome/${product.imageTour}"
+                                        <img class="lazyload" alt="" src="/images/ImagesTour2/${product.imageTour}"
                                              style="display: block;">
                                     </a>
                                     <div class="mda-box-lb">${product.startPlace}</div>
@@ -38,7 +38,7 @@ async function DataProductTour(){
                                             <p class="mda-place">Số chỗ còn nhận: ${product.available} <span
                                                 class="contact">Liên hệ</span></p>
                                             <p class="mda-price mda-distcoun">
-                                                <span class="mda-dis">${product.price}đ</span>
+                                                <span class="mda-dis">${product.price.toLocaleString('vi-VN', { style: 'decimal', minimumFractionDigits: 0 })}đ</span>
                                             </p>
                                         </div>
                                     </div>

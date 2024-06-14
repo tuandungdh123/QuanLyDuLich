@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="https://scontent.fsgn2-6.fna.fbcdn.net/v/t31.18172-8/23845860_772165502975647_429716032553466353_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHtw3MF8oJV6xJsvfdqyhjVVZi2a0AiECZVmLZrQCIQJrt-ANlMllgB9IakOUrLyhv09u6p6tEjGNLK9kp1W6nV&_nc_ohc=DJ4hxa6m1o8Q7kNvgFQ-PK_&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYBkRaPwE3miBKJ2836ZIiZdLpy-PDZye2460uWtyhZQoQ&oe=669286E5">
 
 </head>
 <body>
@@ -39,19 +40,19 @@
                         <div class="col-4 border border-2 border-black rounded-4 ">
                             <input type="file" id="imageInput">
                             <img id="image-preview" src="/images/img.png" style="width: 100%" alt="DungDauBuoi" onerror="onError(event)">
+                            <div class="mb-3">
+                                <label for="TourID" class="form-label">Mã Tour</label>
+                                <input class="form-control" type="text" id="TourID" name="nameTour" disabled/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nameTour" class="form-label">Tên Tour</label>
+                                <input type="text" class="form-control" id="nameTour">
+                            </div>
                         </div>
                         <div class="row col-8 from-info-tour" style="margin-left: 10px">
                             <div class="border border-2 border-black rounded-4">
                                 <div class="row">
                                     <div class="col-6">
-                                        <div class="mb-3">
-                                            <label for="TourID" class="form-label">Mã Tour</label>
-                                            <input class="form-control" type="text" id="TourID" name="nameTour" disabled/>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="nameTour" class="form-label">Tên Tour</label>
-                                            <input type="text" class="form-control" id="nameTour">
-                                        </div>
                                         <div class="mb-3">
                                             <label for="TimeTravel" class="form-label">Thời Gian</label>
                                             <input type="text" class="form-control" id="TimeTravel">
@@ -64,10 +65,8 @@
                                             <label for="Transport" class="form-label">Phương Tiện</label>
                                             <input type="text" class="form-control" id="Transport">
                                         </div>
-                                    </div>
-                                    <div class="col-6">
                                         <label class="form-label">Khu Vuc Tour</label>
-                                        <div class="select">
+                                        <div class="select" style="margin-bottom: 5px">
                                             <div class="top ">
                                                 <select class="form-select p-2" aria-label="Default select example" id="type_Id">
                                                     <option value="1">Miền Bắc</option>
@@ -77,6 +76,8 @@
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-6">
                                         <div class="mb-3">
                                             <label for="StartPlace" class="form-label">Nơi Khởi Hành</label>
                                             <input type="text" class="form-control" id="StartPlace">
@@ -92,6 +93,10 @@
                                         <div class="mb-3">
                                             <label for="Note" class="form-label">Ghi Chú</label>
                                             <textarea class="form-control" id="Note" rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="Experience" class="form-label">Trải Nghiệm</label>
+                                            <textarea class="form-control" id="Experience" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>

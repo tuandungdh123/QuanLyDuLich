@@ -5,6 +5,10 @@
     <title>Quản Lý Khách Sạn</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/layout-css/admin.css}">
+    <link rel="icon" href="data:,">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
 <div th:replace=" pages/Admin/admin :: sidebar"></div>
@@ -32,82 +36,206 @@
             </div>
         </nav>
 
-        <form>
-            <div class="mb-3">
-                <label for="InputEmail1" class="form-label">UserName</label>
-                <input type="username" class="form-control" id="InputUserName" aria-describedby="emailHelp">
+        <div class="row">
+            <div class="col-4 border border-2 border-black rounded-4">
+                <input type="file" id="imageInput" >
+                <img id="image-preview" src="/images/img.png" style="width: 100%" alt="DungDauBuoi" onerror="onError(event)">
             </div>
-            <div class="mb-3">
-                <label for="InputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+            <div class="row col-8 from-info-tour" style="margin-left: 10px">
+                <div class="border border-2 border-black rounded-4 ">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="hotelId" class="form-label">Mã Khách Sạn: <em style="color: red"> * Không điền Thông Tin Vào Mục Này</em> </label>
+                                <input class="form-control" type="text" id="hotelId" name="hotelId"  disabled/>
+                            </div>
+                                <div class="mb-3">
+                                    <label for="nameHotel" class="form-label">Tên Khách Sạn</label>
+                                <input type="text" class="form-control" id="nameHotel">
+                            </div>
+                            <div class="mb-3">
+                                <label for="rating" class="form-label">Đánh Giá</label>
+                                <input type="text" class="form-control" id="rating">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Địa Chỉ</label>
+                                <input type="text" class="form-control" id="address">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Số Điện Thoại</label>
+                                <input type="number" class="form-control" id="phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Mô Tả</label>
+                                <textarea class="form-control" id="description" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="InputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="InputPassword1">
-            </div>
-        </form>
-        <div class="bottom">
-            <button type="button" class="btn btn-outline-info">Create</button>
-            <button type="button" class="btn btn-outline-success">Update</button>
-            <button type="button" class="btn btn-outline-danger">Delete</button>
         </div>
 
+        <div class="bottom mt-4 mb-4" >
+            <button type="button" class="btn btn-outline-info" onclick="saveHotelInform()">Create</button>
+            <button type="button" class="btn btn-outline-success" onclick="updateHotelInform()">Update</button>
+            <button type="button" class="btn btn-outline-danger" onclick="deleteHotelInform()">Delete</button>
+            <button type="button" class="btn btn-outline-warning" onclick="clearForm()">Clear</button>
+        </div>
         <div class="tableQLTour">
             <table class="table">
                 <thead>
                 <tr>
+                    <th>STT</th>
                     <th>Hình</th>
                     <th>Tên Khách Sạn</th>
-                    <th>Đánh Giá</th>
                     <th>Địa Chỉ</th>
-                    <th>SĐT</th>
-                    <th>Edit</th>
+                    <th>Đánh giá</th>
+                    <th>SDT</th>
+                    <th>Mô Tả</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>IMG</td>
-                    <td>Ngô Quang Trường</td>
-                    <td>15 sao</td>
-                    <td>123 abc</td>
-                    <td>0123456789</td>
-                    <td>
-                        <button type="button" class="btn btn-info">Edit</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>IMG</td>
-                    <td>Ngô Quang Trường</td>
-                    <td>15 sao</td>
-                    <td>123 abc</td>
-                    <td>0123456789</td>
-                    <td>
-                        <button type="button" class="btn btn-info">Edit</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>IMG</td>
-                    <td>Ngô Quang Trường</td>
-                    <td>15 sao</td>
-                    <td>123 abc</td>
-                    <td>0123456789</td>
-                    <td>
-                        <button type="button" class="btn btn-info">Edit</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>IMG</td>
-                    <td>Ngô Quang Trường</td>
-                    <td>15 sao</td>
-                    <td>123 abc</td>
-                    <td>0123456789</td>
-                    <td>
-                        <button type="button" class="btn btn-info">Edit</button>
-                    </td>
-                </tr>
+                <tbody id="BodyListHotel">
                 </tbody>
             </table>
         </div>
+        <script th:src="@{/Layout-js/loadImage.js}"></script>
+        <script type="application/javascript">
+            async function loadDataHotel() {
+                let response = await axios.get(`/hotel-api/getAllHotel`);
+                listHotel = response.data.data;
+            }
+
+            function createTableHotel(addToTable){
+                let bodyTableListHotelString='';
+
+                addToTable.forEach(function (e,index){
+                    bodyTableListHotelString+=
+                        `<tr>`+
+                            `<td>${index +1}</td>`+
+                            `<td>${e.imageHotel}</td>`+
+                            `<td>${e.hotelName}</td>`+
+                            `<td>${e.address}</td>`+
+                            `<td>${e.rating}</td>`+
+                            `<td>${e.phone}</td>`+
+                            `<td>${e.description}</td>`+
+                            `<td>
+                                <button type="button" onclick="getHotelInformation(${e.hotelId})" className="btn btn-info">Edit</button>
+                            </td>`+
+                        `</tr>`
+                });
+                $("#BodyListHotel").html(bodyTableListHotelString);
+            }
+
+            $(document).ready(async function(){
+                await loadDataHotel();
+                createTableHotel(listHotel);
+            } )
+
+            async function getHotelInformation(hotelId){
+                let response = await axios.get(`/hotel-api/getHotelByHotelId?hotelId=${hotelId}`);
+                let result = response.data;
+                if(result.status){
+                    fillDetailForm(result.data);
+                }
+            }
+
+            function fillDetailForm(hotelDetail){
+                $("#hotelId").val(hotelDetail.hotelId);
+                $('#image-preview').attr('src', '/images/imagesHotel/' + hotelDetail.imageHotel);
+
+                fetch('/images/imagesHotel/' + hotelDetail.imageHotel)
+                    .then(res => res.blob())
+                    .then(blob => {
+                        const dataTransfer = new DataTransfer();
+                        const file = new File([blob], hotelDetail.imageHotel, { type: blob.type });
+                        dataTransfer.items.add(file);
+                        $("#imageInput")[0].files = dataTransfer.files;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                $("#nameHotel").val(hotelDetail.hotelName);
+                $("#rating").val(hotelDetail.rating);
+                $("#address").val(hotelDetail.address);
+                $("#phone").val(hotelDetail.phone);
+                $("#description").val(hotelDetail.description);
+            }
+
+            //Save
+            async function saveHotelInform(){
+                const hotelData = {
+                    imageHotel : $("#imageInput").val().split('\\')[2],
+                    hotelName: $("#nameHotel").val(),
+                    address: $("#address").val(),
+                    rating: parseInt($("#rating").val()),
+                    phone:$("#phone").val(),
+                    description: $("#description").val()
+
+                }
+                let response = await axios.post(`/hotel-api/getSaveHotel`, hotelData)
+                await loadDataHotel();
+                await upLoadFile();
+                createTableHotel(listHotel);
+            }
+
+            //Update
+            async function updateHotelInform(){
+                const hotelDataUpdate = {
+                    hotelId: $("#hotelId").val(),
+                    imageHotel : $("#imageInput").val().split('\\')[2],
+                    hotelName: $("#nameHotel").val(),
+                    address: $("#address").val(),
+                    rating: parseInt($("#rating").val()),
+                    phone:$("#phone").val(),
+                    description: $("#description").val()
+                }
+                let response = await axios.post(`/hotel-api/getSaveHotel`, hotelDataUpdate)
+                await loadDataHotel();
+                await upLoadFile();
+                createTableHotel(listHotel);
+            }
+
+            async function deleteHotelInform() {
+                const hotelData = {
+                    hotelId: $("#hotelId").val(),
+                }
+                let respone = await axios.delete(`/hotel-api/DeleteHotel?hotelId=${hotelData.hotelId}`)
+                await loadDataHotel();
+                createTableHotel(listHotel);
+                clearform();
+
+            }
+            function clearForm() {
+                fillDetailForm({});
+            }
+        //    upload img
+        //    Push
+            async function upLoadFile() {
+                var formData = new FormData();
+                var fileInput = $('#imageInput')[0];
+
+                // Kiểm tra xem đã chọn file chưa
+                if (fileInput.files.length === 0) {
+                    alert('Please select a file to upload.');
+                    return;
+                }
+                formData.append('file', fileInput.files[0]);
+
+                let response = await axios.post('/upload-api/uploadHotel', formData, {})
+                    .then(function (response) {
+                    })
+                    .catch(function (error) {
+                        alert('An error occurred while uploading the file: ' + error.message);
+                    });
+            }
+
+            onError = (e) => {
+                e.target.src = '/images/img.png'
+            }
+
+        </script>
     </div>
 </div>
 </body>

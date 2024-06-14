@@ -27,7 +27,7 @@ async function saveTourInForm() {
     const price = parseInt($("#Price").val());
     const description = $("#Note").val();
     const available = parseInt($("#Slot").val());
-
+    const experience = $("#Experience").val();
     // Kiểm tra xem có trường nào rỗng không
     if (!nameTour || !imageTour || !type_Id || !tourDuration || !timeStart || !transport || !startPlace || !price || !description || !available) {
         // Hiển thị cảnh báo nếu có trường trống
@@ -51,7 +51,8 @@ async function saveTourInForm() {
         startPlace: startPlace,
         price: price,
         description: description,
-        available: available
+        available: available,
+        experience: experience
     };
     console.log(TourData)
 
@@ -68,7 +69,6 @@ async function saveTourInForm() {
                 let response = await axios.post('/tour-api/getSaveTour', TourData);
                 await upLoadFile();
                 await loadDataTour();
-
                 createTableTourByTypeTour(listAllTour);
                 clearForm(); // Xóa form sau khi lưu thành công
                 Swal.fire(
@@ -93,7 +93,7 @@ async function updateTourInForm() {
     const updateTourData = {
         tourID: $("#TourID").val(),
         nameTour: $("#nameTour").val(),
-        imageTour: $("#imageInput").val(),
+        imageTour : $("#imageInput").val().split('\\')[2],
         typeTourE: {
             type_Id: parseInt($("#type_Id").val())
         },
@@ -103,15 +103,18 @@ async function updateTourInForm() {
         startPlace: $("#StartPlace").val(),
         price: parseInt($("#Price").val()),
         description: $("#Note").val(),
-        available: parseInt($("#Slot").val())
-        // Kiểm tra dữ liệu đầu vào
+        available: parseInt($("#Slot").val()),
+        experience: $("#Experience").val()
     }
-    console.log("Du lieu truyen vao", updateTourData);
-
     let response = await axios.post('/tour-api/getSaveTour', updateTourData);
     await upLoadFile();
     await loadDataTour();
     createTableTourByTypeTour(listAllTour);
+    Swal.fire(
+        'Luu Thanh Cong!',
+        'Ban da luu Tour nay thanh cong.',
+        'success'
+    );
 }
 
 //Edit
@@ -126,20 +129,29 @@ async function getTourToForm(tourID) {
 function fillTourForm(tourDetail) {
     $("#TourID").val(tourDetail.tourID);
     $("#nameTour").val(tourDetail.nameTour);
-
-    // $("#imageInput").val(tourDetail.imageTour);
     $('#image-preview').attr('src', '/images/imagesTour2/' + tourDetail.imageTour);
-    console.log('/images/imagesTour2/' + tourDetail.imageTour)
-    // // Không đặt giá trị cho input file vì điều này không được phép
-    // $('#imageInput').val(''); // Chỉ có thể đặt giá trị là chuỗi rỗng
+
+    fetch('/images/imagesTour2/' + tourDetail.imageTour)
+        .then(res => res.blob())
+        .then(blob => {
+            const dataTransfer = new DataTransfer();
+            const file = new File([blob], tourDetail.imageTour, { type: blob.type });
+            dataTransfer.items.add(file);
+            $("#imageInput")[0].files = dataTransfer.files;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
     $("#type_Id").val(tourDetail.typeTourE.type_Id);
     $("#TimeTravel").val(tourDetail.tourDuration);
     $("#Start").val(tourDetail.timeStart);
     $("#Transport").val(tourDetail.transport);
     $("#StartPlace").val(tourDetail.startPlace);
-    $("#Price").val(tourDetail.price);
+    $("#Price").val(tourDetail.price.toLocaleString('vi-VN'));
     $("#Note").val(tourDetail.description);
     $("#Slot").val(tourDetail.available);
+    $("#Experience").val(tourDetail.experience);
 
 
 }
@@ -150,16 +162,13 @@ async function deleteTourByID(TourData) {
         let response = await axios.delete(`/tour-api/getDeleteTour?tourID=${TourData.tourID}`);
         let result = response.data;
         if (result.status) {
-            console.log("Xóa thành công");
             //
             await loadDataTour();
             createTableTourByTypeTour(listAllTour);
             //
         } else {
-            console.error("Xóa thất bại: ", result.message);
         }
     } catch (error) {
-        console.error("Error deleting tour: ", error);
     }
 }
 
@@ -167,7 +176,6 @@ document.getElementById("deleteBtn").addEventListener("click", function () {
     const TourData = {
         tourID: $("#TourID").val(),
     }
-    console.log("Deleting tour with ID:", TourData); // Debugging
     deleteTourByID(TourData);
 });
 
@@ -184,6 +192,8 @@ function clearForm() {
     $("#Price").val("");
     $("#Note").val("");
     $("#Slot").val("");
+    $("#Experience").val("");
+
 }
 
 
@@ -195,7 +205,6 @@ $(document).ready(async function () {
     // Thêm sự kiện cho dropdown để lọc danh sách tour khi thay đổi lựa chọn
     $("#TypeTour").on("change", function () {
         let selectedType = $(this).val();
-        console.log("Selected type_Id: ", selectedType);
         let filteredTours = filterToursByType(listAllTour, selectedType);
         createTableTourByTypeTour(filteredTours);
     });
@@ -225,13 +234,11 @@ function createTableTourByTypeTour(addToTable) {
     });
     $("#BodyListAllTour").html(populateTypeTourDropdown);
 }
-
 async function loadDataTour() {
     try {
         let response = await axios.get(`/tour-api/getAllTour`);
         listAllTour = response.data.data;
     } catch (error) {
-        console.error("Error loading tours:", error);
     }
 }
 
@@ -248,7 +255,6 @@ async function upLoadFile() {
 
     // Kiểm tra xem đã chọn file chưa
     if (fileInput.files.length === 0) {
-        alert('Please select a file to upload.');
         return;
     }
 
@@ -256,13 +262,7 @@ async function upLoadFile() {
 
     let response = await axios.post('/upload-api/upload', formData, {})
         .then(function (response) {
-            alert('File uploaded successfully!');
         })
         .catch(function (error) {
-            alert('An error occurred while uploading the file: ' + error.message);
         });
-}
-
-onError = (e) => {
-    e.target.src = '/images/ImagesTour2/img.png'
 }

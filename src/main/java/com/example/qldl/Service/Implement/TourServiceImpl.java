@@ -17,12 +17,10 @@ public class TourServiceImpl implements TourService {
     final TourRepo tourRepo;
     final TypeTourRepo typeTourRepo;
 
-
     @Override
     public List<TourE> getAllTour() {
         return tourRepo.findAll();
     }
-
 
     @Override
     public TourE addTour(TourE tourE){
@@ -38,19 +36,11 @@ public class TourServiceImpl implements TourService {
         }
     }
 
-
-//
-//    @Override
-//    public List<TourE> getToursByTypeId(Integer type_Id) {
-//        return tourRepo.findTourEByTypeTourE(type_Id);
-//    }
-
     @Override
     public Optional<TourE> getTourEByTourId(Integer tourID) {
         var result = tourRepo.getTourEByTourID(tourID);
         return Optional.ofNullable(result);
     }
-
 
     @Override
     public List<TourE> getToursByTypeId(Integer type_ID) {
