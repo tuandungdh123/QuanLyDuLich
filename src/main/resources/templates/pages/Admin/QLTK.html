@@ -8,6 +8,8 @@
     <link rel="stylesheet" th:href="@{/layout-css/admin.css}">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
 
 </head>
 <body>
@@ -24,16 +26,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                                                     <li class="nav-item">
-                                                        <a class="nav-link" id="helloAccount" href="#">Xin chào, admin!</a>
+                                                        <span class="nav-link" id="helloAccount" href="#">Xin chào, admin!</span>
                                                     </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-right-to-bracket"></i></a>
+                            <button class="nav-link" onclick="Logout()"><i class="fa-solid fa-right-to-bracket"></i></button>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
         <div class="col-4">
         <form id="infoForm" >
@@ -171,8 +173,15 @@
                 `</td>` +
                 `</tr>`;
         });
-
         $("#bodyTableListAccount").html(bodyTableListAccountString);
+        let table = new DataTable('#fillToForm',{
+           searching :  false,
+           info: false,
+            paging: true,
+            ordering: false,
+            lengthMenu:[8]
+        });
+        $('.dt-length').hide();
         // document.addEventListener('DOMContentLoaded', function () {
         //     const addAccountBtn = document.getElementById('addAccountBtn');
         //
@@ -354,9 +363,26 @@
         }
         return true;
     }
-
+    Logout = () => {
+        Swal.fire({
+            title: "Do you want to save the changes?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Save",
+            denyButtonText: `Don't save`
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire("Saved!", "", "success");
+            } else if (result.isDenied) {
+                Swal.fire("Changes are not saved", "", "info");
+            }
+        });
+    }
 </script>
+
 <script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>-->
 </body>
 </html>

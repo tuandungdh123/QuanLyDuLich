@@ -116,7 +116,7 @@
         let response = await axios.get(`/account-api/login`, { params: userLogin });
         if(response.status === 200 && response.data.status){
             Swal.fire({
-                position: "top-end",
+                position: "center",
                 icon: "success",
                 title: "Đăng Nhập Thành Công",
                 showConfirmButton: false,
