@@ -3,7 +3,7 @@ const imageInput = document.getElementById('imageInput');
 const imagePreview = document.getElementById('image-preview');
 
 // Hàm xử lý khi có lỗi xảy ra với thẻ img
-function onError(event) {img
+function onError(event) {
     event.target.src = '/images/.png'; // Đặt đường dẫn tới ảnh mặc định
 }
 

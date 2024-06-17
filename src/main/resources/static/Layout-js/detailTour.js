@@ -38,8 +38,8 @@ function createTableTourById(tour) {
                                      style="width: 820px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
                                     <div>
                                         <div class="item" style="width: 100%; display: inline-block;">
-                                            <div class="img">
-                                                <img src="/images/imagesTour2/${tour.imageTour}" alt="dungdaubui">
+                                            <div class="img" style="width: 800px; height: 400px">
+                                                <img class="w-100 h-100" src="/images/imagesTour2/${tour.imageTour}" alt="dungdaubui">
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@ function createTableTourById(tour) {
                             </ul>
                         </div>
                     </div>
-                    <div class="mnfixed_wrap">
+                    <div class="detail mnfixed_wrap" >
                         <div class="mnfixed_self">
                             <div class="boxFix">
                                 <div class="boxPrice">

@@ -25,31 +25,19 @@
     <div class="wrapcont mt-3" id="TourCard">
     </div>
 </div>
+<div th:replace=" pages/Footer/Footer :: footer"></div>
 <script th:src="@{/Layout-js/tourCart.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!--<script>-->
-<!--    $(document).ready(function () {-->
-<!--        $('input[name="zalopay"]').change(function () {-->
-<!--            if ($('#payment_zalopay').is(':checked')) {-->
-<!--                $('.payment_description').show();-->
-<!--            } else {-->
-<!--                $('.payment_description').hide();-->
-<!--            }-->
-<!--        });-->
-<!--    });-->
-<!--</script>-->
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    document.getElementById('row-calling').addEventListener('submit', function (event) {
-        event.preventDefault(); // Ngăn chặn form submit
-        var tenKH = document.getElementById('bookNameError').value;
-        var sdt = document.getElementById('bookPhoneError').value;
-        var email = document.getElementById('bookEmailError').value;
+  function submit(tour){
+        var tenKH = document.getElementById('lname').value;
+        var sdt = document.getElementById('phone').value;
+        var email = document.getElementById('email').value;
         if (!tenKH) {
             Swal.fire({
                 icon: 'error',
@@ -75,13 +63,11 @@
             return;
         }
         Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: "Đặt tour thành công",
-            text: "Mã tour của bạn là 140798",
-            footer: '<a href="#">Why do I have this issue?</a>',
         });
-    });
+  }
 </script>
 </body>
 </html>
