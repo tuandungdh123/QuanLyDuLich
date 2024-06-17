@@ -15,6 +15,7 @@
 //         available: parseInt($("#Slot").val())
 //         // Kiểm tra dữ liệu đầu vào
 //     }
+var listAllTour = []
 async function saveTourInForm() {
     // Lấy dữ liệu từ các trường nhập liệu
     const nameTour = $("#nameTour").val();
