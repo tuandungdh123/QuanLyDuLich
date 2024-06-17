@@ -25,7 +25,6 @@ public class AccountServiceImpl implements AccountService {
         var result = repo.getAccountEByTkAndMk(accountName, password);
         return Optional.ofNullable(result);
     }
-
     @Override
     public void doDeleteById(int userId) {
         repo.deleteById(userId);
@@ -39,6 +38,5 @@ public class AccountServiceImpl implements AccountService {
     public Optional<AccountEntity> getAccountByUserId(int userId){
         var result = repo.getAccountEntitiesByUserId(userId);
         return Optional.ofNullable(result);
-    };
-
+    }
 }

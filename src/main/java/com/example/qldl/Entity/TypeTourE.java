@@ -19,7 +19,6 @@ public class TypeTourE {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer type_Id;
 
-
     @Column(name = "Type_Name")
     private String type_Name;
 }

@@ -31,7 +31,7 @@ public class FileUploadController {
             }
             // Lưu file vào vị trí được chỉ định
             Path filPath = upload.resolve(file.getOriginalFilename());
-            Files.copy(file.getInputStream(), filPath);
+            Files.copy(file.getInputStream(), filPath, StandardCopyOption.REPLACE_EXISTING);
 
             return ResponseEntity.ok().body("File uploaded successfully!");
         } catch (IOException e) {

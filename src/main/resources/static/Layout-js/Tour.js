@@ -1,21 +1,6 @@
-// async function saveTourInForm() {
-//
-//     const TourData = {
-//         nameTour: $("#nameTour").val(),
-//         imageTour: $("#imageInput").val(),
-//         typeTourE: {
-//             type_Id: parseInt($("#type_Id").val())
-//         },
-//         tourDuration: $("#TimeTravel").val(),
-//         timeStart: $("#Start").val(),
-//         transport: $("#Transport").val(),
-//         startPlace: $("#StartPlace").val(),
-//         price: parseInt($("#Price").val()),
-//         description: $("#Note").val(),
-//         available: parseInt($("#Slot").val())
-//         // Kiểm tra dữ liệu đầu vào
-//     }
+
 var listAllTour = []
+var listAllTour;
 async function saveTourInForm() {
     // Lấy dữ liệu từ các trường nhập liệu
     const nameTour = $("#nameTour").val();
@@ -25,12 +10,13 @@ async function saveTourInForm() {
     const timeStart = $("#Start").val();
     const transport = $("#Transport").val();
     const startPlace = $("#StartPlace").val();
-    const price = parseInt($("#Price").val());
+    const priceAdult = parseInt($("#Price").val());
+    const priceChildren = parseInt($("#PriceEm_Children").val());
     const description = $("#Note").val();
     const available = parseInt($("#Slot").val());
     const experience = $("#Experience").val();
     // Kiểm tra xem có trường nào rỗng không
-    if (!nameTour || !imageTour || !type_Id || !tourDuration || !timeStart || !transport || !startPlace || !price || !description || !available) {
+    if (!nameTour || !imageTour || !type_Id || !tourDuration || !timeStart || !transport || !startPlace || !priceAdult || !priceChildren || !description || !available) {
         // Hiển thị cảnh báo nếu có trường trống
         Swal.fire({
             icon: 'error',
@@ -50,7 +36,8 @@ async function saveTourInForm() {
         timeStart: timeStart,
         transport: transport,
         startPlace: startPlace,
-        price: price,
+        priceAdult: priceAdult,
+        priceChildren: priceChildren,
         description: description,
         available: available,
         experience: experience
@@ -102,7 +89,8 @@ async function updateTourInForm() {
         timeStart: $("#Start").val(),
         transport: $("#Transport").val(),
         startPlace: $("#StartPlace").val(),
-        price: parseInt($("#Price").val()),
+        priceAdult: parseInt($("#Price").val()),
+        priceChildren: parseInt($("#PriceEm_Children").val()),
         description: $("#Note").val(),
         available: parseInt($("#Slot").val()),
         experience: $("#Experience").val()
@@ -149,7 +137,8 @@ function fillTourForm(tourDetail) {
     $("#Start").val(tourDetail.timeStart);
     $("#Transport").val(tourDetail.transport);
     $("#StartPlace").val(tourDetail.startPlace);
-    $("#Price").val(tourDetail.price.toLocaleString('vi-VN'));
+    $("#Price").val(tourDetail.priceAdult.toLocaleString('vi-VN'));
+    $("#PriceEm_Children").val(tourDetail.priceChildren.toLocaleString('vi-VN'));
     $("#Note").val(tourDetail.description);
     $("#Slot").val(tourDetail.available);
     $("#Experience").val(tourDetail.experience);
@@ -225,7 +214,7 @@ function createTableTourByTypeTour(addToTable) {
             `<td>${e.timeStart}</td>` +
             `<td>${e.transport}</td>` +
             `<td>${e.startPlace}</td>` +
-            `<td>${e.price}</td>` +
+            `<td>${e.priceAdult}</td>` +
             `<td>${e.description}</td>` +
             `<td>${e.available}</td>` +
             `<td>` +

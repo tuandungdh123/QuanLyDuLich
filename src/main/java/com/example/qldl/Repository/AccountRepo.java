@@ -14,4 +14,6 @@ public interface AccountRepo extends JpaRepository<AccountEntity, Integer> {
     AccountEntity getAccountEByTkAndMk(String accountName, String Pass);
     Optional<AccountEntity> findAccountByAccountName(String accountName);
     AccountEntity getAccountEntitiesByUserId(int userId);
+
+
 }
