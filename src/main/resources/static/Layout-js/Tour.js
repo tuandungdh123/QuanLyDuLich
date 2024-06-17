@@ -137,8 +137,8 @@ function fillTourForm(tourDetail) {
     $("#Start").val(tourDetail.timeStart);
     $("#Transport").val(tourDetail.transport);
     $("#StartPlace").val(tourDetail.startPlace);
-    $("#Price").val(tourDetail.priceAdult.toLocaleString('vi-VN'));
-    $("#PriceEm_Children").val(tourDetail.priceChildren.toLocaleString('vi-VN'));
+    $("#Price").val(tourDetail.priceAdult);
+    $("#PriceEm_Children").val(tourDetail.priceChildren);
     $("#Note").val(tourDetail.description);
     $("#Slot").val(tourDetail.available);
     $("#Experience").val(tourDetail.experience);
@@ -231,8 +231,6 @@ async function loadDataTour() {
     } catch (error) {
     }
 }
-
-
 
 function filterToursByType(tours, type_Id) {
     if (!type_Id) return tours; // Nếu không chọn loại nào, trả về toàn bộ danh sách

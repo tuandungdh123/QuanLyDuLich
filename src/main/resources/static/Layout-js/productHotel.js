@@ -27,10 +27,6 @@ function createTableProductsHotel(productsHotel) {
                         </a>
                     </div>
                     <div class="caption">
-                        <div class="ratting">
-                            ${product.rating}
-                            <i class="fa fa-star"></i>
-                        </div>
                         <div class="tend">
                             <h3 style="height: 50px">${product.hotelName}</h3>
                         </div>

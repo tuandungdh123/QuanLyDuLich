@@ -23,7 +23,7 @@ async function DataProductTour(){
                         <div class="item">
                             <div class="mda-box-item">
                                 <div class="mda-box-img">
-                                    <a href="#">
+                                    <a href="/tour?tourID=${product.tourID}">
                                         <img class="lazyload" alt="" src="/images/ImagesTour2/${product.imageTour}"
                                              style="display: block;">
                                     </a>
