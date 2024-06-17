@@ -1,3 +1,5 @@
+
+var listAllTour = []
 var listAllTour;
 async function saveTourInForm() {
     // Lấy dữ liệu từ các trường nhập liệu
