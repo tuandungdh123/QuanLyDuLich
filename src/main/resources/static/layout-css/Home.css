@@ -22,6 +22,7 @@
 }
 
 .btn-group-tienich {
+    padding: 0;
     display: flex;
     justify-content: center; /* Các phần tử được căn ra hai bên */
     border: none;
@@ -93,7 +94,7 @@
 .mda-place,
 .mda-price {
     display: inline-block;
-    margin-right: 60px; /* Điều chỉnh khoảng cách giữa hai phần tử */
+    margin-right: 40px; /* Điều chỉnh khoảng cách giữa hai phần tử */
 }
 
 .mda-box-img img {

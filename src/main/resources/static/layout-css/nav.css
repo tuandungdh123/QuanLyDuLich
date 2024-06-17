@@ -1,10 +1,16 @@
+.nav{
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 1000
+}
 .navbar-nav .nav-link:hover {
-    color: #007bff; /* Màu sắc khi rê chuột vào */
-    transform: scale(1.1); /* Phóng to khi rê chuột vào */
+    color: #007bff;
+    transform: scale(1.1);
 }
 
 .navbar-nav .dropdown-menu .dropdown-item:hover {
-    background-color: #f8f9fa; /* Màu nền khi rê chuột vào item dropdown */
-    color: #007bff; /* Màu chữ khi rê chuột vào item dropdown */
-    transform: scale(1.1); /* Phóng to khi rê chuột vào item dropdown */
+    background-color: #f8f9fa;
+    color: #007bff;
+    transform: scale(1.1);
 }
