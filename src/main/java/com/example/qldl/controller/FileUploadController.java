@@ -64,8 +64,10 @@ public ResponseEntity<String> uploadFileHotel(@RequestParam("file") MultipartFil
 
         return ResponseEntity.ok().body("File uploaded successfully!");
     } catch (IOException e) {
+        e.printStackTrace();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while uploading the file: " + e.getMessage());
     }
 }
 }
+
 
