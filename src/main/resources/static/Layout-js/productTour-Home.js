@@ -5,7 +5,7 @@ $(document).ready(async function (){
 let listAllTourMienBac = []
 async function loadDataTourMienBac() {
     try {
-        let response = await axios.get(`/tour-api/getTourByTypeID?type_ID=1`);
+        let response = await axios.get(`/home/tour-api/getTourByTypeID?type_ID=1`);
         listAllTourMienBac = response.data.data;
     } catch (error) {
         console.error("Error loading tours:", error);
@@ -24,7 +24,7 @@ function createTableProductsTourMienBac(productsTourMienBac) {
                             <div class="item">
                                 <div class="mda-box-item">
                                     <div class="mda-box-img">
-                                        <a href="/tour?tourID=${product.tourID}">
+                                        <a href="/home/tour?tourID=${product.tourID}">
                                             <img class="lazyload" alt="" src="/images/ImagesTour2/${product.imageTour}" style="display: block; height: 300px">
                                         </a>
                                         <div class="mda-box-lb">Từ Hồ Chí Minh</div>
@@ -76,8 +76,6 @@ addSlickToSlide = () => {
     });
 }
 
-// Hotel
-
 $(document).ready(async function (){
     await DataProductsHotel();
     createTableProductsHotel(productsHotel);
@@ -87,7 +85,7 @@ let productsHotel = []
 
 async function DataProductsHotel(){
     try{
-        let response = await axios.get("/hotel-api/getAllHotel");
+        let response = await axios.get("/home/hotel-api/getAllHotel");
         productsHotel = response.data.data;
     }
     catch (error){

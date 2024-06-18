@@ -6,7 +6,7 @@ $(document).ready(async function (){
 
 async function DataProductTour(){
     try {
-        let response = await axios.get(`/tour-api/getAllTour`);
+        let response = await axios.get(`/home/tour-api/getAllTour`);
         productsTour = response.data.data;
         console.log(productsTour);
     } catch (error) {

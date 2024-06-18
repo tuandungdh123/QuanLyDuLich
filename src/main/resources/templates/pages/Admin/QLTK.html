@@ -2,19 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Quản Lý Tour Du Lịch</title>
+    <title>Quản Lý Tài Khoản</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/layout-css/admin.css}">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <link rel="icon" href="https://scontent.fsgn2-6.fna.fbcdn.net/v/t31.18172-8/23845860_772165502975647_429716032553466353_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHtw3MF8oJV6xJsvfdqyhjVVZi2a0AiECZVmLZrQCIQJrt-ANlMllgB9IakOUrLyhv09u6p6tEjGNLK9kp1W6nV&_nc_ohc=DJ4hxa6m1o8Q7kNvgFQ-PK_&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYBkRaPwE3miBKJ2836ZIiZdLpy-PDZye2460uWtyhZQoQ&oe=669286E5">
 
 </head>
 <body>
 <div th:replace=" pages/Admin/admin :: sidebar"></div>
 <div class="content">
     <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav th:fragment="adminNav" class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Quản Lý Tài Khoản</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -24,19 +27,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                                                     <li class="nav-item">
-                                                        <a class="nav-link" id="helloAccount" href="#">Xin chào, admin!</a>
+                                                        <span class="nav-link" id="helloAccount" href="#">Xin chào, admin!</span>
                                                     </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Thông báo <span class="badge bg-danger">2</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng xuất</a>
+                            <button class="nav-link" onclick="Logout()"><i class="fa-solid fa-right-to-bracket"></i></button>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
         <div class="col-4">
         <form id="infoForm" >
@@ -82,16 +82,27 @@
             </div>
         </form>
         <div class="bottom">
-            <button type="button" id="addAccountBtn" onclick="saveAccountInForm()" class="btn btn-outline-info">Create
+            <button type="button" id="addAccountBtn" onclick="saveAccountInForm()" class="btn btn-outline-info">
+                <i class="fa-regular fa-floppy-disk"></i>
+                Create
             </button>
-            <button type="button" onclick="updateAccountInForm()" class="btn btn-outline-success">Update</button>
-            <button type="button" onclick="deleteAccount()" class="btn btn-outline-danger">Delete</button>
-            <button type="button" id="btnClearForm" class="btn btn-outline-info" onclick="clearForm()">Clear</button>
+            <button type="button" onclick="updateAccountInForm()" class="btn btn-outline-success">
+                <i class="fa-solid fa-arrows-rotate"></i>
+                Update
+            </button>
+            <button type="button" onclick="deleteAccount()" class="btn btn-outline-danger">
+                <i class="fa-regular fa-circle-xmark"></i>
+                Delete
+            </button>
+            <button type="button" id="btnClearForm" class="btn btn-outline-info" onclick="clearForm()">
+                <i class="fa-solid fa-broom"></i>
+                Clear
+            </button>
         </div>
         </div>
          <div class="col-8">
         <div class="tableQLTour">
-            <table class="table" id="fillToForm">
+            <table class="table table-bordered" id="fillToForm">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -113,38 +124,17 @@
     </div>
 </div>
 <script type="application/javascript">
-    // <!--    listAccount = [-->
-    // <!--        {-->
-    // <!--            userId: "001",-->
-    // <!--            accountName: "Bui Quoc Dat",-->
-    // <!--            password: "123456",-->
-    // <!--            email: "datbui185@gmail.com",-->
-    // <!--            phone: "0964192032",-->
-    // <!--            role: {-->
-    // <!--                roleId: "001",-->
-    // <!--                roleName: "Admin"-->
-    // <!--            }-->
-    // <!--        },-->
-    // <!--        {-->
-    // <!--            userId: "002",-->
-    // <!--            accountName: "Truong Tuan Dung",-->
-    // <!--            password: "654321",-->
-    // <!--            email: "tuandung@gmail.com",-->
-    // <!--            phone: "0394314552",-->
-    // <!--            role: {-->
-    // <!--                roleId: "002",-->
-    // <!--                roleName: "User"-->
-    <!--            }-->
-    <!--        }-->
-    <!--    ]-->
 
     $(document).ready(async function () {
         await loadDataAccount();
         createTableAccount(listAccount);
-        $("#helloAccount").text("Xin Chào," + localStorage.getItem("account")+ "!")
+        $("#helloAccount").text("Xin Chào," + localStorage.getItem("accountName")+ "!")
     });
 
     function createTableAccount(addToTable) {
+        if ($.fn.dataTable.isDataTable('#fillToForm')) {
+            $('#fillToForm').DataTable().destroy();
+        }
         let bodyTableListAccountString = '';
 
         addToTable.forEach(function (e, index) {
@@ -159,40 +149,19 @@
                 `<td>` +
                 `<button type="button"
                         onclick="getAccountInformation(${e.userId})"
-                        className="btn btn-outline-success">Edit</button>` +
+                        class="btn btn-outline-success">Edit</button>` +
                 `</td>` +
                 `</tr>`;
         });
-
         $("#bodyTableListAccount").html(bodyTableListAccountString);
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     const addAccountBtn = document.getElementById('addAccountBtn');
-        //
-        //     // Fetch all users and display them in the table
-        //     createTableAccount();
-        //
-        //     addAccountBtn.addEventListener('click', function () {
-        //         const name = document.getElementById('InputUserName').value;
-        //         const age = document.getElementById('InputPassword1').value;
-        //         const email = document.getElementById('email').value;
-        //         const phone = document.getElementById('phone').value;
-        //         // const role = document.getElementById('email').value;
-        //
-        //         fetch('/account-api', {
-        //             method: 'GET',
-        //                 headers: {
-        //                 'Content-Type': 'application/json'
-        //             },
-        //             body: JSON.stringify({name, age, email, phone})
-        //         })
-        //             .then(response => response.json())
-        //             .then(data => {
-        //                 alert('User added!');
-        //                 createTableAccount(); // Refresh the user list
-        //             })
-        //             .catch(error => console.error('Error:', error));
-        //     });
-        // })
+        let table = new DataTable('#fillToForm',{
+           searching :  false,
+           info: false,
+            paging: true,
+            ordering: false,
+            lengthMenu:[8]
+        });
+        $('.dt-length').hide();
     }
 
     async function loadDataAccount() {
@@ -223,7 +192,18 @@
         clearForm();
     }
     async function updateAccountInForm() {
-
+        if(!validateFormUserName()){
+            return;
+        }
+        if(!validateFormPassWord()){
+            return;
+        }
+        if(!validateFormEmail()){
+            return;
+        }
+        if(!validateFormPhone()){
+            return;
+        }
         let accountData = {
             userId : $("#idUserId").val(),
             accountName: $("#InputUserName").val(),
@@ -346,8 +326,42 @@
         }
         return true;
     }
-
+    Logout = () => {
+        Swal.fire({
+            title: "Bạn Muốn Đăng Xuất Về Trang?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Đăng Nhập",
+            denyButtonText: `Trang Chủ`
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Về Trang Đăng Nhập Thành Công",
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    window.location.href='/home'
+                });
+            } else if (result.isDenied) {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Về Trang Chủ Thành Công",
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    window.location.href='/login'
+                });
+            }
+        });
+    }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+<script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>-->
 </body>
 </html>
