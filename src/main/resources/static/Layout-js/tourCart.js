@@ -286,7 +286,6 @@ async function submit(tour){
             html2canvas: { scale: 2 },
             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
-
         try {
             const pdfBlob = await html2pdf().from(element).set(opt).toPdf().output('blob');
             const pdfUrl = URL.createObjectURL(pdfBlob);
