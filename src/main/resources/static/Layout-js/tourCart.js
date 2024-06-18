@@ -52,7 +52,7 @@ function createTableTourById(tour) {
                         </div>
                         <div class="row tour-row">
                             <span class="be col-3">Giá:</span>
-                            <span style="font-weight: 600" class="col-9">${tour.priceAdult.toLocaleString('vi-VN', { style: 'decimal', minimumFractionDigits: 0 })}</span>
+                            <span style="font-weight: 600" class="col-9">${tour.priceAdult.toLocaleString('vi-VN', { style: 'decimal', minimumFractionDigits: 0 })} đ</span>
                         </div>
                         <div class="row tour-row">
                             <span class="be col-3">Ngày khởi hành:</span>
@@ -93,9 +93,9 @@ function createTableTourById(tour) {
                 </tr>
                 <tr>
                     <td><span>Giá</span></td>
-                    <td><span class="mda-money">${tour.priceAdult} đ</span></td>
-                    <td><span class="mda-money">${tour.priceChildren} đ</span></td>
-                    <td><span class="mda-money">${tour.priceChildren} đ</span></td>
+                    <td><span class="mda-money">${tour.priceAdult.toLocaleString('vi-VN', { style: 'decimal', minimumFractionDigits: 0 }) + ' đ'}</span></td>
+                    <td><span class="mda-money">${tour.priceChildren.toLocaleString('vi-VN', { style: 'decimal', minimumFractionDigits: 0 }) + ' đ'}</span></td>
+                    <td><span class="mda-money">${tour.priceChildren.toLocaleString('vi-VN', { style: 'decimal', minimumFractionDigits: 0 }) + ' đ'}</span></td>
                     <td><span class="mda-money">0 </span></td>
                 </tr>
                 <tr>
@@ -141,7 +141,7 @@ function createTableTourById(tour) {
                         </div>
                         <div class="form-group col-md-4">
                             <label>Số điện thoại *:<span id="bookPhoneError" class="error"></span></label>
-                            <input data-error="#bookPhoneError" type="text" name="Phone" value=""
+                            <input data-error="#bookPhoneError" type="text" name="Phone" value="" id="phone"
                                    class="form-control numeric input-tracking1" placeholder="Số điện thoại">
                         </div>
                         <div class="form-group col-md-4">
@@ -180,34 +180,6 @@ function createTableTourById(tour) {
                                    placeholder="Sơ sinh(nhỏ hơn 2 tuổi)">
                         </div>
                     </div>
-                    <div class="row-visa row">
-                        <div class="form-group col-md-3">
-                            <label>Phụ thu visa</label>
-                            <select class="Visa is-visacharge input-tracking form-control valid" name="Visa" id="Visa"
-                                    aria-invalid="false">
-                                <option value="0">Không</option>
-                                <option value="1">Có</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Số lượng visa</label>
-                            <input type="number" name="slvisa" id="slvisa" class="form-control" min="0" value="0"
-                                   placeholder="Số lượng visa">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Phụ thu phòng đơn</label>
-                            <select class="SingleRoom is-singleroom input-tracking form-control valid" name="SingleRoom"
-                                    id="SingleRoom" aria-invalid="false" placeholder="Phụ thu phòng đơn">
-                                <option value="0">Không</option>
-                                <option value="1">Có</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Số lượng phòng đơn</label>
-                            <input type="number" name="slphongdon" id="slphongdon" class="form-control" min="0"
-                                   value="0" placeholder="Số lượng phòng đơn">
-                        </div>
-                    </div>
                     <div class="form-group col-md-12">
                         <input type="hidden" id="sumary-hidden" value="">
                         <input type="hidden" id="discount-hidden" value="0">
@@ -238,16 +210,12 @@ function createTableTourById(tour) {
                         <p>Quý khách vui lòng ghi rõ mã tour, họ tên, địa chỉ, số điện thoại và tên chuyến du lịch, ngày khởi hành cụ thể đã được quý khách chọn đăng ký.<br>
                     </div>
                 </div>    
-<!--                </div>-->
-<!--                <div class="col-lg-6 payment_option">-->
-<!--                    <input type="radio" name="payment" id="payment_momo" value="MOMO">-->
-<!--                    <label for="payment_momo">Thanh toán qua ví MoMo</label>-->
-<!--                </div>-->
+
                 </div>
             </div>
             <div class="text-center" style="margin-top:10px; margin-bottom: 20px">
                 <p>Bằng việc tiếp tục, bạn chấp nhận đồng ý với chính sách/điều khoản như trên.</p>
-                <button type="submit" style="width: 150px; background-color: #66ffff; border: #66ffff; height: 30px"
+                <button type="button" onclick="submit()" style="width: 150px; background-color: #66ffff; border: #66ffff; height: 30px"
                         class="btn btn-info" value="HOÀN THÀNH">HOÀN THÀNH
                 </button>
             </div>

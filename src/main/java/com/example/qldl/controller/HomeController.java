@@ -18,6 +18,8 @@ public class HomeController {
     public String getPageView(){
         return "pages/Navbar/Navbar";
     }
+    @GetMapping("/home")
+    public String getHome(){return "pages/Home/Home";}
     @GetMapping("/tour")
     public String getTourView(){
         return "pages/Detail/TourDetail";

@@ -204,7 +204,9 @@
                 let respone = await axios.delete(`/hotel-api/DeleteHotel?hotelId=${hotelData.hotelId}`)
                 await loadDataHotel();
                 createTableHotel(listHotel);
-                clearform();
+                console.log(respone.data);
+                clearForm();
+
 
             }
             function clearForm() {
