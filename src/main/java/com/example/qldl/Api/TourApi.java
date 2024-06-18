@@ -17,7 +17,7 @@ import java.util.Map;
 @Controller
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/tour-api")
+@RequestMapping("/home/tour-api")
 public class TourApi {
 
     @Autowired

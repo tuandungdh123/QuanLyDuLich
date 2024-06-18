@@ -289,7 +289,6 @@ async function submit(tour){
         try {
             const pdfBlob = await html2pdf().from(element).set(opt).toPdf().output('blob');
             const pdfUrl = URL.createObjectURL(pdfBlob);
-            window.open(pdfUrl);
 
             let formData = new FormData();
             formData.append('file', pdfBlob);

@@ -95,7 +95,7 @@ async function updateTourInForm() {
         available: parseInt($("#Slot").val()),
         experience: $("#Experience").val()
     }
-    let response = await axios.post('/tour-api/getSaveTour', updateTourData);
+    let response = await axios.post('/home/tour-api/getSaveTour', updateTourData);
     await upLoadFile();
     await loadDataTour();
     createTableTourByTypeTour(listAllTour);
@@ -108,7 +108,7 @@ async function updateTourInForm() {
 
 //Edit
 async function getTourToForm(tourID) {
-    let response = await axios.get(`/tour-api/getTourByTourID?tourID=${tourID}`);
+    let response = await axios.get(`/home/tour-api/getTourByTourID?tourID=${tourID}`);
     let result = response.data;
     if (result.status) {
         fillTourForm(result.data)
@@ -149,7 +149,7 @@ function fillTourForm(tourDetail) {
 //Delete
 async function deleteTourByID(TourData) {
     try {
-        let response = await axios.delete(`/tour-api/getDeleteTour?tourID=${TourData.tourID}`);
+        let response = await axios.delete(`/home/tour-api/getDeleteTour?tourID=${TourData.tourID}`);
         let result = response.data;
         if (result.status) {
             //
@@ -226,7 +226,7 @@ function createTableTourByTypeTour(addToTable) {
 }
 async function loadDataTour() {
     try {
-        let response = await axios.get(`/tour-api/getAllTour`);
+        let response = await axios.get(`/home/tour-api/getAllTour`);
         listAllTour = response.data.data;
     } catch (error) {
     }
