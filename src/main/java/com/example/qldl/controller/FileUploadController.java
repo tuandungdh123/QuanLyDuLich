@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 @Controller
 @RestController
@@ -30,7 +31,7 @@ public class FileUploadController {
             }
             // Lưu file vào vị trí được chỉ định
             Path filPath = upload.resolve(file.getOriginalFilename());
-            Files.copy(file.getInputStream(), filPath);
+            Files.copy(file.getInputStream(), filPath, StandardCopyOption.REPLACE_EXISTING);
 
             return ResponseEntity.ok().body("File uploaded successfully!");
         } catch (IOException e) {
@@ -59,12 +60,14 @@ public ResponseEntity<String> uploadFileHotel(@RequestParam("file") MultipartFil
         }
         // Lưu file vào vị trí được chỉ định
         Path filPath = uploadHotel.resolve(file.getOriginalFilename());
-        Files.copy(file.getInputStream(), filPath);
+        Files.copy(file.getInputStream(), filPath, StandardCopyOption.REPLACE_EXISTING);
 
         return ResponseEntity.ok().body("File uploaded successfully!");
     } catch (IOException e) {
+        e.printStackTrace();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while uploading the file: " + e.getMessage());
     }
 }
 }
+
 

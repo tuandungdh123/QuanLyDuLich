@@ -41,7 +41,7 @@ public class TourE {
     private String startPlace;
 
     @Column(name="Price_Adult")
-    private int priceAdult;
+       private int priceAdult;
 
     @Column(name="Price_Children")
     private int priceChildren;

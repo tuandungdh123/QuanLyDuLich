@@ -2,9 +2,17 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="data:,">
+
     <link rel="stylesheet" href="/layout-css/nav.css">
     <link rel="stylesheet" href="/layout-css/tourcart.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
     <title>Dat Tour</title>
 </head>
 <body>
@@ -13,315 +21,20 @@
     <nav style="--bs-breadcrumb-divider: url(&10#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
          aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Đặt tour</li>
+            <li class="breadcrumb-item"><a href="/home">Home</a></li>
+            <li class="breadcrumb-item" aria-current="page">Đặt tour</li>
         </ol>
     </nav>
-    <div class="wrapcont mt-3">
-        <div class="row conttop">
-            <article class="col-sm-4">
-                <div class="imgtour">
-                    <img th:src="@{/images/ImgTour/toursapa.png}" alt="">
-                </div>
-            </article>
-            <aside class="col-sm-7" style="border: 1px solid rgba(0, 0, 0, 0.2);">
-                <div class="info-tour">
-                    <h4>
-                        <a href="#" style="text-decoration: none; color: #f30383; margin-top: 5px">Du lịch Hè - Tour Hà
-                            Nội - Hạ Long - Ninh Bình - Sapa 5 ngày từ Sài Gòn 2024</a>
-                    </h4>
-                    <hr>
-                    <style>
-                        .tour-row {
-                            margin-top: 5px;
-                        }
-                    </style>
-                    <div class="tour-info-list" style="font-size: 15px">
-                        <div class="row tour-row">
-                            <span class="be col-3">Mã tour:</span>
-                            <span style="font-weight:600" class="col-9">17267</span>
-                        </div>
-                        <div class="row tour-row">
-                            <span class="be col-3">Thời gian:</span>
-                            <span style="font-weight:600" class="col-9">5 ngày</span>
-                        </div>
-                        <div class="row tour-row">
-                            <span class="be col-3">Giá:</span>
-                            <span style="font-weight: 600" class="col-9">10.000.000d</span>
-                        </div>
-                        <div class="row tour-row">
-                            <span class="be col-3">Ngày khởi hành:</span>
-                            <span style="font-weight:600" class="col-9">01/06/2024</span>
-                        </div>
-                        <div class="row tour-row">
-                            <span class="be col-3">Nơi khởi hành:</span>
-                            <span style="font-weight:600" class="col-9">Hồ Chí Minh</span>
-                        </div>
-                        <div class="row tour-row">
-                            <span class="be col-3">Số chỗ còn nhận:</span>
-                            <span style="font-weight:600" class="col-9">10 chỗ</span>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-            <ul class="mda-list-design mt-4">
-                <li style="list-style: none">
-                    <span style="color:#FF0000">Các khoản phí phát sinh (nếu có) như: phụ thu dành cho khách nước ngoài, việt kiều; phụ thu phòng đơn; phụ thu chênh lệch giá tour… Nhân viên Du Lịch Việt sẽ gọi điện thoại tư vấn cho quý khách ngay sau khi có phiếu xác nhận booking. (Trong giờ hành chính)</span>
-                </li>
-                <li style="text-align:justify; list-style: none">
-                    <span style="color:#FF0000">Trường hợp quý khách không đồng ý các khoản phát sinh, phiếu xác nhận booking của quý khách sẽ không có hiệu lực.</span>
-                </li>
-            </ul>
-            <hr style="padding-bottom: 10px; padding-top: 10px">
-            <div class="mda-tilte-3"
-                 style="padding-bottom: 25px ;text-transform: uppercase; font-size: 30px; justify-content: center; display: flex">
-                <span class="mda-tilte-name"><i class="fa fa-tags" aria-hidden="true"></i> Bảng giá tour chi tiết</span>
-            </div>
-            <table class="mda-table chitiet_gia">
-                <tbody>
-                <tr>
-                    <td><span>Loại giá\Độ tuổi</span></td>
-                    <td>Người lớn(Trên 11 tuổi)</td>
-                    <td>Trẻ em(5 - 11 tuổi)</td>
-                    <td>Trẻ nhỏ(2 - 5 tuổi)</td>
-                    <td>Sơ sinh( &lt; 2 tuổi)</td>
-                </tr>
-                <tr>
-                    <td><span>Giá</span></td>
-                    <td><span class="mda-money">9,999,000 đ</span></td>
-                    <td><span class="mda-money">8,100,000 đ</span></td>
-                    <td><span class="mda-money">4,200,000 đ</span></td>
-                    <td><span class="mda-money">400,000 đ</span></td>
-                </tr>
-                <tr>
-                    <td><span>Phụ thu Nước Ngoài</span></td>
-                    <td><span class="mda-money">690,000 đ</span></td>
-                    <td><span class="mda-money">0 đ</span></td>
-                    <td><span class="mda-money">0 đ</span></td>
-                    <td><span class="mda-money">0 đ</span></td>
-                </tr>
-                <tr style="display:none">
-                    <td><span>Phụ thu Việt Kiều</span></td>
-                    <td><span class="mda-money">0 đ</span></td>
-                    <td><span class="mda-money">0 đ</span></td>
-                    <td><span class="mda-money">0 đ</span></td>
-                    <td><span class="mda-money">0 đ</span></td>
-                </tr>
-                <tr>
-                    <td><span><b>Phụ thu Phòng đơn</b></span></td>
-                    <td colspan="4" style="text-align: center;"><span class="mda-money">1,600,000 đ</span></td>
-                </tr>
-                <tr style="display:none">
-                    <td><span>Giảm giá</span></td>
-                    <td><span class="mda-money">0 đ</span></td>
-                    <td><span class="mda-money">0 đ</span></td>
-                    <td><span class="mda-money">0 đ</span></td>
-                    <td><span class="mda-money">0 đ</span></td>
-                </tr>
-                </tbody>
-            </table>
-            <div class="mda-tilte-3"
-                 style="padding-bottom: 25px ;text-transform: uppercase; font-size: 30px; justify-content: center; display: flex">
-                <span class="mda-tilte-name"><i class="fa fa-info-circle"
-                                                aria-hidden="true"></i> Thông Tin Liên Hệ</span>
-            </div>
-            <div class="info-calling">
-                <div id="mda-guest-b">
-                    <div class="row row-calling">
-                        <div class="form-group col-md-4">
-                            <label>HỌ TÊN *:<span id="bookNameError" class="error"></span></label>
-                            <input data-error="#bookNameError" type="text" name="Name" id="lname"
-                                   class="form-control input-tracking1" value="" placeholder="Họ tên">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label>Email *:<span id="bookEmailError" class="error"></span></label>
-                            <input data-error="#bookEmailError" type="text" name="Mail" id="email" value=""
-                                   class="user-email form-control input-tracking1" placeholder="Email">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label>Số điện thoại *:<span id="bookPhoneError" class="error"></span></label>
-                            <input data-error="#bookPhoneError" type="text" name="Phone" value=""
-                                   class="form-control numeric input-tracking1" placeholder="Số điện thoại">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label>Địa chỉ *:<span id="bookAddressError" class="error"></span></label>
-                            <textarea data-error="#bookAddressError" type="text" name="AddressShow"
-                                      class="form-control input-tracking1" placeholder="Địa chỉ"></textarea>
-                        </div>
-                        <div class="form-group col-md-8">
-                            <label>Ghi chú:</label>
-                            <textarea name="Note" class="form-control" placeholder="Ghi chú"></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-3">
-                            <label>Người lớn:</label>
-                            <input type="number" name="QAdult" class="form-control mda-quantity tour-quantity1 q-adult1"
-                                   value="1" min="1" max="20" placeholder="Người lớn">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Trẻ em(5 - 11 tuổi):</label>
-                            <input type="number" name="QChild" class="form-control mda-quantity tour-quantity1 q-child1"
-                                   min="0" value="0" placeholder="Trẻ em(5 - 11 tuổi)">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Trẻ nhỏ(2 - 5 tuổi):</label>
-                            <input type="number" name="QBaby" class="form-control mda-quantity tour-quantity1 q-baby1"
-                                   min="0" value="0" placeholder="Trẻ nhỏ(2 - 5 tuổi)">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Sơ sinh(nhỏ hơn 2 tuổi):</label>
-                            <input type="number" name="QInfant"
-                                   class="form-control mda-quantity tour-quantity1 q-infant1" min="0" value="0"
-                                   placeholder="Sơ sinh(nhỏ hơn 2 tuổi)">
-                        </div>
-                    </div>
-                    <div class="row-visa row">
-                        <div class="form-group col-md-3">
-                            <label>Phụ thu visa</label>
-                            <select class="Visa is-visacharge input-tracking form-control valid" name="Visa" id="Visa"
-                                    aria-invalid="false">
-                                <option value="0">Không</option>
-                                <option value="1">Có</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Số lượng visa</label>
-                            <input type="number" name="slvisa" id="slvisa" class="form-control" min="0" value="0"
-                                   placeholder="Số lượng visa">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Phụ thu phòng đơn</label>
-                            <select class="SingleRoom is-singleroom input-tracking form-control valid" name="SingleRoom"
-                                    id="SingleRoom" aria-invalid="false" placeholder="Phụ thu phòng đơn">
-                                <option value="0">Không</option>
-                                <option value="1">Có</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Số lượng phòng đơn</label>
-                            <input type="number" name="slphongdon" id="slphongdon" class="form-control" min="0"
-                                   value="0" placeholder="Số lượng phòng đơn">
-                        </div>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <input type="hidden" id="sumary-hidden" value="3999000">
-                        <input type="hidden" id="discount-hidden" value="0">
-                        <div class="txtTotal">Tổng giá trị : <span id="sumary">3,999,000</span> <span>đ</span><br>
-                            <div id="discount-price"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr style="padding-top: 35px; padding-bottom: 25px">
-            <div class="mda-tilte-3"
-                 style="padding-bottom: 25px ;text-transform: uppercase; font-size: 30px; justify-content: center; display: flex">
-                <span class="mda-tilte-name"><i class="fa fa-money"
-                                                aria-hidden="true"></i> Phương thức thanh toán</span>
-            </div>
-            <div class="payment_options">
-                <div class="payment_option">
-                    <input type="radio" name="payment" id="payment_cod" value="COD" checked>
-                    <label for="payment_cod">Thanh toán tại quầy Du Lịch Việt</label>
-                </div>
-                <div class="payment_option">
-                    <input type="radio" name="payment" id="payment_bank" value="BANK">
-                    <label for="payment_bank">Thanh toán chuyển khoản qua ngân hàng</label>
-                    <div class="payment_description">
-                        <p>Quý khách chuyển khoản qua ngân hàng sau:<br>
-                            Ngân hàng <strong>MB BANK</strong>: Tài khoản <strong>22004 2202 9999</strong> – CHI NHÁNH
-                            Q12, TPHCM<br>
-                            Ngân hàng <strong>ACB</strong>: Tài khoản <strong>1818386868</strong> – CHI NHÁNH Q12, TPHCM<br>
-                            Tên tài khoản<strong> "LE THANH TUNG"</strong></p>
-                        <p>Quý khách vui lòng ghi rõ mã tour, họ tên, địa chỉ, số điện thoại và tên chuyến du lịch, ngày
-                            khởi hành cụ thể đã được quý khách chọn đăng ký.<br>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6"><input type="radio" name="zalopay" id="payment_zalopay" value="ZALOPAY">
-                    <label for="payment_zalopay">Thanh toán qua ZaloPay</label>
-                    <div class="payment_description" style="display: none;">
-                        <p><strong>Vui lòng chọn hình thức thanh toán:</strong></p>
-                        <select name="paycode" id="paycode" class="form-control valid" style="width:330px">
-                            <option value="">Thanh toán qua cổng ZaloPay</option>
-                            <option value="domestic_card">Zalopay : 0399817065</option>
-                            <option value="zalopay_wallet">Thanh toán ZaloPay QR</option>
-                            <option value="vietqr">Hien chua co phuong thuc thanh toan khac</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="payment_option">
-                    <input type="radio" name="payment" id="payment_momo" value="MOMO">
-                    <label for="payment_momo">Thanh toán qua ví MoMo</label>
-                </div>
-            </div>
-            <div class="text-center" style="margin-top:10px; margin-bottom: 20px">
-                <p>Bằng việc tiếp tục, bạn chấp nhận đồng ý với chính sách/điều khoản như trên.</p>
-                <button type="submit" style="width: 150px; background-color: #66ffff; border: #66ffff; height: 30px"
-                        class="btn btn-info" value="HOÀN THÀNH">HOÀN THÀNH
-                </button>
-            </div>
-            <hr style="padding-bottom: 20px; padding-top: 20px">
-        </div>
+    <div class="wrapcont mt-3" id="TourCard">
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+<div th:replace=" pages/Footer/Footer :: footer"></div>
+<script th:src="@{/Layout-js/tourCart.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-<!-- jQuery for simplicity -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script>
-    $(document).ready(function () {
-        $('input[name="zalopay"]').change(function () {
-            if ($('#payment_zalopay').is(':checked')) {
-                $('.payment_description').show();
-            } else {
-                $('.payment_description').hide();
-            }
-        });
-    });
-</script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    document.getElementById('row-calling').addEventListener('submit', function (event) {
-        event.preventDefault(); // Ngăn chặn form submit
-        var tenKH = document.getElementById('bookNameError').value;
-        var sdt = document.getElementById('bookPhoneError').value;
-        var email = document.getElementById('bookEmailError').value;
-        if (!tenKH) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Tên Khách Hàng là bắt buộc!',
-            });
-            return;
-        }
-        if (!sdt) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Số Điện Thoại là bắt buộc!',
-            });
-            return;
-        }
-        if (!email) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Email là bắt buộc!',
-            });
-            return;
-        }
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Đặt tour thành công",
-            text: "Mã tour của bạn là 140798",
-            footer: '<a href="#">Why do I have this issue?</a>',
-        });
-    });
-</script>
 </body>
 </html>

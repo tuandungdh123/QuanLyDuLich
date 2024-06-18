@@ -38,8 +38,8 @@ function createTableTourById(tour) {
                                      style="width: 820px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
                                     <div>
                                         <div class="item" style="width: 100%; display: inline-block;">
-                                            <div class="img">
-                                                <img src="/images/imagesHotel/${tour.imageTour}" alt="dungdaubui">
+                                            <div class="img" style="width: 800px; height: 400px">
+                                                <img class="w-100 h-100" src="/images/imagesTour2/${tour.imageTour}" alt="dungdaubui">
                                             </div>
                                         </div>
                                     </div>
@@ -151,13 +151,13 @@ function createTableTourById(tour) {
                             </ul>
                         </div>
                     </div>
-                    <div class="mnfixed_wrap">
+                    <div class="detail mnfixed_wrap" >
                         <div class="mnfixed_self">
                             <div class="boxFix">
                                 <div class="boxPrice">
                                     <div class="price">
                                         <div class="txt">Giá từ:</div>
-                                        <div class="red" id="giactt">${tour.price.toLocaleString('vi-VN')} đ</div>
+                                        <div class="red" id="giactt">${tour.priceAdult.toLocaleString('vi-VN')} đ</div>
                                     </div>
                                     <div class="attr">
                                         <p><strong>Điểm Nổi Bật:</strong></p>
@@ -174,7 +174,7 @@ function createTableTourById(tour) {
                                                    value="24-05-2024" readonly="">
                                         </div>
                                         <div class="btn-booking dt">
-                                            <button type="button" class="btn-order-tour">ĐẶT TOUR</button>
+                                            <button type="button" class="btn-order-tour" onclick="window.location.href='/tourCart?tourID=${tour.tourID}'">ĐẶT TOUR</button>
                                         </div>
                                     </div>
                                 </div>

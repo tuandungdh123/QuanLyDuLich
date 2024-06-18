@@ -1,8 +1,10 @@
 package com.example.qldl.controller;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
+
 
 @Controller
 public class HomeController {
@@ -17,7 +19,7 @@ public class HomeController {
         return "pages/Navbar/Navbar";
     }
     @GetMapping("/home")
-    public String getHomeView(){ return "pages/Home/Home"; }
+    public String getHome(){return "pages/Home/Home";}
     @GetMapping("/tour")
     public String getTourView(){
         return "pages/Detail/TourDetail";
@@ -26,7 +28,7 @@ public class HomeController {
     public String getListTourView(){
         return "pages/Detail/DanhSanhTour";
     }
-    @GetMapping("/tourcart")
+    @GetMapping("/tourCart")
     public String getTourCartView(){ return "pages/Detail/TourCart"; }
     @GetMapping("/BookingVe")
     public String getBookVe(){
