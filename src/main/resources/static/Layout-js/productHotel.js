@@ -19,20 +19,16 @@ function createTableProductsHotel(productsHotel) {
     productsHotel.forEach(function (product) {
         bodyProductsHotelString +=
             `<!-- Hotel 1 -->
-                <div class="hotel">
+                <div class="col-sm-12 hotel w-100">
                     <div class="img">
-                        <a href="https://dulichviet.com.vn/khach-san/vinpearl-resort-spa-phu-quoc">
+                        <a href="">
                             <img src="/images/ImagesHotel/${product.imageHotel}"
-                                 alt="VINPEARL RESORT &amp; SPA PHU QUOC" class="mCS_img_loaded">
+                                 alt="" class="mCS_img_loaded">
                         </a>
                     </div>
                     <div class="caption">
-                        <div class="ratting">
-                            ${product.rating}
-                            <i class="fa fa-star"></i>
-                        </div>
                         <div class="tend">
-                            <h3>${product.hotelName}</h3>
+                            <h3 style="height: 50px">${product.hotelName}</h3>
                         </div>
                         <div class="price">
                             Giá : <span>Liên hệ</span>
@@ -41,12 +37,13 @@ function createTableProductsHotel(productsHotel) {
                 </div>
 `
     })
-    $("#productsHotel").html(bodyProductsHotelString);
+    $("#productsHotel").html(bodyProductsHotelString);$("#productsHotel2").html(bodyProductsHotelString);
+
     this.SlickSlide();
 }
 SlickSlide = () => {
     $('.filtering').slick({
-        slidesToShow: 6,
+        slidesToShow:3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 800,
@@ -55,7 +52,6 @@ SlickSlide = () => {
     });
 
     var filtered = false;
-
     $('.js-filter').on('click', function () {
         if (filtered === false) {
             $('#productsHotel').slick('slickFilter', ':even');
@@ -68,3 +64,6 @@ SlickSlide = () => {
         }
     });
 }
+
+
+
