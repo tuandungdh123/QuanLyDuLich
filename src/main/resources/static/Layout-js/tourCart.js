@@ -163,13 +163,13 @@ function createTableTourById(tour) {
                         </div>
                         <div class="form-group col-md-3">
                             <label>Trẻ em(5 - 11 tuổi):</label>
-                            <input type="number" name="QChild" class="quantity form-control mda-quantity tour-quantity1 q-child1"
+                            <input type="number" name="QChild" class="quantity form-control mda-quantity tour-quantity1 q-child1" id="quantityChildren"
                                    data-price="${tour.priceChildren}" min="0" value="0" placeholder="Trẻ em(5 - 11 tuổi)"
                                    oninput="updateTotalPrice()">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Trẻ nhỏ(2 - 5 tuổi):</label>
-                            <input type="number" name="QBaby" class="quantity form-control mda-quantity tour-quantity1 q-baby1"
+                            <input type="number" name="QBaby" class="quantity form-control mda-quantity tour-quantity1 q-baby1" id="treNho"
                                    data-price="${tour.priceChildren}" min="0" value="0" placeholder="Trẻ nhỏ(2 - 5 tuổi)"
                                    oninput="updateTotalPrice()">
                         </div>
@@ -225,10 +225,8 @@ function createTableTourById(tour) {
     $("#TourCard").html(populateTypeTourDropdown);
     updateTotalPrice()
 }
-
 function updateTotalPrice() {
     let total = 0;
-    console.log(total);
     $('.quantity').each(function () {
         const price = $(this).data('price');
         const quantity = $(this).val();
@@ -236,3 +234,106 @@ function updateTotalPrice() {
     });
     $('#totalPrice').text(total.toLocaleString('vi-VN', { style: 'decimal', minimumFractionDigits: 0 }) + ' đ');
 }
+
+// validate và pdf
+async function submit(tour){
+    var tenKH = document.getElementById('lname').value;
+    var sdt = document.getElementById('phone').value;
+    var email = document.getElementById('email').value;
+    if (!tenKH) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Tên Khách Hàng là bắt buộc!',
+        });
+        return;
+    }
+    if (!sdt) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Số Điện Thoại là bắt buộc!',
+        });
+        return;
+    }
+    if (!email) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Email là bắt buộc!',
+        });
+        return;
+    }
+    try {
+
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Đặt tour thành công, đơn hàng của bạn chúng tôi đã gửi về Email của bạn, hãy kiểm tra email nhé",
+        });
+        await generatePDF();
+    } catch (error) {
+        console.error('Error generating or sending PDF:', error);
+    }
+
+    async function generatePDF() {
+        let element = document.getElementById('TourCard');
+
+        let opt = {
+            margin: 1,
+            filename: 'BillDatTour.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        try {
+            const pdfBlob = await html2pdf().from(element).set(opt).toPdf().output('blob');
+            const pdfUrl = URL.createObjectURL(pdfBlob);
+            window.open(pdfUrl);
+
+            let formData = new FormData();
+            formData.append('file', pdfBlob);
+            formData.append('email', email);  // Thêm email vào formData
+
+            let sendPdf = $.Deferred();
+            $.post({
+                url: "/send-bill-api/SendBillPdf",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    sendPdf.resolve(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    sendPdf.reject(errorThrown);
+                }
+            });
+            // let pdfResponse = await sendPdf.promise();
+
+            // if (pdfResponse.ok) {
+            //     console.log('File PDF đã được gửi thành công!');
+            //
+            //     let sendPayment = $.Deferred();
+            //     $.post({
+            //         url: "/upload-pdf-api/uploadPDF",
+            //         data: { email: email },
+            //         success: function (data) {
+            //             sendPayment.resolve(data);
+            //         },
+            //         error: function (jqXHR, textStatus, errorThrown) {
+            //             sendPayment.reject(errorThrown);
+            //         }
+            //     });
+            //     let paymentResponse = await sendPayment.promise();
+            //     console.log(paymentResponse);
+            // } else {
+            //     console.error('Có lỗi xảy ra khi gửi file PDF.');
+            // }
+        } catch (error) {
+            console.error('Error generating PDF:', error);
+            throw error;
+        }
+    }
+}
+
