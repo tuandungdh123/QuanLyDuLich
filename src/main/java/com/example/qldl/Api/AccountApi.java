@@ -93,7 +93,7 @@ public class AccountApi {
     public ResponseEntity<?> doGetItem(AccountEntity account){
         Map<String, Object> kq = new HashMap<>();
         try {
-            var data = accServ.getAccountByTkAndMk(account.getAccountName(), account.getPassword());
+            var data = accServ.getAccountByTkAndMk(account.getUserName(), account.getPassword());
             if(!data.isEmpty()){
                 kq.put("status", true);
                 kq.put("message", "Login Success");
