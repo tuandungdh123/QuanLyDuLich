@@ -84,37 +84,21 @@
     </div>
 </section>
 <script type="application/ecmascript">
-    /*document.getElementById('Loginform').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const data = {
-            username: username,
-            password: password
-        };
-        axios.get('http://localhost:1010/AccountRepo/login',null, { params: data })
-            .then(function(response) {
-                console.log('Success:', response.data);
-                alert('Login successful!');
-            })
-            .catch(function(error) {
-                console.error('Error:', error);
-                alert('Login failed. Please check your username and password.');
-            });
-    });*/
 
     async function btnLogin_click () {
         let userLogin = {
-            account: document.getElementById('username').value,
+            accountName: document.getElementById('username').value,
             password: document.getElementById('password').value
         }
-        if (userLogin.account === '' && userLogin.password === ''){
+        if (userLogin.accountName === '' && userLogin.password === ''){
             document.getElementById('usernameError').textContent = 'Vui Lòng Nhập Tài Khoản'
             document.getElementById('passwordError').textContent = 'Vui Lòng Nhập Mật Khẩu'
             return
         }
-        let response = await axios.get(`/account-api/login`, { params: userLogin });
-        if(response.status === 200 && response.data.status){
+        console.log(userLogin)
+        let response = await axios.post('/account-api/login', userLogin);
+        console.log(response)
+        if(response.data.status){
             Swal.fire({
                 position: "center",
                 icon: "success",
@@ -142,7 +126,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-<script th:src="@{/Layout-js/services-login.js}"></script>
-<script th:src="@{/Layout-js/Login.js}"></script>
 </body>
 </html>

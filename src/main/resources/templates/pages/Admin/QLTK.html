@@ -16,7 +16,7 @@
 <div th:replace=" pages/Admin/admin :: sidebar"></div>
 <div class="content">
     <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav th:fragment="adminNav" class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Quản Lý Tài Khoản</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -365,17 +365,33 @@
     }
     Logout = () => {
         Swal.fire({
-            title: "Do you want to save the changes?",
+            title: "Bạn Muốn Đăng Xuất Về Trang?",
             showDenyButton: true,
             showCancelButton: true,
-            confirmButtonText: "Save",
-            denyButtonText: `Don't save`
+            confirmButtonText: "Đăng Nhập",
+            denyButtonText: `Trang Chủ`
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                Swal.fire("Saved!", "", "success");
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Về Trang Đăng Nhập Thành Công",
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    window.location.href='/home'
+                });
             } else if (result.isDenied) {
-                Swal.fire("Changes are not saved", "", "info");
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Về Trang Chủ Thành Công",
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    window.location.href='/login'
+                });
             }
         });
     }

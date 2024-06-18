@@ -7,7 +7,7 @@ let productsHotel = []
 
 async function DataProductsHotel(){
     try{
-        let response = await axios.get("/hotel-api/getAllHotel");
+        let response = await axios.get("/home/hotel-api/getAllHotel");
         productsHotel = response.data.data;
     }
     catch (error){
@@ -28,7 +28,7 @@ function createTableProductsHotel(productsHotel) {
                     </div>
                     <div class="caption">
                         <div class="tend">
-                            <h3 style="height: 50px">${product.hotelName}</h3>
+                            <h3 style="height: 75px">${product.hotelName}</h3>
                         </div>
                         <div class="price">
                             Giá : <span>Liên hệ</span>

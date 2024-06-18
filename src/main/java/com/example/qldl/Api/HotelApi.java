@@ -17,7 +17,7 @@ import java.util.Map;
 @Slf4j
 @Controller
 @RestController
-@RequestMapping("/hotel-api")
+@RequestMapping("/home/hotel-api")
 
 public class HotelApi {
     @Autowired

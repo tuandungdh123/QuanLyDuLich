@@ -26,6 +26,9 @@
 
     <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
     <script th:src="@{/Layout-js/productTour-Home.js/}"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script th:src="@{/Layout-js/logout.js/}"></script>
 </head>
 <body>
 <div th:replace=" pages/Navbar/Navbar :: Nav"></div>
@@ -551,5 +554,6 @@
         }">
 <div th:replace=" pages/Footer/Footer :: footer"></div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </html>

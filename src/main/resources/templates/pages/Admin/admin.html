@@ -20,13 +20,13 @@
                 <a th:href="@{/admin}" class="nav-link">Thống kê</a>
             </li>
             <li>
-                <a th:href="@{/QLTK}" class="nav-link">Quản lý khách hàng</a>
+                <a th:href="@{/admin/AccountManagement}" class="nav-link">Quản lý khách hàng</a>
             </li>
             <li>
-                <a th:href="@{/QLTour}" class="nav-link">Quản lý Tour du lịch</a>
+                <a th:href="@{/admin/TourManagement}" class="nav-link">Quản lý Tour du lịch</a>
             </li>
             <li>
-                <a th:href="@{/QLhotel}" class="nav-link">Quản lý khách sạn</a>
+                <a th:href="@{/admin/HotelManagement}" class="nav-link">Quản lý khách sạn</a>
             </li>
             <li>
                 <a href="#" class="nav-link">Quản lý thông tin Khách hàng</a>
@@ -36,27 +36,7 @@
 </div>
 <div class="content">
     <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Admin Dashboard</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Xin chào, admin!</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Thông báo <span class="badge bg-danger">2</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng xuất</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <div th:replace=" pages/Admin/QLTK :: adminNav"></div>
         <h1>Dashboard</h1>
         <div class="col-md-4">
             <div class="card text-white bg-primary mb-3">
