@@ -30,7 +30,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
         <div class="container">
             <div class="logo" style="margin-right: 160px">
-                <img th:src="@{/images/logodulich.jpg}" style="width: 200px; height:56px;" alt="">
+               <a th:href="@{/home}"><img th:src="@{/images/LogoLogin.png}" style="width: 100px; height:auto;" alt=""></a>
             </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collpngapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,16 +64,16 @@
                 </style>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">DU LỊCH</a>
+                        <a class="nav-link active" aria-current="page"  th:href="@{/home/list}">DU LỊCH</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">KHÁCH SẠN</a>
+                        <a class="nav-link" th:href="@{/home/Hotel}">KHÁCH SẠN</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">GIỚI THIỆU</a>
+                        <a class="nav-link" th:href="@{/home/BookingTicket}">Vé Máy Bay</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">THUÊ XE</a>
+                        <a class="nav-link" th:href="@{/home/car}">THUÊ XE</a>
                     </li>
                     <li class="nav-item dropdown" style="margin-right: 100px">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -15,7 +15,6 @@ logout = () => {
             }).then(() => {
                 window.location.href = '/login'
             });
-
         }
     });
 }

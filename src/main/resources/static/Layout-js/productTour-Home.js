@@ -76,8 +76,6 @@ addSlickToSlide = () => {
     });
 }
 
-// Hotel
-
 $(document).ready(async function (){
     await DataProductsHotel();
     createTableProductsHotel(productsHotel);
@@ -87,7 +85,7 @@ let productsHotel = []
 
 async function DataProductsHotel(){
     try{
-        let response = await axios.get("/hotel-api/getAllHotel");
+        let response = await axios.get("/home/hotel-api/getAllHotel");
         productsHotel = response.data.data;
     }
     catch (error){
