@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 public interface AccountService {
     List<AccountEntity> getAllAccount();
-    Optional<AccountEntity> getAccountByTkAndMk(String accountName, String password) throws SQLException;
+    Optional<AccountEntity> getAccountByTkAndMk(String userName, String password) throws SQLException;
     AccountEntity doSaveAccount(AccountEntity accountEntity);
     void  doDeleteById(int userId);
     Optional<AccountEntity> getAccountByUserId(int userId);
