@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface AccountRepo extends JpaRepository<AccountEntity, Integer> {
 
-    @Query(value = "SELECT UserID, Account, Pass, Email, Phone, role_id FROM Account WHERE Account = ?1 AND Pass = ?2", nativeQuery = true)
+    @Query(value = "SELECT UserID, Username, Pass, Email, Phone, role_id FROM Account WHERE Username = ?1 AND Pass = ?2", nativeQuery = true)
     AccountEntity getAccountEByTkAndMk(String accountName, String Pass);
     Optional<AccountEntity> findAccountByAccountName(String accountName);
     AccountEntity getAccountEntitiesByUserId(int userId);
