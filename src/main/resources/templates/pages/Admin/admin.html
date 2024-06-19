@@ -78,6 +78,13 @@
     </div>
     <canvas id="myChart" width="400" height="200"></canvas>
 </div>
+<script th:src="@{/Layout-js/admin.js}"></script>
+<script>
+    const serviceThongKe = new ThongKe()
+    $(document).ready(() => {
+        serviceThongKe.loadInit()
+    })
+</script>
 <script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>
 </body>
 </html>
