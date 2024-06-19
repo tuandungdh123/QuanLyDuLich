@@ -25,20 +25,20 @@
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <form id="Loginform">
-                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                        <p class="lead fw-normal mb-0 me-3 text-light">Đăng Nhập Bằng</p>
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
-                            <i class="fab fa-facebook-f"></i>
-                        </button>
+<!--                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">-->
+<!--                        <p class="lead fw-normal mb-0 me-3 text-light">Đăng Nhập Bằng</p>-->
+<!--                        <button type="button" class="btn btn-primary btn-floating mx-1">-->
+<!--                            <i class="fab fa-facebook-f"></i>-->
+<!--                        </button>-->
 
-                        <button type="button" class="btn btn-dark btn-floating mx-1">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </button>
+<!--                        <button type="button" class="btn btn-dark btn-floating mx-1">-->
+<!--                            <i class="fa-brands fa-x-twitter"></i>-->
+<!--                        </button>-->
 
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
-                            <i class="fab fa-linkedin-in"></i>
-                        </button>
-                    </div>
+<!--                        <button type="button" class="btn btn-primary btn-floating mx-1">-->
+<!--                            <i class="fab fa-linkedin-in"></i>-->
+<!--                        </button>-->
+<!--                    </div>-->
 
                     <hr>
                     <div class="form-outline mb-4">
@@ -55,16 +55,16 @@
                             <i class="bi bi-eye-fill" id="toggleShowPassword"></i></button>
                         <div id="passwordError" class="error text-danger"></div>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <!-- Checkbox -->
-                        <div class="form-check mb-0">
-                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3"/>
-                            <label class="form-check-label text-light" for="form2Example3">
-                                Ghi nhớ đăng nhập
-                            </label>
-                        </div>
-                        <a href="#!" class="text-light">Quên mật khẩu?</a>
-                    </div>
+<!--                    <div class="d-flex justify-content-between align-items-center">-->
+<!--                        &lt;!&ndash; Checkbox &ndash;&gt;-->
+<!--                        <div class="form-check mb-0">-->
+<!--                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3"/>-->
+<!--                            <label class="form-check-label text-light" for="form2Example3">-->
+<!--                                Ghi nhớ đăng nhập-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        <a href="#!" class="text-light">Quên mật khẩu?</a>-->
+<!--                    </div>-->
 
                     <div class="text-center text-lg-start mt-4 pt-2">
                         <button class="btn btn-primary btn-lg"
@@ -75,7 +75,7 @@
                                 type="button"
                         >Đăng Nhập
                         </button>
-                        <p class="small fw-bold mt-2 pt-1 mb-0">Bạn không có tài khoản? <a href="#!" class="link-light">Đăng
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Bạn không có tài khoản? <a th:href="@{/register}" class="link-light">Đăng
                             Ký</a></p>
                     </div>
 
@@ -107,7 +107,7 @@
                 showConfirmButton: false,
                 timer: 1500
             }).then(() => {
-                localStorage.setItem('account', userLogin.account)
+                localStorage.setItem('account', userLogin.accountName)
                     window.location.href='/home'
             });
         } else {

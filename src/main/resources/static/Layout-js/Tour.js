@@ -198,6 +198,7 @@ $(document).ready(async function () {
         let filteredTours = filterToursByType(listAllTour, selectedType);
         createTableTourByTypeTour(filteredTours);
     });
+    $("#helloAccount").text("Xin Chào," + localStorage.getItem("account")+ "!")
 });
 
 function createTableTourByTypeTour(addToTable) {
