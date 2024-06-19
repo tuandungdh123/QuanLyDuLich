@@ -1,3 +1,4 @@
+
 class ThongKe{
     dataBarChart={}
     BarChart =null;
