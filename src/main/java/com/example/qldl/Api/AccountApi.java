@@ -40,15 +40,15 @@ public class AccountApi {
     @PostMapping("/login")
     public ResponseEntity<?> doGetLogin(@RequestBody AccountEntity accountEntity,
                                         final HttpServletRequest request){
-        Map<String, Object> result = new HashMap<>();
-        try {
-            var data = accServ.getAccountByTkAndMk(accountEntity.getAccountName(), accountEntity.getPassword());
-            if(!data.isEmpty()){
-                result.put("status", true);
-                result.put("message", "Login Success");
-                result.put("data", data.get().getAccountName());
-                HttpSession session = request.getSession();
-                session.setAttribute("role", data.get().getRole().getRole_name());
+                    Map<String, Object> result = new HashMap<>();
+                    try {
+                        var data = accServ.getAccountByTkAndMk(accountEntity.getAccountName(), accountEntity.getPassword());
+                        if(!data.isEmpty()){
+                            result.put("status", true);
+                            result.put("message", "Login Success");
+                            result.put("data", data.get().getAccountName());
+                            HttpSession session = request.getSession();
+                            session.setAttribute("role", data.get().getRole().getRole_name());
             } else {
                 result.put("status", false);
                 result.put("message", "Login Fail");
@@ -96,7 +96,7 @@ public class AccountApi {
     public ResponseEntity<?> doGetItem(AccountEntity account){
         Map<String, Object> kq = new HashMap<>();
         try {
-            var data = accServ.getAccountByTkAndMk(account.getUserName(), account.getPassword());
+            var data = accServ.getAccountByTkAndMk(account.getAccountName(), account.getPassword());
             if(!data.isEmpty()){
                 kq.put("status", true);
                 kq.put("message", "Login Success");
