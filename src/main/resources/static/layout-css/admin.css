@@ -32,6 +32,32 @@ body {
     box-shadow: 0 0 20px rgba(30, 144, 255, 0.8), 0 0 30px rgba(30, 144, 255, 0.6), 0 0 40px rgba(30, 144, 255, 0.4);
     transform: scale(0.95);
 }
+.nav-link:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5); /* Đèn sáng khi hover */
+    transform: translateY(-3px); /* Hiệu ứng nổi lên khi hover */
+}
+
+/*btnSearch*/
+.btnSearch {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: black;
+    border-color: #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btnSearch:active {
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.8), 0 0 30px rgba(30, 144, 255, 0.6), 0 0 40px rgba(30, 144, 255, 0.4);
+    transform: scale(0.95);
+}
+.btnSearch:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5); /* Đèn sáng khi hover */
+    transform: translateY(-3px); /* Hiệu ứng nổi lên khi hover */
+}
+
+
 
 .content {
     margin-left: 250px;
@@ -39,10 +65,86 @@ body {
     padding-right: 15px;
     flex: 1;
 }
+/*Dropdownbuton*/
+.dropdown {
+    padding: 15px 30px;
+    font-size: 12px;
+    color: black;
+    /*background-color: #1e90ff;*/
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
 
+.dropdown:active {
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.8), 0 0 30px rgba(30, 144, 255, 0.6), 0 0 40px rgba(30, 144, 255, 0.4);
+    transform: scale(0.95);
+}
+.dropdown:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5); /* Đèn sáng khi hover */
+    transform: translateY(-3px); /* Hiệu ứng nổi lên khi hover */
+}
+.dropdown-menu{
+    border-radius: 5px;
+    background-color: #343a40;
+    border: 0px;
+    padding: 0px;
+}
+.dropdown-item{
+    color: #343a40;
+    border-radius: 5px;
+    padding: 4px 12px;
+}
+/*DropItem*/
+.dropdown-item {
+    padding: 10px 20px;
+    font-size: 12px;
+    color: #f9f9f9;
+    background-color: #343a40;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-item:active {
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.8), 0 0 30px rgba(30, 144, 255, 0.6), 0 0 40px rgba(30, 144, 255, 0.4);
+    transform: scale(0.95);
+}
+.dropdown-item:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5); /* Đèn sáng khi hover */
+    transform: translateY(-3px); /* Hiệu ứng nổi lên khi hover */
+}
+
+/*EditButton*/
+.EditButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: black;
+    /*background-color: #1e90ff;*/
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.EditButton:active {
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.8), 0 0 30px rgba(30, 144, 255, 0.6), 0 0 40px rgba(30, 144, 255, 0.4);
+    transform: scale(0.95);
+}
+.EditButton:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5); /* Đèn sáng khi hover */
+    transform: translateY(-3px); /* Hiệu ứng nổi lên khi hover */
+}
+
+.imgcontainer{
+    text-align: center;
+}
 
 /*QLTour IMG*/
 #image-preview {
+    display: none; /* Ẩn ảnh cho đến khi có ảnh được chọn */
     margin-top: 10px;
     max-width: 100%;
     max-height: 400px;

@@ -1,9 +1,13 @@
 package com.example.qldl.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import org.aspectj.weaver.GeneratedReferenceTypeDelegate;
+
+import java.io.Serializable;
 
 @Data
 @Getter
@@ -12,23 +16,24 @@ import org.aspectj.weaver.GeneratedReferenceTypeDelegate;
 @AllArgsConstructor
 @Entity
 @Table(name = "Car")
-public class CarEntity {
+public class CarEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
-    @Column(name = "Car_Id")
+    @Column(name = "Car_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int carId;
 
     @Column(name = "Image_Car")
     private String imageCar;
 
-    @Column(name = "Type_Car")
-    private String typeCar;
+    @Column(name = "Car_Model")
+    private String carModel;
+
+    @Column(name = "Car_Manufacturer")
+    private String carManufacturer;
 
     @Column(name = "Number_Seats")
     private int numberSeat;
-
-    @Column(name = "Price")
-    private int price;
 
     @Column(name = "Color")
     private String color;
@@ -36,10 +41,12 @@ public class CarEntity {
     @Column(name = "Phone")
     private String phone;
 
-    @Column(name = "Availability")
-    private byte availability;
-
     @Column(name = "Description")
     private String description;
+
+    @JsonCreator
+    public CarEntity(@JsonProperty("carId") int carId) {
+        this.carId = carId;
+    }
 
 }

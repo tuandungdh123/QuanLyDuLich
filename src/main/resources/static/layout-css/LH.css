@@ -1,0 +1,60 @@
+.icon{
+    color: red;
+}
+.Contact-Method{
+    text-align: center;
+}
+.phoneWrap{
+    text-align: center;
+    padding: 10px;
+    border: 10px;
+    /*margin: 0px 40px ;*/
+    margin-top: 0px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+
+}
+.content{
+    background-color: #f9f9f9;
+}
+.form-contact{
+    text-align: center;
+}
+.container {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa trang */
+    padding: 0px;
+}
+.wrapForm {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+/*PhoneContact*/
+.phoneWrap {
+    display: flex;
+    align-items: center;
+    border: 2px solid #FF0077; /* Màu viền */
+    border-radius: 10px; /* Bo tròn các góc */
+    padding: 10px;
+    max-width: 300px; /* Chiều rộng tối đa */
+    margin: 20px auto; /* Căn giữa khung */
+}
+
+.iconPhone {
+    margin-right: 40px; /* Khoảng cách giữa biểu tượng và số điện thoại */
+}
+
+.iconPhone img {
+    width: 30px; /* Độ rộng biểu tượng */
+    height: auto; /* Giữ tỷ lệ khung hình */
+}
+
+.hotline p {
+    margin: 0;
+    text-align: center;
+    font-size: 24px; /* Kích thước chữ */
+    font-weight: bold;
+}
+

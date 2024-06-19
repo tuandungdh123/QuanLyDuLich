@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt Tour</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/layout-css/admin.css}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div th:replace=" pages/Admin/admin :: sidebar"></div>
+<div class="content">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Đặt Tour</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <!--<li class="nav-item">-->
+                        <!--<a class="nav-link" href="#">Xin chào, admin!</a>-->
+                        <!--</li>-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Thông báo <span class="badge bg-danger">2</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+            <div class="container-fluid mb-2">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+                    <button class="btnSearch" type="submit">Search</button>
+                </form>
+            </div>
+
+    <form id="myform">
+        <div class="row">
+            <div class="col-4 border border-2 border-black rounded-4 ">
+
+                <form id="uploadForm">
+                    <input type="file" name="file" id="fileInput">
+                    <button type="submit">Upload</button>
+                    <script th:src="@{/Layout-js/loadImage.js}"></script>
+                </form>
+
+<!--                <div id="imgcontainer">-->
+<!--                    <input type="file" id="image-input" accept="image/*">-->
+<!--                    <img id="image-preview" style="width: 100%">-->
+<!--                    <button id="choose-image">Chọn Ảnh</button>-->
+<!--                    <script th:src="@{/Layout-js/loadImage.js}"></script>-->
+<!--                    <button id="choose-again">Chọn Ảnh Khác</button>-->
+<!--                </div>-->
+            </div>
+            <div class="row col-8 from-info-tour" style="margin-left: 10px">
+                <div class="border border-2 border-black rounded-4 ">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="bookTourId" class="form-label">Mã Book Tour:<em style="font-size: 15px; color: red"> * Không điền Thông Tin Vào Mục Này</em></label>
+                                <input type="text" class="form-control" id="bookTourId" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tourID" class="form-label">Mã Tour:</label>
+                                <input type="text" oninput="validateFormTourID()" class="form-control" id="tourID">
+                                <div id="tourIDError" class="error text-danger"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userName" class="form-label">Họ Tên:</label>
+                                <input type="text" oninput=" validateFormUserName()" class="form-control" id="userName">
+                                <div id="userNameError" class="error text-danger"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="numPhone" class="form-label">Số Điện Thoại:</label>
+                                <input type="text" oninput="validateFormNumPhone()" class="form-control" id="numPhone">
+                                <div id="numPhoneError" class="error text-danger"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" oninput="validateFormEmail()" class="form-control" id="email">
+                                <div id="emailError" class="error text-danger"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="numAdults" class="form-label">Số Người Lớn:</label>
+                                <input type="number" oninput="validateFormAdults()" class="form-control" id="numAdults">
+                                <div id="numAdultsError" class="error text-danger"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="numChild" class="form-label">Số Trẻ Nhỏ:</label>
+                                <input type="number" oninput="validateFormChilds()" class="form-control" id="numChild">
+                                <div id="numChildError" class="error text-danger"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Địa Chỉ:</label>
+                                <input type="text" oninput="validateFormAddress()" class="form-control" id="address">
+                                <div id="addressError" class="error text-danger"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Ghi Chú:</label>
+                                <textarea class="form-control" id="description" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+        <div class="button mt-4">
+            <button type="button" class="btn btn-outline-info" onclick="saveBookTour()">Create</button>
+            <button type="button" class="btn btn-outline-success" onclick="UpdateBookTour()">Update</button>
+            <button type="button" class="btn btn-outline-danger" onclick="DeleteBookTour()">Delete</button>
+            <button type="button" class="btn btn-outline-primary" onclick="clearForm()">Clear</button>
+        </div>
+
+        <div class="card card-body border-black mt-4 tableQLTour">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th >STT</th>
+                    <th>Mã BookTour</th>
+                    <th>Mã Tour</th>
+                    <th>Họ Tên</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Email</th>
+                    <th>Người Lớn</th>
+                    <th>Trẻ Nhỏ</th>
+                    <th>Địa Chỉ</th>
+                    <th>Ghi Chú</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+                <tbody id="bodyTableListBookTour"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="application/javascript">
+    listBookTour = []
+    $(document).ready(async function(){
+        await loadDataBookTour();
+        createTableBookTour(listBookTour);
+    });
+
+    function createTableBookTour(addToTable){
+        let bodyTableListBookTourString = '';
+
+        addToTable.forEach(function (e, index){
+            bodyTableListBookTourString +=
+                `<tr>`+
+                `<td>${index + 1}</td>`+
+                `<td>${e.bookTourId}</td>`+
+                `<td>${e.tourE.tourID}</td>`+
+                `<td>${e.nameUser}</td>`+
+                `<td>${e.phone}</td>`+
+                `<td>${e.email}</td>`+
+                `<td>${e.numberAdults}</td>`+
+                `<td>${e.numberChildren}</td>`+
+                `<td>${e.address}</td>`+
+                `<td>${e.description}</td>`+
+                `<td>`+
+                `<button type="button" onclick="getBookTourInformation(${e.bookTourId})" class="EditButton">Edit</button>`+
+                `</td>`+
+                `</tr>`;
+        });
+
+        $("#bodyTableListBookTour").html(bodyTableListBookTourString);
+
+    }
+
+    // Nút EDIT
+    async function getBookTourInformation(bookTourId){
+        let response = await axios.get(`/BookTour/getBookTourByBookTourId?bookTourId=${bookTourId}`);
+        let result = response.data;
+        console.log(result)
+        if (result.status){
+            fillDetailForm(result.data);
+        }
+    }
+
+    function fillDetailForm(bookTourDetail) {
+        console.log(bookTourDetail)
+        $("#bookTourId").val(bookTourDetail.bookTourId);
+        $("#tourID").val(bookTourDetail.tourE.tourID);
+        $("#userName").val(bookTourDetail.nameUser);
+        $("#numPhone").val(bookTourDetail.phone);
+        $("#email").val(bookTourDetail.email);
+        $("#numAdults").val(bookTourDetail.numberAdults);
+        $("#numChild").val(bookTourDetail.numberChildren);
+        $("#address").val(bookTourDetail.address);
+        $("#description").val(bookTourDetail.description);
+    }
+
+
+    async function loadDataBookTour() {
+        let response = await axios.get(`/BookTour/GetAllBookTour`);
+        listBookTour = response.data.data;
+        console.log(listBookTour)
+    }
+
+    //NÚT XÓA
+    async function DeleteBookTour(){
+        let bookTourData = {
+            bookTourId: $("#bookTourId").val()
+        }
+        let response = await axios.delete(`/BookTour/GetDeleteBookTour?bookTourId=${bookTourData.bookTourId}`)
+        console.log(response.data);//kiem loi > status
+
+        await loadDataBookTour();
+        createTableBookTour(listBookTour);
+        clearForm();
+    }
+
+        //clear form
+        async function clearForm() {
+            fillDetailForm(
+                $("#tourID").val(""),
+                $("#userName").val(""),
+                $("#numPhone").val(""),
+                $("#email").val(""),
+                $("#address").val(""),
+                $("#numAdults").val(""),
+                $("#numChild").val(""),
+                $("#description").val("")
+            );
+        }
+
+        //Nút create
+        async function saveBookTour() {
+            if(!validateFormTourID()){
+                return;
+            }
+            if(!validateFormUserName()){
+                return;
+            }
+            if(!validateFormNumPhone()){
+                return;
+            }
+            if(!validateFormEmail()){
+                return;
+            }
+            if(!validateFormAdults()){
+                return;
+            }
+            if(!validateFormChilds()){
+                return;
+            }
+            if(!validateFormAddress()){
+                return;
+            }
+
+            let bookTourData = {
+                tourE: {
+                    tourID: $("#tourID").val(),
+                },
+                nameUser: $("#userName").val(),
+                phone: $("#numPhone").val(),
+                email: $("#email").val(),
+                numberAdults: $("#numAdults").val(),
+                numberChildren: $("#numChild").val(),
+                address: $("#address").val(),
+                description: $("#description").val()
+            }
+
+            console.log(bookTourData);
+            let response = await axios.post(`/BookTour/saveBookTour`, bookTourData)
+            let result = response.data;
+            if (result.status) {
+                alert('Save Account thành công');
+            } else {
+                alert('Save Account thất bại');
+            }
+            await loadDataBookTour();
+            loadDataBookTour(listBookTour);
+            clearForm();
+        }
+
+        //Nút Update
+        async function UpdateBookTour() {
+            let bookTourData = {
+                tourE: {
+                    tourID: $("#tourID").val(),
+                },
+                bookTourId: $("#bookTourId").val(),
+                nameUser: $("#userName").val(),
+                phone: $("#numPhone").val(),
+                email: $("#email").val(),
+                numberAdults: $("#numAdults").val(),
+                numberChildren: $("#numChild").val(),
+                address: $("#address").val(),
+                description: $("#description").val()
+            }
+            console.log(bookTourData);
+
+            let response = await axios.post('/BookTour/saveBookTour', bookTourData);
+            let result = response.data;
+            if (result.status) {
+                alert('Update thành công');
+            } else {
+                alert('Update thất bại');
+            }
+            await loadDataBookTour();
+            createTableBookTour(listBookTour);
+            clearForm();
+        }
+
+    validateFormTourID = () =>{
+        if (!$("#tourID").val()){
+            $("#tourIDError").text("Vui lòng TourID!");
+            return false;
+        }else {
+            $("#tourIDError").text("");
+        }
+        return true;
+    }
+    validateFormUserName = () =>{
+        if(!$("#userName").val()){
+            $("#userNameError").text("Vui lòng nhập Họ Tên!");
+            return false;
+        }else{
+            $("#userNameError").text("");
+        }
+        return true;
+    }
+    validateFormNumPhone = () =>{
+        if (!$("#numPhone").val()){
+            $("#numPhoneError").text("Vui lòng nhập Số điện thoại!");
+            return false;
+        }else{
+            $("#numPhoneError").text("");
+        }
+        let regex = /^[0-9]{10}$/;
+        if(!regex.test($("#numPhone").val())){
+            $("#numPhoneError").text("Số điện thoại không hợp lệ!");
+            return false;
+        }else {
+            $("#numPhoneError").text("");
+        }
+        return true;
+        }
+    validateFormEmail = () =>{
+        if (!$("#email").val()){
+            $("#emailError").text("Vui lòng nhập email!");
+            return false;
+        }else {
+            $("#emailError").text("");
+        }
+        let regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        if(!regex.test($("#email").val())){
+            $("#emailError").text("Vui lòng nhập email đúng quy tắc!");
+            return false;
+        }else {
+            $("#emailError").text("");
+        }
+        return true;
+    }
+    validateFormAdults = () =>{
+        if (!$("#numAdults").val()){
+            $("#numAdultsError").text("Vui lòng chọn số người lớn!");
+            return false;
+        }else {
+            $("#numAdultsError").text("");
+        }
+        return true;
+    }
+    validateFormChilds = () =>{
+        if (!$("#numChild").val()){
+            $("#numChildError").text("Vui lòng chọn số Trẻ em!");
+            return false;
+        }else {
+            $("#numChildError").text("");
+        }
+        return true;
+    }
+    validateFormAddress = () =>{
+        if (!$("#address").val()){
+            $("#addressError").text("Vui lòng nhập địa chỉ!");
+            return false;
+        }else {
+            $("#addressError").text("");
+        }
+        return true;
+    }
+
+    //upload file
+    async function doUpload(){
+        let bookTourData = {
+
+        }
+        let respones = await axios.post('localhost:1010/BookTour/upload?Img_Tour', bookTourData);
+    }
+
+
+
+</script>
+
+</body>
+</html>

@@ -44,4 +44,18 @@ public class HomeController {
     public String getQLTK(){return "pages/Admin/QLTK";}
     @GetMapping("/QLTour")
     public String getQLTour(){return "pages/Admin/QLTour";}
+    @GetMapping("/CarRental")
+    public String getCarRental(){return "pages/Admin/CarRental";}
+    @GetMapping("/BookTour")
+    public String getBookTour(){return "pages/Admin/BookTour";}
+    @GetMapping("/BookHotel")
+    public String getBookHotel(){return "/pages/Admin/BookHotel";}
+    @GetMapping("/QLKS")
+    public String getQLKS(){return "pages/Admin/QLKS";}
+    @GetMapping("/LienHeXe")
+    public String getLienHeXe(){return "pages/ThueXe/LienHeXe";}
+    @GetMapping("/HotelContact")
+    public String getHotelContact(){return "pages/Hotel/HotelContact";}
+    @GetMapping("/CarDetail")
+    public String getCarDetail(){return "pages/ThueXe/CarDetail";}
 }

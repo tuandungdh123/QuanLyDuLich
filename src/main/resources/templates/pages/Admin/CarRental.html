@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt Xe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/layout-css/admin.css}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+<div th:replace=" pages/Admin/admin :: sidebar"></div>
+<div class="content">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Đặt Xe</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <!--                            <li class="nav-item">-->
+                        <!--                                <a class="nav-link" href="#">Xin chào, admin!</a>-->
+                        <!--                            </li>-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Thông báo <span class="badge bg-danger">2</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="row">
+            <div class="col-4 border border-2 border-black rounded-4 ">
+                <input type="file" id="image-input" accept="image/*">
+                <img id="image-preview" style="width: 100%">
+                <script th:src="@{/Layout-js/PickIMGTOUR.js}"></script>
+            </div>
+            <div class="row col-8 from-info-tour" style="margin-left: 10px">
+                <div class="border border-2 border-black rounded-4 ">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="CarID" class="form-label">Mã Xe:</label>
+                                <input type="text" class="form-control" id="CarID">
+                            </div>
+                            <div class="mb-3">
+                                <label for="NameUser" class="form-label">Họ Tên:</label>
+                                <input type="text" class="form-control" id="NameUser">
+                            </div>
+                            <div class="mb-3">
+                                <label for="NumPhone" class="form-label">Số Điện Thoại:</label>
+                                <input type="text" class="form-control" id="NumPhone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Availability" class="form-label">Ghế Trống:</label>
+                                <input type="number" class="form-control" id="Availability">
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="select">
+                                <div class="top ">
+                                    <label class="form-label">Chọn loại dịch vụ xe:</label>
+                                    <select class="form-select p-2" aria-label="Default select example">
+                                        <option value="" disabled selected hidden>Loại Dịch Vụ Xe</option>
+                                        <option value="1">Xe 4 chỗ</option>
+                                        <option value="2">Xe 7 chỗ</option>
+                                        <option value="3">Xe 16 chỗ</option>
+                                        <option value="3">Xe 24 chỗ</option>
+                                        <option value="3">Xe 35 chỗ</option>
+                                        <option value="3">Xe 45 chỗ</option>
+                                        <option value="3">Xe Limousine</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Price" class="form-label">Giá Tiền:</label>
+                                <input type="text" class="form-control" id="Price">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Note" class="form-label">Ghi Chú:</label>
+                                <textarea class="form-control" id="Note" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="buttom mt-4">
+            <button type="button" class="btn btn-outline-info">Create</button>
+            <button type="button" class="btn btn-outline-success">Update</button>
+            <button type="button" class="btn btn-outline-danger">Delete</button>
+        </div>
+
+        <div class="card card-body mt-4 tableQLTour">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã Xe</th>
+                    <th>Họ Tên</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Email</th>
+                    <th>Ghế Trống</th>
+                    <th>Loại Dịch Vụ Xe</th>
+                    <th>Giá Tiền</th>
+                    <th>Ghi Chú</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>

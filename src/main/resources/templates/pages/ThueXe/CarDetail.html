@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/layout-css/detailTour.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>DetailCar</title>
+</head>
+<body>
+<div th:replace="pages/Navbar/Navbar :: Nav"></div>
+<hr>
+<div class="container" style="margin-top: 160px">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+         aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+        </ol>
+    </nav>
+    <div class="wrapCont">
+        <div class="wrapper">
+            <div class="TourTiTle">
+                <h1 style="font-size: 28px">Dịch vụ thuê xe Mercedes S500 VIP</h1>
+            </div>
+            <div class="mda-info-share clearfix">
+                <div class="mda-rating">
+                    <div class="rating" data-value="4.95" data-index="1967" style="display: flex; align-items: center;">
+                        <div class="rating-tt"><b>Đánh giá:</b></div>
+                        <div data-id="b414" class="rating-star rating-category">
+                            <input name="score" type="hidden" value="4.95">
+                            <img alt="1" th:src="@{/images/bannerHome/start.png}" title="bad">
+                            <img alt="2" th:src="@{/images/bannerHome/start.png}" title="poor">
+                            <img alt="3" th:src="@{/images/bannerHome/start.png}" title="regular">
+                            <img alt="4" th:src="@{/images/bannerHome/start.png}" title="good">
+                            <img alt="5" th:src="@{/images/bannerHome/start.png}" title="gorgeous">
+                            <input name="score" type="hidden" value="4.95">
+                        </div>
+                        <div class="rating-tt" style="margin-right: 10px;">
+                    <span itemscope="" itemprop="aggregateRating" itemtype="https://schema.org/aggregaterating">
+                        <span itemprop="worstRating" style="display: none;">0</span>
+                        <strong>
+                            <span class="rating-value" itemprop="ratingValue">4.95</span>/<span
+                                itemprop="bestRating">5</span>
+                        </strong>
+                        trong <strong>
+                            <span class="rating-count" itemprop="ratingCount">1967</span>
+                        </strong> Đánh giá
+                    </span>
+                        </div>
+                        <div class="rating-tt">
+                            <i class="fa fa-eye"></i> 69,395
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mod-content ">
+                <div id="ntv-main" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div id="vnt-slide-thumbnail" class="slick-init slick-initialized slick-slider">
+                        <div class="slick-list draggable">
+                            <div class="slick-track" style="opacity: 1; width: 820px;">
+                                <div class="slick-slide slick-current slick-active" data-slick-index="0"
+                                     aria-hidden="false"
+                                     style="width: 820px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
+                                    <div>
+                                        <div class="item" style="width: 100%; display: inline-block;">
+                                            <div class="img">
+                                                <img th:src="@{/images/xe/Mercedess500VIP.jpg}"
+                                                     alt="..." style="width: 760px; height: 442px ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-tour">
+                        <div class="title" bis_skin_checked="1" style="margin-top: 20px">
+                            <div class="title-diemnhan">
+                                <i class="fa-solid fa-info"></i>
+                                <span class="diemnhan-title"> <strong>Vì sao nên chọn thuê xe Mercedes S500 VIP </strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="Car-content">
+                        <p style="text-align: justify; margin-top: 15px ">
+                            Xe Mercedes S500 – thuê xe Mercedes S500 là mẫu xe sang trọng được rất nhiều công ty hoặc khách hàng thuê xe VIP lựa chọn tại Du Lịch Việt. Vì sao lại có sự chọn lựa khá đặc biệt này. Có thể những ưu điểm sau từ xe Mercedes S500 đã làm vừa lòng hành khách:
+                        </p>
+                        <li>1. Nội thất xe Mercedes S500 được xem là biểu tượng của sự xa hoa, với những kỹ thuật và tính năng an toàn tiên tiến nhất.</li>
+                        <li>2. Xe được trang bị màn hình tivi với hàng chục kênh truyền hình, âm thanh nổi 3D từ hệ thống loa Burmester có công suất tối đa 1540W, sẽ mang lại những trải nghiệm thư giãn êm dịu chưa từng có.</li>
+                        <li>3. Những nội thất Xe Mercedes S500 được gắn kết một cách sáng tạo, đầy nghệ thuật từ những vật liệu sang trọng.</li>
+                        <li>4. Khoang xe Mercedes S500 – thue xe Mercedes S500 rộng và cực kỳ yên tĩnh, thách thức tốc độ và điều kiện mặt đường. Với không gian hoàn hảo của bộ ghế trang bị điều hòa, có hệ thống sưởi ấm trong mùa lạnh, tính năng massage 6 chế độ. Với cơ chế Air-Balance tiếp oxy, lọc không khí và mùi hương hấp dẫn giúp quý khách thư thái trên mỗi hành trình.</li>
+                        <li>5. Động cơ xe Mercedes S500 có sức mạnh đáng nể, vào cua chính xác, độ cân bằng hoàn hảo tựa như bạn đang ngồi sofa tại phòng khách.</li>
+                        <li>6. Bộ điều khiển xe Mercedes S500 còn được trang bị 2 màn hình hiển thị các thông số bản đồ, giải trí cỡ lớn giúp quý khách có những dịch vụ giải trí với màu sắc trung thực, sống động.</li>
+                        <p>Tại Du Lịch Việt công ty chúng tôi có quy trình bảo trì, bảo dưỡng xe hợp lý, giúp các ưu điểm từ thiết kế, đến nội, ngoại thất của xe dù nhỏ nhất vẫn được bảo đảm nguyên vẹn. Một chiếc xe đúng gu, chuẩn đường nét y như mới cho dịch vụ thuê xe du lịch, thuê xe Mercedes S500 của rất nhiều hành khách.</p>
+                    </div>
+                </div>
+                <div id="vnt-sidebar" class="col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+                    <div class="boxDesign1">
+                        <div class="name">Mercedes S500 VIP</div>
+                        <hr>
+                        <div class="attr">
+                            <ul>
+                                <li>
+                                    <div class="at">Hãng Xe:</div>
+                                    <div class="as">Mercedes</div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="at">Kiểu Xe:</div>
+                                    <div class="as">S500 VIP</div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="at">Số Chỗ:</div>
+                                    <div class="as">4 chỗ</div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="at">Màu Xe:</div>
+                                    <div class="as">Đen</div>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="at">Giá Từ:</div>
+                                    <div class="as">Liên Hệ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mnfixed_wrap">
+                        <div class="mnfixed_self">
+                            <div class="boxFix">
+                                <div class="boxPrice">
+                                    <div class="price">
+                                        <div class="txt">Giá từ:</div>
+                                        <div class="red" id="giactt">LIÊN HỆ</div>
+                                    </div>
+                                    <div class="attr">
+                                        <p><strong>Chi tiết liên hệ:</strong></p>
+                                        <div class="more-text-show hide-on-biggest">
+                                            <ul>
+                                                <li>Cách 1: Quý khách hàng vui lòng gọi điện đến số Hotline:  0123456789 để nhận tư vấn cụ thể và báo giá chính xác nhất.</li>
+                                                <li>Cách 2: Quý khách hàng có thể gửi thông tin qua email: dulich@gmail.com với nội dung “thuê xe Mercedes S500” để lại số điện thoại</li>
+                                                <li>Cách 3: Quý khách trực tiếp đến văn phòng công ty để nhận tư vấn và tham quan trực tiếp</li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="bot">
+                                        <div class="form-group">
+                                            <input type="text" name="dDate" id="dDate"
+                                                   class="form-control bg-white dDate date-readonly dropdown-toggle"
+                                                   value="24-05-2024" readonly="">
+                                        </div>
+                                        <div class="btn-booking dt">
+                                            <button type="button" class="btn-order-tour">ĐẶT XE</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script th:src="@{/Layout-js/carRental.js}"></script>
+<script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
+</body>
+</html>

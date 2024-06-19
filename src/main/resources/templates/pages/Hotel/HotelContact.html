@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/layout-css/Home.css">
+    <link rel="stylesheet" href="/layout-css/nav.css">
+    <link rel="stylesheet" href="/layout-css/caroucel.css">
+    <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/layout-css/LH.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Liên Hệ Khách Sạn</title>
+</head>
+<body>
+<div th:replace=" pages/Navbar/Navbar :: Nav"></div>
+<div th:style="'background: url(' + @{/images/anhbantayphat.png} + ') no-repeat center center fixed; background-size: cover; height: 100vh;'">
+    <div class="container p-0">
+        <div class="row-nav justify-content-center align-items-center h-100">
+            <!--                <div class="ImgBackgroud">-->
+            <!--                    <img th:src="@{images/anhbantayphat.png}">-->
+            <!--                </div>-->
+            <div id="content">
+                <div class="wrapForm p-0 rounded-4">
+                    <div class="border border-1 border-black rounded-4">
+                        <div class="row" style="padding: 30px 10px">
+                            <div class="col-6">
+                                <div class="form-contact">
+                                    <h1 style="text-align: center">VINPEARL RESORT & SPA</h1>
+                                    <h2 style="text-align: center">LIÊN HỆ ĐẶT PHÒNG</h2>
+                                    <div class="Contact-Method">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i> KhachSan@gmail.com
+                                    </div>
+                                    <div class="phoneWrap">
+                                        <div class="iconPhone">
+                                            <i class="fa fa-mobile" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="hotline">
+                                             <p>0123456789</p>
+                                        </div>
+                                    </div>
+                                    <img th:src="@{/images/KhachSan/LHKS.jpg}" src="" alt="">
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div>
+                                    Dấu <span class="icon">*</span> là bắt buộc điền
+                                </div>
+                                <div class="mb-3">
+                                    <label for="userName" class="form-label">Họ Tên <span class="icon">*</span></label>
+                                    <input type="text" class="form-control" id="userName">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="userEmail" class="form-label">Email <span class="icon">*</span></label>
+                                    <input type="email" class="form-control" id="userEmail">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="numPhone" class="form-label">Số điện thoại <span class="icon">*</span></label>
+                                    <input type="number" class="form-control" id="numPhone">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Địa chỉ <span class="icon">*</span></label>
+                                    <input type="text" class="form-control" id="address">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="startDay" class="form-label">Nhập ngày nhận phòng<span class="icon">*</span></label>
+                                    <input type="date" class="form-control" id="startDay">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="endDay" class="form-label">Nhập ngày trả phòng<span class="icon">*</span></label>
+                                    <input type="date" class="form-control" id="endDay">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="request" class="form-label">Yêu cầu <span class="icon">*</span></label>
+                                    <textarea class="form-control" id="request" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="float: right">Gửi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr style="border: none;
+            height: 3px;
+            background-color: #66ffff;
+        ">
+<div th:replace=" pages/Footer/Footer :: footer"></div>
+    <script>
+        
+    </script>
+</body>
+</html>

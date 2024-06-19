@@ -1,187 +1,191 @@
 <!DOCTYPE html>
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/layout-css/Home.css">
     <link rel="stylesheet" href="/layout-css/nav.css">
     <link rel="stylesheet" href="/layout-css/caroucel.css">
-    <link rel="stylesheet" href="/layout-css/ThueXe.css">
+    <link rel="stylesheet" th:href="@{/layout-css/ThueXe.css}">
+    <script src="https://kit.fontawesome.com/68a6aada2a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Thuê Xe</title>
 </head>
 <body>
-<div th:replace=" pages/Navbar/Navbar :: Nav"></div>
-<div th:replace=" pages/Home/Home :: banner"></div>
-<div class="container">
-    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
-         aria-label="breadcrumb" class="mt-3">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Library</li>
-        </ol>
-    </nav>
-    <h2>Du Lịch Trong Nước</h2>
-    <div class="mda-info-share clearfix">
-        <div class="mda-rating">
-            <div class="rating" data-value="4.95" data-index="1967" style="display: flex; align-items: center;">
-                <div class="rating-tt"><b>Đánh giá:</b></div>
-                <div data-id="b414" class="rating-star rating-category">
-                    <input name="score" type="hidden" value="4.95">
-                    <img alt="1" th:src="@{/images/bannerHome/start.png}" title="bad">
-                    <img alt="2" th:src="@{/images/bannerHome/start.png}" title="poor">
-                    <img alt="3" th:src="@{/images/bannerHome/start.png}" title="regular">
-                    <img alt="4" th:src="@{/images/bannerHome/start.png}" title="good">
-                    <img alt="5" th:src="@{/images/bannerHome/start.png}" title="gorgeous">
-                    <input name="score" type="hidden" value="4.95">
-                </div>
-                <div class="rating-tt" style="margin-right: 10px;">
-                <span itemscope="" itemprop="aggregateRating" itemtype="https://schema.org/aggregaterating">
-                    <span itemprop="worstRating" style="display: none;">0</span>
-                    <strong>
-                        <span class="rating-value" itemprop="ratingValue">4.95</span>/<span
-                            itemprop="bestRating">5</span>
-                    </strong>
-                    trong <strong>
-                        <span class="rating-count" itemprop="ratingCount">1967</span>
-                    </strong> Đánh giá
-                </span>
-                </div>
-                <div class="rating-tt">
-                    <i class="fa fa-eye"></i> 69,395
-                </div>
+<div th:replace="~{pages/Navbar/Navbar :: Nav}"></div>
+<!--<div th:replace=" pages/Home/Home :: banner"></div>-->
+    <div class="imgHome">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img th:src="@{/images/xe/XeHome.jpg}" class="d-block w-100" alt="...">
             </div>
         </div>
     </div>
-    <style>
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        /* Loại bỏ dấu chấm của tất cả các thẻ li */
-        ul, ol {
-            list-style: none;
-        }
-    </style>
-    <p class="transparent-light-blue" style="text-align: justify; font-size: 16px; color: black; text-decoration: none">
-        <a href="https://dulichviet.com.vn/du-lich-trong-nuoc"><strong>Du lịch Trong nước 2024</strong></a> cùng Du lịch
-        Việt, chúng tôi luôn tổ chức
-        <a href="https://dulichviet.com.vn/du-lich-trong-nuoc"><strong>Tour Du Lịch Trong nước 2024</strong></a>, những
-        <a href="https://dulichviet.com.vn/du-lich-trong-nuoc"><strong>Tour Trong nước 2024</strong></a> chất lượng, giá
-        rẻ để phục vụ khách du lịch trên toàn quốc.
-    </p>
-    <p class="tour-text">
-        Chương trình <strong><a href="#" target="_blank">Du lịch trong nước</a></strong> 2024,
-        <a href="#">Du lịch hè trong nước</a>,
-        <a href="#">tour du lịch hè trong nước</a>,
-        <a href="#">Tour hè trong nước</a> 2024 do Công ty truyền thông
-        <a href="#">Du Lịch Việt</a> cung cấp với nhiều điểm đến du lịch mới hấp dẫn.
-        Các <strong><a href="#" target="_blank">tour trong Nước</a></strong>
-        được khởi hành từ Hà Nội, Tp. Hồ Chí Minh với nhiều phương tiện phù hợp cho chuyến đi của du khách được thuận
-        lợi nhất.
-        Dưới đây là các <strong><a href="#">Tour Du lịch trong nước</a></strong> giá tốt nhất 2024 được mở bán hàng ngày
-        với nhiều chương trình khuyến mãi hấp dẫn:
-        <a href="#">du lịch Nha Trang</a>,
-        <a href="#">du lịch Hạ Long</a>,
-        <a href="#">du lịch Sapa</a>,
-        <a href="#">du lịch Côn Đảo</a>,
-        <a href="#">du lịch Phú Quốc</a>,
-        <a href="#">du lịch Đà Lạt</a>,
-        <a href="#">du lịch Huế</a>,
-        <a href="#">du lịch Đà Nẵng</a>,
-        <a href="#">du lịch Miền Tây</a>, ...
-        Để mua được chương trình tour với giá tốt nhất, Quý khách hàng vui lòng đăng ký đặt tour trực tuyến tại Website
-        <strong><a href="#">Du Lịch Việt</a></strong>.
-        Rất hân hạnh được đón tiếp!
-    </p>
-    <div class="Bookcar mt-3"
-         style="border: 1px solid rgba(0, 0, 0, 0.2); /* Viền mờ với màu đen (0,0,0) và độ mờ 0.2 */">
-        <div class="formBookcar" style="padding-left: 40px; padding-right: 40px; padding-bottom: 20px">
-            <h4 class="mt-3" style="text-align: center; color: #f30383">THUÊ XE TRỰC TUYẾN</h4>
-            <em>Dấu <span style="color: #f30383;">*</span> là bắt buộc</em>
-            <div class="row mt-4">
-                <div class="col-sm-6">
-                    <div id="row fromDateSearchBoxWebTour" class="input-group date ed-datepicker filterDate">
-                        <strong class="mt-2 col-sm-4">Chọn ngày đi</strong>
-                        <input type="text" id="datepicker" class="form-control col-sm-8" name="from"
-                               placeholder="Ngày đi" autocomplete="off" value="">
-                        <div class="input-group-addon">
-                            <span class="fa fa-calendar"></span>
-                        </div>
+    <div class="container">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+             aria-label="breadcrumb" class="mt-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Thuê Xe</li>
+            </ol>
+        </nav>
+        <h2>Thuê Xe</h2>
+        <div class="mda-info-share clearfix">
+            <div class="mda-rating">
+                <div class="rating" data-value="4.95" data-index="1967" style="display: flex; align-items: center;">
+                    <div class="rating-tt"><b>Đánh giá:</b></div>
+                    <div data-id="b414" class="rating-star rating-category">
+                        <input name="score" type="hidden" value="4.95">
+                        <img alt="1" th:src="@{/images/bannerHome/start.png}" title="bad">
+                        <img alt="2" th:src="@{/images/bannerHome/start.png}" title="poor">
+                        <img alt="3" th:src="@{/images/bannerHome/start.png}" title="regular">
+                        <img alt="4" th:src="@{/images/bannerHome/start.png}" title="good">
+                        <img alt="5" th:src="@{/images/bannerHome/start.png}" title="gorgeous">
+                        <input name="score" type="hidden" value="4.95">
                     </div>
-                    <div class="row form-group left-side-form style-car mt-4">
-                        <strong class="col-sm-4 mt-2">Nhập điểm nhận đi <span>*</span></strong>
-                        <div class="formFa col-sm-8" style="padding-left: 0px">
-                            <input type="text" class="form-control" id="inputDiemdi">
-                        </div>
+                    <div class="rating-tt" style="margin-right: 10px;">
+                    <span itemscope="" itemprop="aggregateRating" itemtype="https://schema.org/aggregaterating">
+                        <span itemprop="worstRating" style="display: none;">0</span>
+                        <strong>
+                            <span class="rating-value" itemprop="ratingValue">4.95</span>/<span
+                                itemprop="bestRating">5</span>
+                        </strong>
+                        trong <strong>
+                            <span class="rating-count" itemprop="ratingCount">1967</span>
+                        </strong> Đánh giá
+                    </span>
                     </div>
-                    <div class="row form-group left-side-form style-car mt-4">
-                        <strong class="col-sm-4 mt-2">Họ tên<span>*</span></strong>
-                        <div class="formFa col-sm-8" style="padding-left: 0px">
-                            <input type="text" class="form-control" id="inputTen">
-                        </div>
-                    </div>
-                    <div class="row form-group left-side-form style-car mt-4">
-                        <strong class="col-sm-4 mt-2">Điện thoại<span>*</span></strong>
-                        <div class="formFa col-sm-8" style="padding-left: 0px">
-                            <input type="text" class="form-control" id="inputSDT">
-                        </div>
+                    <div class="rating-tt">
+                        <i class="fa fa-eye"></i> 69,395
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div id="row fromdateve" class="input-group date ed-datepicker2 filterDate">
-                        <strong class="mt-2 col-sm-4">Chọn ngày về</strong>
-                        <input type="text" id="datepicker2" class="form-control col-sm-8" name="from"
-                               placeholder="Ngày về" autocomplete="off" value="">
-                        <div class="input-group-addon">
-                            <span class="fa fa-calendar"></span>
-                        </div>
-                    </div>
-                    <div class="row form-group left-side-form style-car mt-4">
-                        <strong class="col-sm-4 mt-2">Nhập điểm đến <span>*</span></strong>
-                        <div class="formFa col-sm-8" style="padding-left: 0px">
-                            <input type="text" class="form-control" id="input">
-                        </div>
-                    </div>
-                    <div class="row form-group left-side-form style-car mt-4">
-                        <strong class="col-sm-4 mt-2">Email<span>*</span></strong>
-                        <div class="formFa col-sm-8" style="padding-left: 0px">
-                            <input type="text" class="form-control" id="inputEmail">
-                        </div>
-                    </div>
-                    <div class="row form-group left-side-form style-car mt-4">
-                        <strong class="col-sm-4 mt-2">Chọn loại dịch vụ xe<span>*</span></strong>
-                        <select class="col-sm-8" aria-label="Default select example"
-                                style="border: 1px solid rgba(0, 0, 0, 0.1); /* Viền mờ với màu đen (0,0,0) và độ mờ 0.2 */">
-                            <option selected>Chọn dịch vụ xe</option>
-                            <option value="1">Xe hăng cải</option>
-                            <option value="2">Xe tank</option>
-                            <option value="3">Xe đua</option>
-                            <option value="3">Xe đạp</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="note mt-4">
-                <strong class="ghichu">Thông tin ghi chú thêm</strong>
-                <div class="form-floating mt-1">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                </div>
-            </div>
-            <div class="row final mt-4" style="justify-content: end; padding-right: 10px">
-                <button type="button" class="btn btn-info" style="width: 150px">Đặt xe</button>
             </div>
         </div>
-    </div>
-    <div style="text-align: justify;" class="mt-4">
-            <span style="font-size:14px;">
-                <span style="font-family:Arial,Helvetica,sans-serif;">Để có thể lựa chọn cho mình dịch vụ <strong>thuê xe giá rẻ,</strong>&nbsp;
-                    <strong>thuê xe 20 chỗ;&nbsp;<a href="https://dulichviet.com.vn/thue-xe-du-lich-24-cho">thuê xe 24 chỗ</a>;&nbsp;thuê xe 29 chỗ;&nbsp;thuê xe 35 chỗ;&nbsp;thuê xe 39 chỗ;&nbsp;thuê xe 45 chỗ;&nbsp;xe du lịch 35 chỗ</strong>&nbsp;giá rẻ và hợp lý nhất, quý khách có thể tham khảo thêm thông tin các loại xe du lịch,<a
-                            href="https://dulichviet.com.vn/thue-xe-dich-vu"> </a><strong>thuê xe dịch vụ</strong>&nbsp;cùng&nbsp;bảng giá thuê xe ngay tại Website và đặt thuê xe tuyến để nhận được nhiều ưu đãi hấp dẫn. Tham khảo<strong> Bảng giá&nbsp;thuê xe du lịch</strong> mà <strong>Du Lịch Việt </strong>đang cung cấp:</span></span>
-    </div>
-    <hr>
+        <style>
+            a {
+                text-decoration: none;
+                color: black;
+            }
 
-</div>
+            /* Loại bỏ dấu chấm của tất cả các thẻ li */
+            ul, ol {
+                list-style: none;
+            }
+            .icon{
+                color: red;
+            }
+        </style>
+        <p class="transparent-light-blue" style="text-align: justify; font-size: 16px; color: black; text-decoration: none">
+            <a href="https://dulichviet.com.vn/du-lich-trong-nuoc"><strong>Du lịch Trong nước 2024</strong></a> cùng Du lịch
+            Việt, chúng tôi luôn tổ chức
+            <a href="https://dulichviet.com.vn/du-lich-trong-nuoc"><strong>Tour Du Lịch Trong nước 2024</strong></a>, những
+            <a href="https://dulichviet.com.vn/du-lich-trong-nuoc"><strong>Tour Trong nước 2024</strong></a> chất lượng, giá
+            rẻ để phục vụ khách du lịch trên toàn quốc.
+        </p>
+        <p class="tour-text">
+            <strong><a href="#" target="_blank">Xe du lịch</a></strong> -
+            Phòng vận chuyển công ty Du Lịch Việt cung cấp và mang đến cho quý khách dịch vụ cho
+            <strong>thuê xe  du lịch, thuê xe dịch vụ</strong>
+            với giá cực tốt. Chúng tôi cho
+            <strong>thuê  xe đời mới, thuê xe hoa, thuê xe Land Cruiser, thuê xe Audi A4, thuê xe Audi A6, cho thuê xe Audi R8, thuê xe A8, thuê xe Q5, thuê xe Q7.</strong>,
+            Hay dịch vụ
+            <strong>Thuê xe Sienna, thuê xe Sedona, thuê xe Limousine, thuê xe Universe, thuê xe Limousine dcar,  E200,  E250, S400, S450, S500</strong>
+            từ 4 đến 47 chỗ của tất cả các hãng.
+        </p>
+        <div class="Bookcar mt-3"
+             style="border: 1px solid rgba(0, 0, 0, 0.2); /* Viền mờ với màu đen (0,0,0) và độ mờ 0.2 */">
+            <div class="formBookcar" style="padding-left: 40px; padding-right: 40px; padding-bottom: 20px">
+                <h4 class="mt-3" style="text-align: center; color: #f30383">THUÊ XE TRỰC TUYẾN</h4>
+                <em>Dấu <span class="icon">*</span> là bắt buộc</em>
+                <div class="row mt-4">
+                    <div class="col-sm-6">
+                        <div id="row fromDateSearchBoxWebTour" class="input-group date ed-datepicker filterDate">
+                            <strong class="mt-2 col-sm-4">Chọn ngày đi <span class="icon">*</span></strong>
+                            <input type="date" id="RenTalDate" class="form-control col-sm-8" value="">
+                        </div>
+                        <div class="row form-group left-side-form style-car mt-4">
+                            <strong class="col-sm-4 mt-2">Nhập điểm đón<span class="icon">*</span></strong>
+                            <div class="formFa col-sm-8" style="padding-left: 0px">
+                                <input type="text" class="form-control" id="pickUp">
+                            </div>
+                        </div>
+                        <div class="row form-group left-side-form style-car mt-4">
+                            <strong class="col-sm-4 mt-2">Họ tên<span class="icon">*</span></strong>
+                            <div class="formFa col-sm-8" style="padding-left: 0px">
+                                <input type="text" class="form-control" id="userName">
+                            </div>
+                        </div>
+                        <div class="row form-group left-side-form style-car mt-4">
+                            <strong class="col-sm-4 mt-2">Điện thoại<span class="icon">*</span></strong>
+                            <div class="formFa col-sm-8" style="padding-left: 0px">
+                                <input type="text" class="form-control" id="Phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div id="row fromdateve" class="input-group date ed-datepicker2 filterDate">
+                            <strong class="mt-2 col-sm-4">Chọn ngày về <span class="icon">*</span></strong>
+                            <input type="date" id="ReturnDate" class="form-control col-sm-8" value="">
+                        </div>
+                        <div class="row form-group left-side-form style-car mt-4">
+                            <strong class="col-sm-4 mt-2">Nhập điểm đến<span class="icon">*</span></strong>
+                            <div class="formFa col-sm-8" style="padding-left: 0px">
+                                <input type="text" class="form-control" id="destination">
+                            </div>
+                        </div>
+                        <div class="row form-group left-side-form style-car mt-4">
+                            <strong class="col-sm-4 mt-2">Email<span class="icon">*</span></strong>
+                            <div class="formFa col-sm-8" style="padding-left: 0px">
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                        </div>
+                        <div class="row form-group left-side-form style-car mt-4">
+                            <strong class="col-sm-4 mt-2">Chọn dịch vụ xe<span class="icon">*</span></strong>
+                            <select class="col-sm-8" aria-label="Default select example" id="typeCar"
+                                    style="border: 1px solid rgba(0, 0, 0, 0.1); /* Viền mờ với màu đen (0,0,0) và độ mờ 0.2 */">
+                                <option selected>Chọn dịch vụ xe</option>
+                                <option value="1">Xe hăng cải</option>
+                                <option value="2">Xe tank</option>
+                                <option value="3">Xe đua</option>
+                                <option value="3">Xe đạp</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="note mt-4">
+                    <strong class="ghichu">Thông tin ghi chú thêm</strong>
+                    <div class="form-floating mt-1">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                    </div>
+                </div>
+                <div class="row final mt-4" style="justify-content: end; padding-right: 10px">
+                    <button type="button" class="btn btn-info" onclick="getSaveCar()" style="width: 150px">Đặt xe</button>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: justify;" class="mt-4">
+                <span style="font-size:14px;">
+                    <span style="font-family:Arial,Helvetica,sans-serif;">Để có thể lựa chọn cho mình dịch vụ <strong>thuê xe giá rẻ,</strong>&nbsp;
+                        <strong>thuê xe 20 chỗ;&nbsp;<a href="https://dulichviet.com.vn/thue-xe-du-lich-24-cho">thuê xe 24 chỗ</a>;&nbsp;thuê xe 29 chỗ;&nbsp;thuê xe 35 chỗ;&nbsp;thuê xe 39 chỗ;&nbsp;thuê xe 45 chỗ;&nbsp;xe du lịch 35 chỗ</strong>&nbsp;giá rẻ và hợp lý nhất, quý khách có thể tham khảo thêm thông tin các loại xe du lịch,<a
+                                href="https://dulichviet.com.vn/thue-xe-dich-vu"> </a><strong>thuê xe dịch vụ</strong>&nbsp;cùng&nbsp;bảng giá thuê xe ngay tại Website và đặt thuê xe tuyến để nhận được nhiều ưu đãi hấp dẫn. Tham khảo<strong> Bảng giá&nbsp;thuê xe du lịch</strong> mà <strong>Du Lịch Việt </strong>đang cung cấp:</span></span>
+        </div>
+        <hr>
+
+        <div class="CarContent">
+            <div class="row" id="productsCar">
+            </div>
+        </div>
+
+    </div>
+
+<hr style="border: none;
+            height: 3px;
+            background-color: #66ffff;
+        ">
+<div th:replace=" pages/Footer/Footer :: footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
@@ -189,13 +193,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script>
-    $(function () {
-        $("#datepicker").datepicker();
-    });
-    $(function () {
-        $("#datepicker2").datepicker();
-    });
-</script>
+<script th:src="@{/Layout-js/carRental.js}"></script>
 </body>
 </html>
