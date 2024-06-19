@@ -24,3 +24,23 @@ body, html {
     text-align: center;
     padding: 20px;
 }
+.InputPassword{
+    position: relative;
+    width: fit-content;
+}
+.InputPassword input[type="password"]{
+    padding-right: 40px; /* Tạo không gian cho nút */
+}
+.btnEyes{
+    position: absolute;
+    right: 10px; /* Điều chỉnh theo padding của bạn */
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    /*cursor: pointer;*/
+    /*padding: 0;*/
+    /*display: flex;*/
+    align-items: center;
+    /*justify-content: center;*/
+}
