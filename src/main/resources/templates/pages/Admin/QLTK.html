@@ -101,13 +101,13 @@
         </div>
         </div>
          <div class="col-8">
-        <div class="tableQLTour">
+        <div class="tableQLAccount">
             <table class="table table-bordered" id="fillToForm">
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>UserName</th>
-                    <th>Password</th>
+<!--                    <th>Password</th>-->
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Role</th>
@@ -142,7 +142,7 @@
                 `<tr>` +
                 `<td>${index + 1}</td>` +
                 `<td>${e.accountName}</td>` +
-                `<td>${e.password}</td>` +
+                // `<td>${e.password}</td>` +
                 `<td>${e.email}</td>` +
                 `<td>${e.phone}</td>` +
                 `<td>${e.role.role_name}</td>` +
@@ -278,7 +278,7 @@
     function fillDetailForm(accountDetail) {
         $("#idUserId").val(accountDetail.userId);
         $("#InputUserName").val(accountDetail.accountName);
-        $("#InputPassword1").val(accountDetail.password);
+        // $("#InputPassword1").val(accountDetail.password);
         $("#email").val(accountDetail.email);
         $("#phone").val(accountDetail.phone);
         accountDetail.role?.role_name === 'Admin'? $("#Admin").prop('checked',true) : $("#User").prop('checked',true)

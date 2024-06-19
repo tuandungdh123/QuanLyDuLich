@@ -11,6 +11,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="https://scontent.fsgn2-6.fna.fbcdn.net/v/t31.18172-8/23845860_772165502975647_429716032553466353_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHtw3MF8oJV6xJsvfdqyhjVVZi2a0AiECZVmLZrQCIQJrt-ANlMllgB9IakOUrLyhv09u6p6tEjGNLK9kp1W6nV&_nc_ohc=DJ4hxa6m1o8Q7kNvgFQ-PK_&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYBkRaPwE3miBKJ2836ZIiZdLpy-PDZye2460uWtyhZQoQ&oe=669286E5">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css"/>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
 
 </head>
 <body>
@@ -130,7 +132,7 @@
 
 
                 <div class="card card-body mt-4 tableQLTour">
-                    <table class="table">
+                    <table class="table table-bordered" id="paginationTour">
                         <thead>
                         <tr>
                             <th>STT</th>
@@ -142,7 +144,7 @@
                             <th>PHƯƠNG TIỆN</th>
                             <th>NƠI KHỞI HÀNH</th>
                             <th>GIÁ</th>
-                            <th>GHI CHÚ</th>
+<!--                            <th>GHI CHÚ</th>-->
                             <th>SỐ LƯỢNG CHỖ TRỐNG</th>
                             <th>Edit</th>
                         </tr>

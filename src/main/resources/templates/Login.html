@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/layout-css/background.css}">
+    <link rel="stylesheet" th:href="@{/layout-css/showpass.css}">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -49,10 +50,14 @@
                     </div>
                     <div class="form-outline mb-3">
                         <label class="form-label text-light" for="password">Nhập Mật Khẩu</label>
-                        <input type="password" id="password" name="password" class="form-control form-control-lg"
-                               placeholder="Nhập mật khẩu của bạn" />
-                        <button type="button" class="btn position-absolute bottom-0 end-0 btnShowPassword" d>
-                            <i class="bi bi-eye-fill" id="toggleShowPassword"></i></button>
+<!--                        <input type="password" id="password" name="password" class="form-control form-control-lg"-->
+<!--                               placeholder="Nhập mật khẩu của bạn" />-->
+<!--                        <button type="button" class="btn position-absolute bottom-0 end-0 btnShowPassword" >-->
+<!--                            <i class="bi bi-eye-fill" id="toggleShowPassword"></i></button>-->
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" class="InputPassword form-control form-control-lg" placeholder="Nhập mật khẩu của bạn" />
+                            <button type="button"  class="btnEyes" onclick="btnShowPassword()"><i class="fa-solid fa-eye-slash" id="toggleShowPassword"></i></button>
+                        </div>
                         <div id="passwordError" class="error text-danger"></div>
                     </div>
 <!--                    <div class="d-flex justify-content-between align-items-center">-->
@@ -122,6 +127,7 @@
     }
 
 </script>
+<script th:src="@{/Layout-js/showpass.js}"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
