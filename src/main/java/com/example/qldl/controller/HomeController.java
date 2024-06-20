@@ -65,6 +65,7 @@ public class HomeController {
     public String getFeedback() { return "pages/Feedback/Feedback";
     }
     @GetMapping("/admin/QLFeedback")
+
     public String getQlFeedback() { return "pages/Admin/QLFeedback";
     }
 }
