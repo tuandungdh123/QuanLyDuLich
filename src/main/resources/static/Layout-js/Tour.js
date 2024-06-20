@@ -198,12 +198,16 @@ $(document).ready(async function () {
         let filteredTours = filterToursByType(listAllTour, selectedType);
         createTableTourByTypeTour(filteredTours);
     });
+    $("#helloAccount").text("Xin Chào," + localStorage.getItem("account")+ "!")
 });
 
 function createTableTourByTypeTour(addToTable) {
     let populateTypeTourDropdown = '';
 
     addToTable.forEach(function (e, index) {
+        if ($.fn.dataTable.isDataTable('#paginationTour')) {
+            $('#paginationTour').DataTable().destroy();
+        }
         populateTypeTourDropdown +=
             `<tr>` +
             `<td>${index + 1}</td>` +
@@ -223,6 +227,14 @@ function createTableTourByTypeTour(addToTable) {
             `</tr>`;
     });
     $("#BodyListAllTour").html(populateTypeTourDropdown);
+    let table = new DataTable('#paginationTour',{
+        searching :  false,
+        info: false,
+        paging: true,
+        ordering: false,
+        lengthMenu:[4]
+    });
+    $('.dt-length').hide();
 }
 async function loadDataTour() {
     try {

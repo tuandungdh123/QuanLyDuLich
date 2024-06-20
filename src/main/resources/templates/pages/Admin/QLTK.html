@@ -17,7 +17,7 @@
 <div th:replace=" pages/Admin/admin :: sidebar"></div>
 <div class="content">
     <div class="row">
-        <nav th:fragment="adminNav" class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Quản Lý Tài Khoản</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -101,13 +101,13 @@
         </div>
         </div>
          <div class="col-8">
-        <div class="tableQLTour">
+        <div class="tableQLAccount">
             <table class="table table-bordered" id="fillToForm">
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>UserName</th>
-                    <th>Password</th>
+<!--                    <th>Password</th>-->
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Role</th>
@@ -128,7 +128,7 @@
     $(document).ready(async function () {
         await loadDataAccount();
         createTableAccount(listAccount);
-        $("#helloAccount").text("Xin Chào," + localStorage.getItem("accountName")+ "!")
+        $("#helloAccount").text("Xin Chào," + localStorage.getItem("account")+ "!")
     });
 
     function createTableAccount(addToTable) {
@@ -142,7 +142,7 @@
                 `<tr>` +
                 `<td>${index + 1}</td>` +
                 `<td>${e.accountName}</td>` +
-                `<td>${e.password}</td>` +
+                // `<td>${e.password}</td>` +
                 `<td>${e.email}</td>` +
                 `<td>${e.phone}</td>` +
                 `<td>${e.role.role_name}</td>` +
@@ -278,7 +278,7 @@
     function fillDetailForm(accountDetail) {
         $("#idUserId").val(accountDetail.userId);
         $("#InputUserName").val(accountDetail.accountName);
-        $("#InputPassword1").val(accountDetail.password);
+        // $("#InputPassword1").val(accountDetail.password);
         $("#email").val(accountDetail.email);
         $("#phone").val(accountDetail.phone);
         accountDetail.role?.role_name === 'Admin'? $("#Admin").prop('checked',true) : $("#User").prop('checked',true)
@@ -326,40 +326,9 @@
         }
         return true;
     }
-    Logout = () => {
-        Swal.fire({
-            title: "Bạn Muốn Đăng Xuất Về Trang?",
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: "Đăng Nhập",
-            denyButtonText: `Trang Chủ`
-        }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Về Trang Đăng Nhập Thành Công",
-                    showConfirmButton: false,
-                    timer: 1500
-                }).then(() => {
-                    window.location.href='/home'
-                });
-            } else if (result.isDenied) {
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Về Trang Chủ Thành Công",
-                    showConfirmButton: false,
-                    timer: 1500
-                }).then(() => {
-                    window.location.href='/login'
-                });
-            }
-        });
-    }
-</script>
 
+</script>
+<script th:src="@{/Layout-js/LogoutAdmin.js}"></script>
 <script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>-->

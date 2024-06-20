@@ -78,6 +78,16 @@ validateFormPassWord = () =>{
         });
         return false;
     }
+    let regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    if(!regex.test($("#password").val())){
+        Swal.fire({
+            icon: "error",
+            title: "Hãy nhập mật khẩu gồm in hoa, in thường và số",
+            showConfirmButton: false,
+            timer: 2000
+        });
+        return false;
+    }
     return true;
 }
 
@@ -91,6 +101,7 @@ validateFormRepeatPassWord = () =>{
         });
         return false;
     }
+
     return true;
 }
 validateSamePassWord = () =>{

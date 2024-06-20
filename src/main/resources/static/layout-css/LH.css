@@ -57,3 +57,6 @@
     font-size: 24px; /* Kích thước chữ */
     font-weight: bold;
 }
+.banner{
+    position: relative;
+}

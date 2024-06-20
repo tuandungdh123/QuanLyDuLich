@@ -13,7 +13,8 @@ import java.util.Map;
 @Controller
 @RestController
 
-@RequestMapping("/feedback-api")
+
+@RequestMapping("/home/feedback-api")
 public class FeedbackApi {
     @Autowired
     private FeedbackService feedbackService;
