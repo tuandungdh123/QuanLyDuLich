@@ -65,8 +65,8 @@
         <div class="col-md-4">
             <div class="card text-white bg-primary mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Cấu Hình Website</h5>
-                    <a href="#" class="btn btn-light">View more</a>
+                    <h5 class="card-title">Quản Lý Tour</h5>
+                    <a href="#" class="btn btn-light" onclick="serviceThongKe.getDataPolarArea()">View</a>
                 </div>
             </div>
         </div>
@@ -99,7 +99,14 @@
         </select>
         <button class="btn btn-success">Thống Kê</button>
     </div>
-    <canvas id="barChart" width="400" height="100"></canvas>
+    <div class="row">
+        <div class="col-md-4">
+            <canvas id="polarAreaChart"></canvas>
+        </div>
+        <div class="col-md-8">
+            <canvas id="barChart"></canvas>
+        </div>
+    </div>
 </div>
 <script th:src="@{/Layout-js/admin.js}"></script>
 <script>
