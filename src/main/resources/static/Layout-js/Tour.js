@@ -54,7 +54,7 @@ async function saveTourInForm() {
     }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-                let response = await axios.post('/tour-api/getSaveTour', TourData);
+                let response = await axios.post('/home/tour-api/getSaveTour', TourData);
                 await upLoadFile();
                 await loadDataTour();
                 createTableTourByTypeTour(listAllTour);
