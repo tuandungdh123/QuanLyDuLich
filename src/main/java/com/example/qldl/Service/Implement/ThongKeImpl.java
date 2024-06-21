@@ -5,6 +5,7 @@ import com.example.qldl.Entity.AccountEntity;
 import com.example.qldl.Entity.TourE;
 import com.example.qldl.Repository.AccountRepo;
 import com.example.qldl.Repository.TourRepo;
+import com.example.qldl.Repository.ThongKeRepo;
 import com.example.qldl.Service.ThongKeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,9 +17,10 @@ import java.util.List;
 public class ThongKeImpl implements ThongKeService {
     private final AccountRepo accountRepo;
     private final TourRepo tourRepo;
+    private final ThongKeRepo thongKeRepo;
     @Override
     public ThongKeDTO countRole() {
-        List<AccountEntity> accounts = accountRepo.findAll();
+        List<AccountEntity> accounts = thongKeRepo.findAll();
 
         if (accounts.isEmpty()) {
             return new ThongKeDTO(0, 0);
@@ -33,7 +35,6 @@ public class ThongKeImpl implements ThongKeService {
 
         return new ThongKeDTO(soLuongRole1, soLuongRole2);
     }
-
     @Override
     public ThongKeDTO countTour() {
         List<TourE> tours= tourRepo.findAll();

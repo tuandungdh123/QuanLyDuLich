@@ -40,11 +40,11 @@ public class TourE {
     @Column(name="Starting_Place")
     private String startPlace;
 
-    @Column(name="Price")
-       private int price;
-//
-//    @Column(name="Price_Children")
-//    private int priceChildren;
+    @Column(name="Price_Adult")
+       private int priceAdult;
+
+    @Column(name="Price_Children")
+    private int priceChildren;
 
     @Column(name="Description")
     private String description;

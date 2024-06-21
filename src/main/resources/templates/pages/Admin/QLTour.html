@@ -11,6 +11,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="https://scontent.fsgn2-6.fna.fbcdn.net/v/t31.18172-8/23845860_772165502975647_429716032553466353_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHtw3MF8oJV6xJsvfdqyhjVVZi2a0AiECZVmLZrQCIQJrt-ANlMllgB9IakOUrLyhv09u6p6tEjGNLK9kp1W6nV&_nc_ohc=DJ4hxa6m1o8Q7kNvgFQ-PK_&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYBkRaPwE3miBKJ2836ZIiZdLpy-PDZye2460uWtyhZQoQ&oe=669286E5">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css"/>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
 
 </head>
 <body>
@@ -19,20 +21,18 @@
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Tour Du Lịch</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <a class="navbar-brand" href="#">Quản Lý Tour Du Lịch</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav ms-auto">
-                                <!--                            <li class="nav-item">-->
-                                <!--                                <a class="nav-link" href="#">Xin chào, admin!</a>-->
-                                <!--                            </li>-->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Thông báo <span class="badge bg-danger">2</span></a>
+                                    <span class="nav-link" id="helloAccount" href="#">Xin chào, admin!</span>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Đăng xuất</a>
+                                    <button class="nav-link" onclick="Logout()"><i class="fa-solid fa-right-to-bracket"></i></button>
                                 </li>
                             </ul>
                         </div>
@@ -114,7 +114,7 @@
                 <div class="button col-sm-6 mt-4" id="formButton">
                     <button type="submit" class="btn btn-outline-info" id="createTour" onclick="saveTourInForm()">Create</button>
                     <button type="button" class="btn btn-outline-success" onclick="updateTourInForm()">Update</button>
-                    <button type="button" class="btn btn-outline-danger" id="deleteBtn">Delete</button>
+                    <button type="button" class="btn btn-outline-danger" id="deleteBtn" onclick="deleteTourByID()">Delete</button>
                     <button type="button" id="btnClearForm" class="btn btn-outline-info" onclick="clearForm()" >Clear</button>
                 </div>
                 <div class="col-sm-6 select mt-4">
@@ -132,7 +132,7 @@
 
 
                 <div class="card card-body mt-4 tableQLTour">
-                    <table class="table">
+                    <table class="table table-bordered" id="paginationTour">
                         <thead>
                         <tr>
                             <th>STT</th>
@@ -144,7 +144,8 @@
                             <th>PHƯƠNG TIỆN</th>
                             <th>NƠI KHỞI HÀNH</th>
                             <th>GIÁ</th>
-                            <th>GHI CHÚ</th>
+<!--                            <th>GHI CHÚ</th>-->
+
                             <th>SỐ LƯỢNG CHỖ TRỐNG</th>
                             <th>Edit</th>
                         </tr>
@@ -158,5 +159,7 @@
     </div>
 <script th:src="@{/Layout-js/loadImage.js}"></script>
 <script th:src="@{/Layout-js/Tour.js}"></script>
+<script th:src="@{/Layout-js/LogoutAdmin.js}"></script>
+<script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@ let tourDetail = []
 
 async function loadDataTourById(tourID) {
     try {
-        let response = await axios.get(`tour-api/getTourByTourID?tourID=${tourID}`);
+        let response = await axios.get(`/home/tour-api/getTourByTourID?tourID=${tourID}`);
         tourDetail = response.data.data;
     } catch (error) {
     }
@@ -174,7 +174,7 @@ function createTableTourById(tour) {
                                                    value="24-05-2024" readonly="">
                                         </div>
                                         <div class="btn-booking dt">
-                                            <button type="button" class="btn-order-tour" onclick="window.location.href='/tourCart?tourID=${tour.tourID}'">ĐẶT TOUR</button>
+                                            <button type="button" class="btn-order-tour" onclick="window.location.href='/home/tourCart?tourID=${tour.tourID}'">ĐẶT TOUR</button>
                                         </div>
                                     </div>
                                 </div>

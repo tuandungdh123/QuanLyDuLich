@@ -1,3 +1,4 @@
+
 class ThongKe {
     dataBarChart = {}
     BarChart = null;
@@ -97,6 +98,7 @@ class ThongKe {
         this.dataBarChart = {
             Admin: response.data.soLuongRole1,
             User: response.data.soLuongRole2
+
         }
         this.createBarChart()
     }
@@ -139,6 +141,7 @@ class ThongKe {
                         beginAtZero: true,
                         ticks: {
                             stepSize: 1,
+
                         }
                     }
                 }

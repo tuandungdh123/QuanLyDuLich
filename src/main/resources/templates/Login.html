@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Đăng Nhập</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/layout-css/background.css}">
+    <link rel="stylesheet" th:href="@{/layout-css/showpass.css}">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="icon" href="https://scontent.fsgn2-6.fna.fbcdn.net/v/t31.18172-8/23845860_772165502975647_429716032553466353_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHtw3MF8oJV6xJsvfdqyhjVVZi2a0AiECZVmLZrQCIQJrt-ANlMllgB9IakOUrLyhv09u6p6tEjGNLK9kp1W6nV&_nc_ohc=DJ4hxa6m1o8Q7kNvgFQ-PK_&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYBkRaPwE3miBKJ2836ZIiZdLpy-PDZye2460uWtyhZQoQ&oe=669286E5">
 
 </head>
 <body>
@@ -24,20 +26,20 @@
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <form id="Loginform">
-                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                        <p class="lead fw-normal mb-0 me-3 text-light">Đăng Nhập Bằng</p>
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
-                            <i class="fab fa-facebook-f"></i>
-                        </button>
+<!--                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">-->
+<!--                        <p class="lead fw-normal mb-0 me-3 text-light">Đăng Nhập Bằng</p>-->
+<!--                        <button type="button" class="btn btn-primary btn-floating mx-1">-->
+<!--                            <i class="fab fa-facebook-f"></i>-->
+<!--                        </button>-->
 
-                        <button type="button" class="btn btn-dark btn-floating mx-1">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </button>
+<!--                        <button type="button" class="btn btn-dark btn-floating mx-1">-->
+<!--                            <i class="fa-brands fa-x-twitter"></i>-->
+<!--                        </button>-->
 
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
-                            <i class="fab fa-linkedin-in"></i>
-                        </button>
-                    </div>
+<!--                        <button type="button" class="btn btn-primary btn-floating mx-1">-->
+<!--                            <i class="fab fa-linkedin-in"></i>-->
+<!--                        </button>-->
+<!--                    </div>-->
 
                     <hr>
                     <div class="form-outline mb-4">
@@ -48,22 +50,27 @@
                     </div>
                     <div class="form-outline mb-3">
                         <label class="form-label text-light" for="password">Nhập Mật Khẩu</label>
-                        <input type="password" id="password" name="password" class="form-control form-control-lg"
-                               placeholder="Nhập mật khẩu của bạn" />
-                        <button type="button" class="btn position-absolute bottom-0 end-0 btnShowPassword" d>
-                            <i class="bi bi-eye-fill" id="toggleShowPassword"></i></button>
+
+<!--                        <input type="password" id="password" name="password" class="form-control form-control-lg"-->
+<!--                               placeholder="Nhập mật khẩu của bạn" />-->
+<!--                        <button type="button" class="btn position-absolute bottom-0 end-0 btnShowPassword" >-->
+<!--                            <i class="bi bi-eye-fill" id="toggleShowPassword"></i></button>-->
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" class="InputPassword form-control form-control-lg" placeholder="Nhập mật khẩu của bạn" />
+                            <button type="button"  class="btnEyes" onclick="btnShowPassword()"><i class="fa-solid fa-eye-slash" id="toggleShowPassword"></i></button>
+                        </div>
                         <div id="passwordError" class="error text-danger"></div>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <!-- Checkbox -->
-                        <div class="form-check mb-0">
-                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3"/>
-                            <label class="form-check-label text-light" for="form2Example3">
-                                Ghi nhớ đăng nhập
-                            </label>
-                        </div>
-                        <a href="#!" class="text-light">Quên mật khẩu?</a>
-                    </div>
+<!--                    <div class="d-flex justify-content-between align-items-center">-->
+<!--                        &lt;!&ndash; Checkbox &ndash;&gt;-->
+<!--                        <div class="form-check mb-0">-->
+<!--                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3"/>-->
+<!--                            <label class="form-check-label text-light" for="form2Example3">-->
+<!--                                Ghi nhớ đăng nhập-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        <a href="#!" class="text-light">Quên mật khẩu?</a>-->
+<!--                    </div>-->
 
                     <div class="text-center text-lg-start mt-4 pt-2">
                         <button class="btn btn-primary btn-lg"
@@ -74,7 +81,7 @@
                                 type="button"
                         >Đăng Nhập
                         </button>
-                        <p class="small fw-bold mt-2 pt-1 mb-0">Bạn không có tài khoản? <a href="#!" class="link-light">Đăng
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Bạn không có tài khoản? <a th:href="@{/register}" class="link-light">Đăng
                             Ký</a></p>
                     </div>
 
@@ -84,45 +91,40 @@
     </div>
 </section>
 <script type="application/ecmascript">
-    /*document.getElementById('Loginform').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const data = {
-            username: username,
-            password: password
-        };
-        axios.get('http://localhost:1010/AccountRepo/login',null, { params: data })
-            .then(function(response) {
-                console.log('Success:', response.data);
-                alert('Login successful!');
-            })
-            .catch(function(error) {
-                console.error('Error:', error);
-                alert('Login failed. Please check your username and password.');
-            });
-    });*/
+    function btnShowPassword(){
+        let element = $(`#password`)
+        let toggle = $(`#toggleShowPassword`)
+        if (element.prop('type') === 'password') {
+            element.prop('type', 'text')
+            toggle.removeClass('fa-solid fa-eye-slash').addClass('fa-solid fa-eye')
+        } else {
+            element.prop('type', 'password')
+            toggle.removeClass('fa-solid fa-eye').addClass('fa-solid fa-eye-slash')
+        }
+    }
 
     async function btnLogin_click () {
         let userLogin = {
-            account: document.getElementById('username').value,
+            accountName: document.getElementById('username').value,
             password: document.getElementById('password').value
         }
-        if (userLogin.account === '' && userLogin.password === ''){
+        if (userLogin.accountName === '' && userLogin.password === ''){
             document.getElementById('usernameError').textContent = 'Vui Lòng Nhập Tài Khoản'
             document.getElementById('passwordError').textContent = 'Vui Lòng Nhập Mật Khẩu'
             return
         }
-        let response = await axios.get(`/account-api/login`, { params: userLogin });
-        if(response.status === 200 && response.data.status){
+        console.log(userLogin)
+        let response = await axios.post('/account-api/login', userLogin);
+        console.log(response)
+        if(response.data.status){
             Swal.fire({
-                position: "top-end",
+                position: "center",
                 icon: "success",
                 title: "Đăng Nhập Thành Công",
                 showConfirmButton: false,
                 timer: 1500
             }).then(() => {
-                localStorage.setItem('account', userLogin.account)
+                localStorage.setItem('account', userLogin.accountName)
                     window.location.href='/home'
             });
         } else {
@@ -137,12 +139,11 @@
     }
 
 </script>
+<script th:src="@{/Layout-js/showpass.js}"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-<script th:src="@{/Layout-js/services-login.js}"></script>
-<script th:src="@{/Layout-js/Login.js}"></script>
 </body>
 </html>

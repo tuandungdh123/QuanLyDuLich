@@ -1,7 +1,9 @@
 package com.example.qldl.controller;
 
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -9,8 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
     @GetMapping({"/","/login"})
-    public String getLogin(){
+    public String getLogin(final HttpServletRequest request){
+        request.getSession().setAttribute("role", "none");
         return "Login";
+    }
+    @GetMapping("/errorRole")
+    public String getError(){
+        return "pages/Error/Error";
     }
     @GetMapping("/register")
     public String getRegister(){return "pages/Register";}
@@ -20,32 +27,45 @@ public class HomeController {
     }
     @GetMapping("/home")
     public String getHome(){return "pages/Home/Home";}
-    @GetMapping("/tour")
+    @GetMapping("/home/tour")
     public String getTourView(){
         return "pages/Detail/TourDetail";
     }
-    @GetMapping("/list")
+    @GetMapping("/home/list")
     public String getListTourView(){
         return "pages/Detail/DanhSanhTour";
     }
-    @GetMapping("/tourCart")
+    @GetMapping("/home/tourCart")
     public String getTourCartView(){ return "pages/Detail/TourCart"; }
-    @GetMapping("/BookingVe")
+    @GetMapping("/home/BookingTicket")
     public String getBookVe(){
         return "pages/BookVe/BookVe";
     }
-    @GetMapping("/Footer")
+    @GetMapping("/home/Footer")
     public String getFooter(){return "pages/Footer/Footer";}
-    @GetMapping("/Hotel")
+    @GetMapping("/home/Hotel")
     public String getThueXeView(){return "pages/Hotel/Hotel";}
-    @GetMapping("/xe")
+    @GetMapping("/home/Car")
     public String getHotel(){return "pages/ThueXe/ThueXe";}
     @GetMapping("/admin")
-    public String getAdmin(){return "pages/Admin/Admin";}
-    @GetMapping("/QLTK")
+    public String getAdmin(final HttpServletRequest request){
+        System.out.println(request.getSession().getAttribute("role"));
+        return "pages/Admin/admin";
+    }
+    @GetMapping("/admin/AccountManagement")
     public String getQLTK(){return "pages/Admin/QLTK";}
-    @GetMapping("/QLTour")
+    @GetMapping("/admin/TourManagement")
     public String getQLTour(){return "pages/Admin/QLTour";}
-    @GetMapping("/QLhotel")
+    @GetMapping("/admin/HotelManagement")
     public String getQLhotel(){return "pages/Admin/QLKS";}
+    @GetMapping("/home/News")
+    public String getNews() { return "pages/News/News";
+    }
+    @GetMapping("/home/Feedback")
+    public String getFeedback() { return "pages/Feedback/Feedback";
+    }
+    @GetMapping("/admin/QLFeedback")
+
+    public String getQlFeedback() { return "pages/Admin/QLFeedback";
+    }
 }
