@@ -50,6 +50,7 @@
                     </div>
                     <div class="form-outline mb-3">
                         <label class="form-label text-light" for="password">Nhập Mật Khẩu</label>
+
 <!--                        <input type="password" id="password" name="password" class="form-control form-control-lg"-->
 <!--                               placeholder="Nhập mật khẩu của bạn" />-->
 <!--                        <button type="button" class="btn position-absolute bottom-0 end-0 btnShowPassword" >-->
@@ -90,6 +91,17 @@
     </div>
 </section>
 <script type="application/ecmascript">
+    function btnShowPassword(){
+        let element = $(`#password`)
+        let toggle = $(`#toggleShowPassword`)
+        if (element.prop('type') === 'password') {
+            element.prop('type', 'text')
+            toggle.removeClass('fa-solid fa-eye-slash').addClass('fa-solid fa-eye')
+        } else {
+            element.prop('type', 'password')
+            toggle.removeClass('fa-solid fa-eye').addClass('fa-solid fa-eye-slash')
+        }
+    }
 
     async function btnLogin_click () {
         let userLogin = {

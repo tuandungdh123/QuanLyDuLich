@@ -3,7 +3,6 @@ let ListFeedback = []
 $(document).ready(async function () {
     await loadDataFeedback();
     createTableFeedback(ListFeedback);
-
     // Thêm lắng nghe sự kiện cho mỗi hàng
     $('#feedback-table').on('click', 'tr', function() {
         // Lấy dữ liệu hàng
@@ -18,6 +17,8 @@ $(document).ready(async function () {
 
 function createTableFeedback(addToTable) {
     let bodyTableListFeedbackString = '<form id="feedback-form">';
+
+});
     addToTable.forEach(function (e, index) {
         bodyTableListFeedbackString +=
             `<tr>` +
