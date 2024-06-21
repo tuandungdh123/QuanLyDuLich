@@ -4,7 +4,11 @@ package com.example.qldl.Service.Implement;
 import com.example.qldl.Entity.AccountEntity;
 import com.example.qldl.Repository.AccountRepo;
 import com.example.qldl.Service.AccountService;
+import com.example.qldl.exception.AppException;
+import com.example.qldl.exception.ErrorCode;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -21,9 +25,11 @@ public class AccountServiceImpl implements AccountService {
     };
 
     @Override
-    public Optional<AccountEntity> getAccountByTkAndMk(String accountName, String password) throws SQLException {
-        var result = repo.getAccountEByTkAndMk(accountName, password);
-        return Optional.ofNullable(result);
+    public Optional<AccountEntity> getAccountByTk(String accountName) throws SQLException, AppException {
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
+        var user = repo.getAccountByTk(accountName).orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
+        boolean authenticated = passwordEncoder.matches(user.getPassword(), user.getPassword());
+        return Optional.ofNullable(user);
     }
     @Override
     public void doDeleteById(int userId) {
@@ -31,6 +37,8 @@ public class AccountServiceImpl implements AccountService {
     }
     @Override
     public AccountEntity doSaveAccount(AccountEntity accountEntity){
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
+        accountEntity.setPassword(passwordEncoder.encode(accountEntity.getPassword()));
         return repo.save(accountEntity);
     }
 

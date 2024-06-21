@@ -18,7 +18,7 @@ public class AccountEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
-    @Column(name="Username")
+    @Column(name="Account")
     private String accountName;
 
     @Column(name="Pass")

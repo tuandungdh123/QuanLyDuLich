@@ -7,6 +7,8 @@ import com.example.qldl.Repository.RoleRepo;
 import com.example.qldl.Service.mailService;
 import com.example.qldl.Service.registerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +19,9 @@ public class registerServiceImpl implements registerService {
     final mailService mailService;
     @Override
     public AccountEntity doSaveAccount(AccountEntity accountEntity) throws Exception {
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
+        accountEntity.setPassword(passwordEncoder.encode(accountEntity.getPassword()));
+
         mailE mail = new mailE();
         mail.setTo(accountEntity.getEmail());
         mailService.sendMail(mail);

@@ -1,15 +1,14 @@
 package com.example.qldl.Api;
 
 import com.example.qldl.Entity.AccountEntity;
-import com.example.qldl.Repository.AccountRepo;
 import com.example.qldl.Service.AccountService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,53 +21,15 @@ import java.util.Map;
 public class AccountApi {
     @Autowired
     private AccountService accServ;
+
     @GetMapping("/getAllAccount")
-    public ResponseEntity<?> doGetAllAccount(){
+    public ResponseEntity<?> doGetAllAccount() {
         Map<String, Object> result = new HashMap<>();
         try {
             result.put("status", true);
             result.put("message", "Get All Account Success");
             result.put("data", accServ.getAllAccount());
-        } catch (Exception e){
-            result.put("status", false);
-            result.put("message", "Get All Account Fail");
-            result.put("data", null);
-            log.error("Fail When Call API /java05/account-api/getAllAccount ", e);
-        }
-        return ResponseEntity.ok(result);
-    }
-    @PostMapping("/login")
-    public ResponseEntity<?> doGetLogin(@RequestBody AccountEntity accountEntity,
-                                        final HttpServletRequest request){
-                    Map<String, Object> result = new HashMap<>();
-                    try {
-                        var data = accServ.getAccountByTkAndMk(accountEntity.getAccountName(), accountEntity.getPassword());
-                        if(!data.isEmpty()){
-                            result.put("status", true);
-                            result.put("message", "Login Success");
-                            result.put("data", data.get().getAccountName());
-                            HttpSession session = request.getSession();
-                            session.setAttribute("role", data.get().getRole().getRole_name());
-            } else {
-                result.put("status", false);
-                result.put("message", "Login Fail");
-            }
-        } catch (Exception e){
-            result.put("status", false);
-            result.put("message", "Login Fail");
-            result.put("data", null);
-            log.error("Fail When Call API /accountApi/login ", e);
-        }
-        return ResponseEntity.ok(result);
-    }
-    @PostMapping("/addAccount")
-    public ResponseEntity<?> doPostAddAccount(@RequestBody AccountEntity accountEntity){
-        Map<String, Object> result = new HashMap<>();
-        try {
-            result.put("status", true);
-            result.put("message", "Get All Account Success");
-            result.put("data", accServ.doSaveAccount(accountEntity));
-        } catch (Exception e){
+        } catch (Exception e) {
             result.put("status", false);
             result.put("message", "Get All Account Fail");
             result.put("data", null);
@@ -77,27 +38,69 @@ public class AccountApi {
         return ResponseEntity.ok(result);
     }
 
-    @DeleteMapping ("/DeleteId")
-    public ResponseEntity<?> doDeleteUserId(@RequestParam("userId") int userId){
+    @PostMapping("/login")
+    public ResponseEntity<?> doGetLogin(@RequestBody AccountEntity accountEntity,
+                                        final HttpServletRequest request) {
         Map<String, Object> result = new HashMap<>();
         try {
-            result.put("success",true);
-            result.put("message","Call Api Success");
+            var data = accServ.getAccountByTk(accountEntity.getAccountName());
+            if (!data.isEmpty()) {
+                result.put("status", true);
+                result.put("message", "Login Success");
+                result.put("data", data.get().getAccountName());
+                HttpSession session = request.getSession();
+                session.setAttribute("role", data.get().getRole().getRole_name());
+            } else {
+                result.put("status", false);
+                result.put("message", "Login Fail");
+            }
+        } catch (Exception e) {
+            result.put("status", false);
+            result.put("message", "Login Fail");
+            result.put("data", null);
+            log.error("Fail When Call API /accountApi/login ", e);
+        }
+        return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/addAccount")
+    public ResponseEntity<?> doPostAddAccount(@RequestBody AccountEntity accountEntity) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            result.put("status", true);
+            result.put("message", "Get All Account Success");
+            result.put("data", accServ.doSaveAccount(accountEntity));
+        } catch (Exception e) {
+            result.put("status", false);
+            result.put("message", "Get All Account Fail");
+            result.put("data", null);
+            log.error("Fail When Call API /java05/account-api/getAllAccount ", e);
+        }
+        return ResponseEntity.ok(result);
+    }
+
+    @DeleteMapping("/DeleteId")
+    public ResponseEntity<?> doDeleteUserId(@RequestParam("userId") int userId) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            result.put("success", true);
+            result.put("message", "Call Api Success");
             accServ.doDeleteById(userId);
-        }catch(Exception e) {
-            result.put("success",false);
-            result.put("message","Call Api Error");
-            result.put("data",null);
+        } catch (Exception e) {
+            result.put("success", false);
+            result.put("message", "Call Api Error");
+            result.put("data", null);
             System.out.println(e);
         }
         return ResponseEntity.ok(result);
     }
+
     @GetMapping("/admin/item")
-    public ResponseEntity<?> doGetItem(AccountEntity account){
+    public ResponseEntity<?> doGetItem(AccountEntity account) {
         Map<String, Object> kq = new HashMap<>();
         try {
-            var data = accServ.getAccountByTkAndMk(account.getAccountName(), account.getPassword());
-            if(!data.isEmpty()){
+            var data = accServ.getAccountByTk(account.getAccountName());
+            if (!data.isEmpty()) {
                 kq.put("status", true);
                 kq.put("message", "Login Success");
                 kq.put("data", data);
@@ -105,7 +108,7 @@ public class AccountApi {
                 kq.put("status", false);
                 kq.put("message", "Login Fail");
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             kq.put("status", false);
             kq.put("message", "Login Fail");
             kq.put("data", null);
@@ -115,13 +118,13 @@ public class AccountApi {
     }
 
     @GetMapping("/getUserByUserId")
-    public ResponseEntity<?> doGetUserByUserId(@RequestParam("userId") int userId){
+    public ResponseEntity<?> doGetUserByUserId(@RequestParam("userId") int userId) {
         Map<String, Object> result = new HashMap<>();
         try {
             result.put("status", true);
             result.put("message", "Get All Account Success");
             result.put("data", accServ.getAccountByUserId(userId));
-        } catch (Exception e){
+        } catch (Exception e) {
             result.put("status", false);
             result.put("message", "Get All Account Fail");
             result.put("data", null);
