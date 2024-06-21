@@ -10,10 +10,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     private AuthInterceptor authInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(authInterceptor)
-                .addPathPatterns("/admin/**", "/home/**")
-                .excludePathPatterns("/login", "/images/**", "/layout-css/**", "/layout-js/**", "/account-api/login");
+                .addPathPatterns("/admin/**")
+                .addPathPatterns("/home/**")
+                .excludePathPatterns( "/login"
+                                    , "/images/**"
+                                    , "/layout-css/**"
+                                    , "/layout-js/**"
+                                    , "/account-api/login"
+                                    , "/account-api/");
     }
 }

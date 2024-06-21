@@ -14,7 +14,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         String requestURI = request.getRequestURI();
         if (requestURI.startsWith("/home")) {
             HttpSession httpSession = request.getSession();
-            if (httpSession == null || httpSession.getAttribute("role").equals("none")){
+            if (httpSession.getAttribute("role").equals("none")){
                 response.sendRedirect("/login");
                 return false;
             }

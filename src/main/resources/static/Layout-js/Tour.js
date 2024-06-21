@@ -219,7 +219,7 @@ function createTableTourByTypeTour(addToTable) {
             `<td>${e.transport}</td>` +
             `<td>${e.startPlace}</td>` +
             `<td>${e.priceAdult}</td>` +
-            // `<td><textarea name="" id="" cols="30" rows="10">${e.description}</textarea></td>` +
+            `<td><textarea name="" id="" cols="30" rows="10">${e.description}</textarea></td>` +
             `<td>${e.available}</td>` +
             `<td>` +
             `<button type="button" class="btn btn-outline-success" onclick="getTourToForm(${e.tourID})">Edit</button>` +

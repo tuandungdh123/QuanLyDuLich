@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="icon" href="https://scontent.fsgn2-6.fna.fbcdn.net/v/t31.18172-8/23845860_772165502975647_429716032553466353_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHtw3MF8oJV6xJsvfdqyhjVVZi2a0AiECZVmLZrQCIQJrt-ANlMllgB9IakOUrLyhv09u6p6tEjGNLK9kp1W6nV&_nc_ohc=DJ4hxa6m1o8Q7kNvgFQ-PK_&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYBkRaPwE3miBKJ2836ZIiZdLpy-PDZye2460uWtyhZQoQ&oe=669286E5">
+
 </head>
 <body>
 <div th:fragment="sidebar" class="sidebar">
@@ -90,18 +91,18 @@
             </div>
         </div>
     </div>
-    <h2>Thống kê truy cập tháng 05/2024</h2>
-    <div class="d-flex align-items-center">
-        <select class="form-select me-2">
-            <option selected>Tháng 5</option>
-            <option value="1">Tháng 6</option>
-            <option value="2">Tháng 7</option>
-        </select>
-        <select class="form-select me-2">
-            <option selected>Năm 2024</option>
-        </select>
-        <button class="btn btn-success">Thống Kê</button>
-    </div>
+<!--    <h2>Thống kê truy cập tháng 05/2024</h2>-->
+<!--    <div class="d-flex align-items-center">-->
+<!--        <select class="form-select me-2">-->
+<!--            <option selected>Tháng 5</option>-->
+<!--            <option value="1">Tháng 6</option>-->
+<!--            <option value="2">Tháng 7</option>-->
+<!--        </select>-->
+<!--        <select class="form-select me-2">-->
+<!--            <option selected>Năm 2024</option>-->
+<!--        </select>-->
+<!--        <button class="btn btn-success">Thống Kê</button>-->
+<!--    </div>-->
     <div class="row">
         <div class="col-md-4">
             <canvas id="polarAreaChart"></canvas>
@@ -116,11 +117,18 @@
     const serviceThongKe = new ThongKe()
     $(document).ready(() => {
         serviceThongKe.loadInit()
+        $("#helloAccount").text("Xin Chào," + localStorage.getItem("account")+ "!")
     })
-        </script>
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            if (!localStorage.getItem('account')) {
+                window.location.href = '/login'
+            }
+        }
+    });
+</script>
 <script th:src="@{/Layout-js/LogoutAdmin.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>
 </body>
 </html>

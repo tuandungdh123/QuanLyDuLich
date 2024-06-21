@@ -13,7 +13,8 @@ logout = () => {
                 showConfirmButton: false,
                 timer: 1500
             }).then(() => {
-                window.location.href = '/login'
+                localStorage.removeItem('account')
+                window.location.href = '/logout'
             });
         }
     });

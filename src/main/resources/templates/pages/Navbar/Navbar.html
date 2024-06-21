@@ -20,7 +20,7 @@
                 </article>
                 <aside class="col-sm-5">
                     <button class="btn mx-2" style="padding-top: 6px ; padding-bottom: 6px; margin-top: 6px;"><i class="fa-brands fa-github"></i> Giới thiệu</button>
-                    <button onclick="window.location.href='/admin'" class="btn mx-2" style="padding-top: 6px ; padding-bottom: 6px; margin-top: 6px"><i class="fa-solid fa-user-tie"></i> Admin</button>
+                    <button th:if="${role == 'Admin'}" onclick="window.location.href='/admin'" class="btn mx-2" style="padding-top: 6px ; padding-bottom: 6px; margin-top: 6px"><i class="fa-solid fa-user-tie"></i> Admin</button>
                     <button onclick="window.location.href='/home/Feedback'" class="btn mx-2" style="padding-top: 6px ; padding-bottom: 6px; margin-top: 6px"><i class="fa-regular fa-comment-dots"></i> Góp ý</button>
                     <button onclick="logout()" class=" btn mx-2" style="padding-top: 6px ; padding-bottom: 6px; margin-top: 6px"><i class="fa-solid fa-right-to-bracket"></i></button>
                 </aside>

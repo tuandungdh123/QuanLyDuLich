@@ -46,7 +46,7 @@ public class TourE {
     @Column(name="Price_Children")
     private int priceChildren;
 
-    @Column(name="Description")
+    @Column(name="Decription")
     private String description;
 
     @Column(name="Available")
