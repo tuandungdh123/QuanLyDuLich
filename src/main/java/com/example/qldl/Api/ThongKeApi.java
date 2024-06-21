@@ -36,4 +36,19 @@ public class ThongKeApi {
         }
         return ResponseEntity.ok(result);
     }
+    @GetMapping("/getCountTour")
+    public ResponseEntity<?> getCountTour() {
+        HashMap<String,Object> result = new HashMap<>();
+        try {
+            ThongKeDTO thongKeDTO= thongkeService.countTour();
+            result.put("success",true);
+            result.put("message","Call Api success");
+            result.put("data", thongKeDTO);
+        }catch (Exception e){
+            result.put("success",false);
+            result.put("message","Call Api fail");
+            result.put("data", null);
+        }
+        return ResponseEntity.ok(result);
+    }
 }
