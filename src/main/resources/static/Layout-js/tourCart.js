@@ -307,6 +307,7 @@ async function submit(tour){
                     sendPdf.reject(errorThrown);
                 }
             });
+
             // let pdfResponse = await sendPdf.promise();
 
             // if (pdfResponse.ok) {
