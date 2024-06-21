@@ -112,7 +112,7 @@ function createTableTourById(tour) {
                     <p style="text-align: justify; margin-top: 15px ">
                         <em>
                             <a href="#"><strong>${tour.nameTour}</strong>
-                            </a>${tour.description}
+                            </a>${tour.decription}
                         </em>
                     </p>
                 </div>

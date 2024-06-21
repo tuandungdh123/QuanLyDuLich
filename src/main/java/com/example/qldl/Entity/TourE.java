@@ -46,11 +46,14 @@ public class TourE {
     @Column(name="Price_Children")
     private int priceChildren;
 
-    @Column(name="Description")
-    private String description;
+    @Column(name="Decription")
+    private String decription;
 
     @Column(name="Available")
     private int available;
+
+    @Column(name="Experience")
+    private String experience;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Type_Id", referencedColumnName = "Type_Id")
