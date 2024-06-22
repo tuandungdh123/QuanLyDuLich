@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Book Tour Du Lịch</title>
+    <link rel="icon" href="data:,">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+
+    <link rel="stylesheet" th:href="@{/layout-css/admin.css}">
+    <link rel="stylesheet" th:href="@{/layout-css/QlBookTour.css}">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="icon" href="https://scontent.fsgn2-6.fna.fbcdn.net/v/t31.18172-8/23845860_772165502975647_429716032553466353_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHtw3MF8oJV6xJsvfdqyhjVVZi2a0AiECZVmLZrQCIQJrt-ANlMllgB9IakOUrLyhv09u6p6tEjGNLK9kp1W6nV&_nc_ohc=DJ4hxa6m1o8Q7kNvgFQ-PK_&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYBkRaPwE3miBKJ2836ZIiZdLpy-PDZye2460uWtyhZQoQ&oe=669286E5">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css"/>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+
+</head>
+<body>
+<div th:replace=" pages/Admin/admin :: sidebar"></div>
+<div class="content">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Quản Lý Tour Du Lịch</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <span class="nav-link" id="helloAccount" href="#">Xin chào, admin!</span>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" onclick="Logout()"><i class="fa-solid fa-right-to-bracket"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <ul class="nav nav-pills mb-3 mt-4" style="margin-left: 10px" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Đang Chờ Xác Nhận</button>
+            </li>
+            <li class="nav-item" role="presentation" style="margin-left: 5px">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Đã Xác Nhận</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                <div class="card card-body mt-4 tableQLTour">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã Đơn Đặt Tour</th>
+                            <th>Mã Tour</th>
+                            <th>Tên Khách Hàng</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Email</th>
+<!--                            <th>Số Lượng Người Lớn</th>-->
+<!--                            <th>Số Lương Trẻ Em</th>-->
+                            <th>Ngày Đặt</th>
+                            <th>GIÁ</th>
+                            <th>Trạng Thái</th>
+                        </tr>
+                        </thead>
+                        <tbody id="BodyListAllBookTour">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <style>
+            .modal-header {
+                background-color: #dc3545;
+                color: white;
+            }
+            .modal-title {
+                margin: auto;
+            }
+            .modal-body .form-label {
+                font-weight: bold;
+            }
+            .modal-footer {
+                justify-content: center;
+            }
+            .form-control[readonly] {
+                background-color: #e9ecef;
+                opacity: 1;
+            }
+            .btn-close {
+                color: white;
+            }
+            .modal-content{
+                width: 700px;
+            }
+        </style>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" style="margin-right: 0px" id="exampleModalLabel">CHI TIẾT ĐẶT TOUR</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row" style="padding: 5px">
+                        <div class="col-6 mb-3">
+                            <label for="modalBookTourId" class="form-label">ID ĐƠN ĐẶT</label>
+                            <input type="text" class="form-control" id="modalBookTourId" readonly>
+                        </div>
+                        <div class="col-6 mb-3">
+                        <label for="modalTourId" class="form-label">ID Tour</label>
+                        <input type="text" class="form-control" id="modalTourId" readonly>
+                        </div>
+
+                    <div class="col-6 mb-3">
+                    <label for="modalNameUser" class="form-label">Tên Người Đặt</label>
+                    <input type="text" class="form-control" id="modalNameUser" readonly>
+                    </div>
+                    <div class="col-6 mb-3">
+                    <label for="modalPhone" class="form-label">Số Điện Thoại</label>
+                    <input type="text" class="form-control" id="modalPhone" readonly>
+                    </div>
+                    <div class="col-6 mb-3">
+                    <label for="modalEmail" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="modalEmail" readonly>
+                    </div>
+                    <div class="col-6 mb-3">
+                    <label for="modalDateBooked" class="form-label">Ngày Đặt</label>
+                    <input type="text" class="form-control" id="modalDateBooked" readonly>
+                    </div>
+                    <div class="col-6 mb-3">
+                    <label for="modalPrice" class="form-label">Giá</label>
+                    <input type="text" class="form-control" id="modalPrice" readonly>
+                    </div>
+                    <div class="col-6 mb-3">
+                    <label for="modalStatus" class="form-label">Trạng Thái</label>
+                        <select class="form-select" aria-label="Default select example" id="modalStatus">
+                            <option value="1" selected class="text-warning">Hoàn thành</option>
+                            <option value="2" class="text-success">Đã hủy</option>
+                            <option value="3" class="text-danger">Chờ xác nhận</option>
+                        </select>
+                    </div>
+                    </div>
+                    <label for="numberAdults"></label><input type="text" class="form-control" id="numberAdults" readonly style="display: none">
+                    <label for="numberChildrens"></label><input type="text" class="form-control" id="numberChildrens" readonly style="display: none">
+                    <label for="address"></label><input type="text" class="form-control" id="address" readonly style="display: none">
+                    <label for="numberTreNho"></label><input type="text" class="form-control" id="numberTreNho" readonly style="display: none">
+                    <label for="description"></label><input type="text" class="form-control" id="description" readonly style="display: none">
+                    <div class="modal-footer justify-content-end">
+                        <button type="button" class="btn btn-secondary btn-success" onclick="submit()">Lưu</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--<script th:src="@{/Layout-js/loadImage.js}"></script>-->
+<script th:src="@{/Layout-js/QlBookTour.js}"></script>
+<script th:src="@{/Layout-js/LogoutAdmin.js}"></script>
+<script src="https://kit.fontawesome.com/77eced6b9d.js" crossorigin="anonymous"></script>
+</body>
+</html>

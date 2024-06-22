@@ -1,0 +1,9 @@
+/* Thay đổi màu nền khi hover */
+tr:hover {
+    background-color: #979797; /* Màu nền khi hover */
+}
+
+/* Thay đổi màu nền khi double-click */
+tr.selected {
+    background-color: #9c9c9c; /* Màu nền khi được chọn */
+}

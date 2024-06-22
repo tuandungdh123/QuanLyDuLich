@@ -10,6 +10,5 @@ public interface TourRepo extends JpaRepository<TourE, Integer> {
     @Query(value = "SELECT Tour.Tour_ID, Tour.Tour_Name, Tour.Images, Tour.Type_Id, Tour.Duration, Tour.Time_Start, Tour.Transport, Tour.Starting_Place, Tour.Price_Adult, Tour.Price_Children, Tour.Decription, Tour.Available, Tour.Experience, Type_Tour.Type_Id AS Expr1, Type_Tour.Type_Name FROM Tour INNER JOIN Type_Tour ON Tour.Type_Id = Type_Tour.Type_Id WHERE Tour.Type_Id = ?", nativeQuery = true)
     List<TourE> getTourEByTypeId(Integer type_Id);
 
-
     TourE getTourEByTourID(Integer tourID);
 }

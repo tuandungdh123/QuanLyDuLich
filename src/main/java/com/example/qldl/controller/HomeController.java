@@ -58,6 +58,8 @@ public class HomeController {
     public String getQLTour(){return "pages/Admin/QLTour";}
     @GetMapping("/admin/HotelManagement")
     public String getQLhotel(){return "pages/Admin/QLKS";}
+    @GetMapping("/admin/BookTour")
+    public String getQLBookTour(){return "pages/Admin/QLBookTour";}
     @GetMapping("/home/News")
     public String getNews() { return "pages/News/News";
     }
@@ -68,4 +70,6 @@ public class HomeController {
 
     public String getQlFeedback() { return "pages/Admin/QLFeedback";
     }
+    @GetMapping("/Bill")
+    public String getBill(){return "pages/Admin/Bill";}
 }

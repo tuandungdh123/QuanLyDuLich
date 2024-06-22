@@ -17,13 +17,17 @@ async function DataProductTour(){
         let bodyProductTourString = '';
 
         productsTour.forEach(function (product) {
-            bodyProductTourString +=
-                `<div class="col-md-4 col-sm-6 col-xs-12 tour-item mt-3">
+            const today = new Date();
+                const tourStartDate = new Date(product.timeStart);
+                tourStartDate.setHours(0, 0, 0, 0); // Đặt thời gian của ngày bắt đầu tour về 0 giờ để so sánh chính xác
+                if (tourStartDate >= today) {
+                    bodyProductTourString +=
+                        `<div class="col-md-4 col-sm-6 col-xs-12 tour-item mt-3">
                     <div class="wap-items-ss brbox">
                         <div class="item">
                             <div class="mda-box-item">
                                 <div class="mda-box-img">
-                                    <a href="/tour?tourID=${product.tourID}">
+                                    <a href="/home/tour?tourID=${product.tourID}">
                                         <img class="lazyload" alt="" src="/images/ImagesTour2/${product.imageTour}"
                                              style="display: block;">
                                     </a>
@@ -38,7 +42,7 @@ async function DataProductTour(){
                                             <p class="mda-place">Số chỗ còn nhận: ${product.available} <span
                                                 class="contact">Liên hệ</span></p>
                                             <p class="mda-price mda-distcoun">
-                                                <span class="mda-dis">${product.priceAdult.toLocaleString('vi-VN', { style: 'decimal', minimumFractionDigits: 0 })}đ</span>
+                                                <span class="mda-dis">${product.priceAdult.toLocaleString('vi-VN', {style: 'decimal', minimumFractionDigits: 0})} đ</span>
                                             </p>
                                         </div>
                                     </div>
@@ -47,6 +51,7 @@ async function DataProductTour(){
                         </div>
                     </div>
                 </div>`
+                }
         })
         $("#productsTour").html(bodyProductTourString);
     }
