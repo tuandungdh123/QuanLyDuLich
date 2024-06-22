@@ -52,7 +52,7 @@ async function saveTourInForm() {
     }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-                let response = await axios.post('/tour-api/getSaveTour', TourData);
+                let response = await axios.post('/home/tour-api/getSaveTour', TourData);
                 await upLoadFile();
                 await loadDataTour();
                 createTableTourByTypeTour(listAllTour);
@@ -208,6 +208,7 @@ function createTableTourByTypeTour(addToTable) {
         if ($.fn.dataTable.isDataTable('#paginationTour')) {
             $('#paginationTour').DataTable().destroy();
         }
+
         const tourStartDate = new Date(e.timeStart);
         tourStartDate.setHours(0, 0, 0, 0); // Đặt thời gian của ngày bắt đầu tour về 0 giờ để so sánh chính xác
         if (tourStartDate >= today) {

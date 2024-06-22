@@ -49,6 +49,7 @@ public class TourE {
     @Column(name="Decription")
     private String decription;
 
+
     @Column(name="Available")
     private int available;
 

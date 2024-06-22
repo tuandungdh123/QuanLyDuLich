@@ -29,6 +29,15 @@
 
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <script th:src="@{/Layout-js/logout.js/}"></script>
+    <script>
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                if (!localStorage.getItem('account')) {
+                    window.location.href='/login'
+                }
+            }
+        });
+    </script>
 </head>
 <body>
 <div th:replace=" pages/Navbar/Navbar :: Nav"></div>
