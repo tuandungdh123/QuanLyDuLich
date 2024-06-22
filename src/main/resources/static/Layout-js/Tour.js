@@ -1,6 +1,4 @@
-
 var listAllTour = []
-var listAllTour;
 async function saveTourInForm() {
     // Lấy dữ liệu từ các trường nhập liệu
     const nameTour = $("#nameTour").val();
@@ -60,8 +58,8 @@ async function saveTourInForm() {
                 createTableTourByTypeTour(listAllTour);
                 clearForm(); // Xóa form sau khi lưu thành công
                 Swal.fire(
-                    'Luu Thanh Cong!',
-                    'Ban da luu Tour nay thanh cong.',
+                    'Lưu Thành Công!',
+                    'Đã lưu tour thành công.',
                     'success'
                 );
             } catch (error) {
@@ -91,7 +89,7 @@ async function updateTourInForm() {
         startPlace: $("#StartPlace").val(),
         priceAdult: parseInt($("#Price").val()),
         priceChildren: parseInt($("#PriceEm_Children").val()),
-        description: $("#Note").val(),
+        decription: $("#Note").val(),
         available: parseInt($("#Slot").val()),
         experience: $("#Experience").val()
     }
@@ -100,8 +98,8 @@ async function updateTourInForm() {
     await loadDataTour();
     createTableTourByTypeTour(listAllTour);
     Swal.fire(
-        'Luu Thanh Cong!',
-        'Ban da luu Tour nay thanh cong.',
+        'Cập nhật thành công!',
+        'Bạn cập nhật thành công.',
         'success'
     );
 }
@@ -139,7 +137,7 @@ function fillTourForm(tourDetail) {
     $("#StartPlace").val(tourDetail.startPlace);
     $("#Price").val(tourDetail.priceAdult);
     $("#PriceEm_Children").val(tourDetail.priceChildren);
-    $("#Note").val(tourDetail.description);
+    $("#Note").val(tourDetail.decription);
     $("#Slot").val(tourDetail.available);
     $("#Experience").val(tourDetail.experience);
 
@@ -186,11 +184,11 @@ function clearForm() {
 
 }
 
-
 //Loc tour theo typeTour va fill data len table
 $(document).ready(async function () {
     await loadDataTour();
     createTableTourByTypeTour(listAllTour); // Gọi hàm createTableTour sau khi loadDataTour đã hoàn tất
+    createTableTourByTypeTour2(listAllTour); // Gọi hàm createTableTour2 sau khi loadDataTour đã hoàn tất
 
     // Thêm sự kiện cho dropdown để lọc danh sách tour khi thay đổi lựa chọn
     $("#TypeTour").on("change", function () {
@@ -205,28 +203,38 @@ function createTableTourByTypeTour(addToTable) {
     let populateTypeTourDropdown = '';
 
     addToTable.forEach(function (e, index) {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Đặt thời gian hiện tại về 0 giờ để so sánh chính xác
         if ($.fn.dataTable.isDataTable('#paginationTour')) {
             $('#paginationTour').DataTable().destroy();
         }
-        populateTypeTourDropdown +=
-            `<tr>` +
-            `<td>${index + 1}</td>` +
-            `<td>${e.nameTour}</td>` +
-            `<td>${e.imageTour}</td>` +
-            `<td>${e.typeTourE.type_Name}</td>` +
-            `<td>${e.tourDuration}</td>` +
-            `<td>${e.timeStart}</td>` +
-            `<td>${e.transport}</td>` +
-            `<td>${e.startPlace}</td>` +
-            `<td>${e.priceAdult}</td>` +
-            `<td><textarea name="" id="" cols="30" rows="10">${e.description}</textarea></td>` +
-            `<td>${e.available}</td>` +
-            `<td>` +
-            `<button type="button" class="btn btn-outline-success" onclick="getTourToForm(${e.tourID})">Edit</button>` +
-            `</td>` +
-            `</tr>`;
+
+        const tourStartDate = new Date(e.timeStart);
+        tourStartDate.setHours(0, 0, 0, 0); // Đặt thời gian của ngày bắt đầu tour về 0 giờ để so sánh chính xác
+        if (tourStartDate >= today) {
+            populateTypeTourDropdown +=
+                `<tr>` +
+                `<td>${index + 1}</td>` +
+                `<td>${e.nameTour}</td>` +
+                `<td>${e.imageTour}</td>` +
+                `<td>${e.typeTourE.type_Name}</td>` +
+                `<td>${e.tourDuration}</td>` +
+                `<td>${e.timeStart}</td>` +
+                `<td>${e.transport}</td>` +
+                `<td>${e.startPlace}</td>` +
+                `<td>${e.priceAdult}</td>` +
+                `<td>${e.available}</td>` +
+                `<td>` +
+                `<button type="button" class="btn btn-outline-success" onclick="getTourToForm(${e.tourID})">Edit</button>` +
+                `</td>` +
+                `</tr>`;
+        }
     });
     $("#BodyListAllTour").html(populateTypeTourDropdown);
+    // Phá hủy bảng DataTable nếu đã tồn tại và khởi tạo lại
+    // if ($.fn.DataTable.isDataTable('#paginationTour')) {
+    //     $('#paginationTour').DataTable().destroy();
+    // }
     let table = new DataTable('#paginationTour',{
         searching :  false,
         info: false,
@@ -236,6 +244,53 @@ function createTableTourByTypeTour(addToTable) {
     });
     $('.dt-length').hide();
 }
+
+    /*Tour Qúa hạn*/
+     function createTableTourByTypeTour2(addToTable) {
+         let populateTypeTourDropdown2 = '';
+
+         addToTable.forEach(function (e, index) {
+             const today = new Date();
+        today.setHours(0, 0, 0, 0); // Đặt thời gian hiện tại về 0 giờ để so sánh chính xác
+        // if ($.fn.dataTable.isDataTable('#paginationTour2')) {
+        //         $('#paginationTour').DataTable().destroy();
+        //      }
+             const tourStartDate = new Date(e.timeStart);
+             tourStartDate.setHours(0, 0, 0, 0); // Đặt thời gian của ngày bắt đầu tour về 0 giờ để so sánh chính xác
+             if (tourStartDate < today) {
+                 populateTypeTourDropdown2 +=
+                     `<tr>` +
+                    `<td>${index + 1}</td>` +
+                     `<td>${e.nameTour}</td>` +
+                     `<td>${e.imageTour}</td>` +
+                     `<td>${e.typeTourE.type_Name}</td>` +
+                     `<td>${e.tourDuration}</td>` +
+                     `<td>${e.timeStart}</td>` +
+                     `<td>${e.transport}</td>` +
+                     `<td>${e.startPlace}</td>` +
+                     `<td>${e.priceAdult}</td>` +
+                     `<td>${e.available}</td>` +
+                     `<td>` +
+                     `<button type="button" class="btn btn-outline-success" onclick="getTourToForm(${e.tourID})">Edit</button>` +
+                     `</td>` +
+                     `</tr>`;
+             }
+         });
+         $("#BodyListAllTour2").html(populateTypeTourDropdown2);
+         // Phá hủy bảng DataTable nếu đã tồn tại và khởi tạo lại
+         if ($.fn.DataTable.isDataTable('#paginationTour2')) {
+             $('#paginationTour').DataTable().destroy();
+         }
+       let table = new DataTable('#paginationTour', {
+          searching: false,
+            info: false,
+            paging: true,
+            ordering: false,
+           lengthMenu: [4]
+        });
+    $('.dt-length').hide();
+    }
+
 async function loadDataTour() {
     try {
         let response = await axios.get(`/home/tour-api/getAllTour`);

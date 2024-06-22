@@ -11,13 +11,16 @@ async function loadDataTourMienBac() {
         console.error("Error loading tours:", error);
     }
 }
-
 function createTableProductsTourMienBac(productsTourMienBac) {
     let bodyProductTourMienBacString = '';
 
+    const today = new Date();
     productsTourMienBac.forEach(function (product) {
-        bodyProductTourMienBacString +=
-            `<div class="col-md-12 col-sm-12 col-xs-12">
+        const tourStartDate = new Date(product.timeStart);
+        tourStartDate.setHours(0, 0, 0, 0); // Đặt thời gian của ngày bắt đầu tour về 0 giờ để so sánh chính xác
+        if (tourStartDate >= today) {
+            bodyProductTourMienBacString +=
+                `<div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="wap-items-ss brbox">
                         <div class="owl-item active" style="250pxwidth: auto; margin-right: 5px;">
@@ -47,6 +50,7 @@ function createTableProductsTourMienBac(productsTourMienBac) {
                     </div>
                 </div>
             </div>`
+        }
     });
     $("#TourMienBac").html(bodyProductTourMienBacString);
     this.addSlickToSlide()
