@@ -115,7 +115,7 @@
         }
         console.log(userLogin)
         let response = await axios.post('/account-api/login', userLogin);
-        console.log(response)
+        console.log(response.data)
         if(response.data.status){
             Swal.fire({
                 position: "center",
@@ -124,7 +124,7 @@
                 showConfirmButton: false,
                 timer: 1500
             }).then(() => {
-                localStorage.setItem('account', userLogin.accountName)
+                localStorage.setItem('account', JSON.stringify(response.data.data))
                     window.location.href='/home'
             });
         } else {

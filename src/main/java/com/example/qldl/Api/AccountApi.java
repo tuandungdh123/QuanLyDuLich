@@ -46,7 +46,7 @@ public class AccountApi {
                         if(!data.isEmpty()){
                             result.put("status", true);
                             result.put("message", "Login Success");
-                            result.put("data", data.get().getAccountName());
+                            result.put("data", data);
                             HttpSession session = request.getSession();
                             session.setAttribute("role", data.get().getRole().getRole_name());
             } else {
